@@ -76,15 +76,25 @@
   border-color: #f97316;
   color: #fff;
 }
+.leftb{
+  
+}
 
 
 
 
 /* الحاوية الأم تستخدم flex لدفع النص لليمين */
+
 .container {
-  display: flex;              /* تفعيل Flexbox */
-  justify-content: flex-end;  /* المحاذاة لأقصى اليمين */
-  padding: 0 1rem;            /* مسافة من الجوانب إذا أحببتي */
+  display: flex; 
+  flex-direction:column;
+   flex-wrap:wrap; 
+    align-content:flex-end;            /* تفعيل Flexbox */
+    align-items: flex-end;
+  
+/* المحاذاة لأقصى اليمين */
+  padding: 0 1rem;   
+  margin-left: 10%;         /* مسافة من الجوانب إذا أحببتي */
 }
 
 /* النص نفسه */
@@ -98,9 +108,13 @@
 }
 
 /* Responsive حجم الخط */
-@media (min-width: 640px) { #rightDiv { font-size: 1.125rem; } }   /* sm */
-@media (min-width: 768px) { #rightDiv { font-size: 1.25rem; } }    /* md */
-@media (min-width: 1024px) { #rightDiv { font-size: 1.5rem; } }    /* lg */
+@media (min-width: 640px) { #rightDiv { font-size: 1.125rem; } 
+.container{margin-left: 10%}
+}   /* sm */
+@media (min-width: 768px) { #rightDiv { font-size: 1.25rem; }
+.container{margin-left: 10%} }    /* md */
+@media (min-width: 1024px) { #rightDiv { font-size: 1.5rem; }
+.container{margin-left: 10%} }    /* lg */
 
 /* تمييز السطر الأخير */
 .highlight {
@@ -129,23 +143,39 @@
     </div>
 
     <!-- Desktop Nav -->
-    <ul class="hidden lg:flex items-center gap-8 ml-auto text-white navbar-nav">
-      <li><a  class="nav-item" href="#about">About Us</a></li>
-      <li><a class="nav-item" href="#projects">Projects</a></li>
-      <li><a  class="nav-item"href="#transparency">Transparency</a></li>
-      <li><a  class="nav-item" href="#donate">Donate</a></li>
-      <li><a class="nav-item" href="#blog">News</a></li>
-      <li><a  class="nav-item"href="#contact">Contact</a></li>
+   <ul class="hidden lg:flex items-center gap-8 ml-auto text-white navbar-nav border-b-2 border-transparent">
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#about">About Us</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#projects">Projects</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#members">Members</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#transparency">Transparency</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#donate">Donate</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#blog">News</a>
+  </li>
+  <li>
+    <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#contact">Contact</a>
+  </li>
 
-      <li>
-        <i class="fa-solid fa-earth-americas text-xl cursor-pointer"
-           onclick="toggleLanguage()"></i>
-      </li>
+ <li>
+  <i class="fa-solid fa-earth-americas text-xl cursor-pointer text-white hover:text-orange-500 transition-colors duration-200"
+     onclick="toggleLanguage()"></i>
+</li>
 
-      <li>
-         <button class="btn btn-login">Login</button>
-      </li>
-    </ul>
+
+  <li>
+     <button class="btn btn-login">Login</button>
+  </li>
+</ul>
 
     <!-- Mobile Button -->
     <button class="lg:hidden ml-auto text-white text-2xl"
@@ -159,10 +189,13 @@
   <div id="mobileMenu"
        class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
     <a href="#about" class="block">About Us</a>
+     <a href="#blog" class="block">Members</a>
     <a href="#projects" class="block">Projects</a>
+    
     <a href="#transparency" class="block">Transparency</a>
     <a href="#donate" class="block">Donate</a>
     <a href="#blog" class="block">News</a>
+    
     <a href="#contact" class="block">Contact</a>
 
     <div class="flex items-center gap-4 pt-4">
@@ -183,41 +216,69 @@
   <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-6 text-left">
   Hope for Darfur
 </h1>
-<div class="container">
-  <div id="rightDiv">
-    <p>
-      Together, we build the future. More than relief we create lasting change.Through water, education, and aid.we restore dignity in Darfur.Your support is their hope.
-    </p>
-    <span>
-     <button onclick="scrollTo('#programs')"
-    class="bg-orange-500 px-8 py-4 rounded-full text-white text-lg">
-    Donate Now</button></span></div></div>
-  <div class="bottom-0 left-0 w-full bg-white border-t border-gray-200 py-6 z-50">
-    <div class="flex justify-around items-center max-w-6xl mx-auto px-4">
-        
-        <div class="text-center">
-            <div class="text-4xl font-bold mb-2">500+</div>
-            <div class="font-medium" data-i18n="projectsCompleted">Projects Completed</div>
-        </div>
+<div class="container mx-auto px-4">
+  <div id="rightDiv" class="flex flex-col items-start gap-6">
+    
+    <p class="
+      text-orange-400
+      leading-relaxed
+      text-sm
+      sm:text-base
+      md:text-lg
+      lg:text-xl
+      max-w-2xl">
+      Together, we build the future.  
+      More than relief, we create lasting change.  
+      Through water, education, and aid,  
+      we restore dignity in Darfur.  Your support is their hope.
+     </p>
 
-        <div class="text-center">
-            <div class="text-4xl font-bold mb-2">200+</div>
-            <div class="font-medium" data-i18n="happyClients">Happy Clients</div>
-        </div>
+    <button
+  onclick="scrollTo('#programs')"
+  class="
+    bg-orange-500
+    px-6 sm:px-8
+    py-3 sm:py-4
+    rounded-full
+    text-white
+    text-base sm:text-lg
+    hover:bg-orange-600
+    transition
+    mx-auto mb-2">
+  Donate Now
+</button>
 
-        <div class="text-center">
-            <div class="text-4xl font-bold mb-2">50+</div>
-            <div class="font-medium" data-i18n="teamMembers">Team Members</div>
-        </div>
 
-        <div class="text-center">
-            <div class="text-4xl font-bold mb-2">15+</div>
-            <div class="font-medium" data-i18n="yearsExperience">Years Experience</div>
-        </div>
-
-    </div>
+  </div>
 </div>
-</section>
+</div></div></section>
+    
+ 
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-[#EDD4A5] text-black p-6 rounded-lg shadow-md">
+    <div class="text-center">    
+        
+            <div class="text-4xl font-bold mb-2">15,000+</div>
+            <div class="font-medium" data-i18n="projectsCompleted">People Provided Clean Water</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">8,500+</div>
+            <div class="font-medium" data-i18n="happyClients">Children Receiving Education</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">42+</div>
+            <div class="font-medium" data-i18n="teamMembers">Villages Supported</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">$2.1M+</div>
+            <div class="font-medium" data-i18n="yearsExperience">Funds Deployed to Darfur</div>
+        </div>
+
+    
+    </div>
+
 
 
 <!-- PROGRAMS -->
@@ -233,7 +294,7 @@
           <p>Providing education for underprivileged children.</p>
         </div>
       </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-white text-black p-6 rounded-lg shadow-md">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-[#EDD4A5] text-black p-6 rounded-lg shadow-md">
     <div class="text-center">
         <div class="text-4xl font-bold mb-2">500+</div>
         <div class="font-medium" data-i18n="projectsCompleted">Projects Completed</div>
