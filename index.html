@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mama Africa</title>
+
+    <!-- Google Fonts (English + Arabic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (required by platform) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        /*
+          SUDAN AID — Single-page NGO website (Bootstrap 5)
+          Palette: Deep Blue + Healing Green + Clean White
+        */
+
+        :root {
+            --primary-blue: #0f172a; /* Slate 900 */
+            --healing-green: #10b981; /* Emerald 500 */
+            --light-bg: #f8fafc;
+            --text-dark: #554e33;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Ensure anchor navigation works well with fixed navbar */
+        section { scroll-margin-top: 90px; }
+
+        /* Arabic Font Override */
+        [lang="ar"], .ar-font {
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        /* RTL Support (minimal overrides for a clean experience) */
+        [dir="rtl"] .navbar-nav { padding-right: 0; color: #0c0101;}
+        [dir="rtl"] .ms-auto { margin-right: auto !important; margin-left: 0 !important; }
+        [dir="rtl"] .me-auto { margin-left: auto !important; margin-right: 0 !important; }
+        [dir="rtl"] .text-start { text-align: right !important; }
+        [dir="rtl"] .text-end { text-align: left !important; }
+        [dir="rtl"] .fa-chevron-right { transform: rotate(180deg); }
+
+        /* Custom Utility Classes */
+        .bg-primary-blue { background-color: var(--primary-blue); }
+        .bg-healing-green { background-color: var(--healing-green); }
+        .text-healing-green { color: var(--healing-green); }
+
+        .btn-healing-green {
+            background-color: var(--healing-green);
+            color: white;
+            border: none;
+            transition: all 0.3s;
+        }
+        .btn-healing-green:hover {
+            background-color: #059669;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-outline-green {
+            border: 2px solid var(--healing-green);
+            color: var(--healing-green);
+            background: transparent;
+        }
+        .btn-outline-green:hover {
+            background-color: var(--healing-green);
+            color: white;
+        }
+
+        /* Navbar Transparent */
+        .navbar-transparent {
+            background-color: #ded3d3;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        .navbar-transparent.scrolled {
+            background-color: var(--primary-blue);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-blue);
+            overflow: hidden;
+        }
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9));
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Card Hover Effect */
+        .project-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        /* Impact Counters */
+        .counter-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--healing-green);
+        }
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Donation Amount Buttons */
+        .amount-btn {
+            border: 2px solid #e2e8f0;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            text-align: center;
+        }
+        .amount-btn:hover { border-color: var(--healing-green); }
+        .amount-btn.active {
+            border-color: var(--healing-green);
+            background-color: #ecfdf5;
+            color: var(--healing-green);
+        }
+
+        /* Testimonial Slider */
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin: 10px;
+        }
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--healing-green);
+        }
+
+        /* Blog */
+        .blog-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .blog-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* Footer */
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-link:hover { color: var(--healing-green); }
+
+        /* Mobile Sidebar */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        @media (max-width: 991px) {
+            .mobile-menu-btn { display: block; }
+            .desktop-nav { display: none; }
+        }
+
+        /* Sidebar Offcanvas */
+        .offcanvas { background-color: var(--primary-blue); }
+        .offcanvas .nav-link {
+            color: white;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .offcanvas .nav-link:hover { color: var(--healing-green); }
+
+        /* Forms: Focus + Validation */
+        .form-control:focus, .form-select:focus {
+            border-color: var(--healing-green);
+            box-shadow: 0 0 0 .25rem rgba(16, 185, 129, .18);
+        }
+        .was-validated .form-control:invalid, .was-validated .form-select:invalid { border-color: #dc3545; }
+        .was-validated .form-control:valid, .was-validated .form-select:valid { border-color: var(--healing-green); }
+
+        /* Contact Page Enhancements */
+        .contact-info-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        .contact-info-card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background:
+                radial-gradient(600px circle at 20% 10%, rgba(16,185,129,.20), transparent 40%),
+                radial-gradient(500px circle at 90% 40%, rgba(255,255,255,.10), transparent 45%);
+            pointer-events: none;
+        }
+
+        .social-icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            color: rgb(255, 255, 255);
+            transition: transform .2s ease, background .2s ease, border-color .2s ease;
+        }
+        .social-icon-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(16,185,129,0.20);
+            border-color: rgba(16,185,129,0.55);
+            color: white;
+        }
+
+        /* Bootstrap floating labels in RTL */
+        .form-floating > label {
+            inset-inline-start: 0;
+            padding-inline: .75rem;
+        }
+        [dir="rtl"] .form-floating > label {
+            right: 0;
+            left: auto;
+            text-align: right;
+        }
+
+        /* Ensure embedded map respects rounded corners */
+        .map-frame {
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .lang-icon{
+              font-size: 32px;
+  cursor: pointer;
+  margin-right: 20px;
+  color:#e2e8f0;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top py-3 custom-navbar">
+        <div class="container">
+        <div>
+           <img src="y (1).png" style="width: 50px;"></div>
+           <span style="font-family: 'Inknut Antiqua ' ; color:rgb(15, 3, 3); margin-left: 10px; ">Mama Africa</span>
+           
+
+            <!-- Desktop Menu -->
+            <div class="desktop-nav ms-auto">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav.projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#transparency" data-i18n="nav.transparency">Transparency</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#donate" data-i18n="nav.donate">Donate</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog" data-i18n="nav.blog">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    <li class="nav-item ms-3">
+                       
+                    <i class="fa-solid fa-earth-americas lang-icon" onclick="toggleLanguage()"></i>
+                    </li>
+                        <li class="nav-item">
+                        <button class="btn btn-outline-light btn-sm rounded-pill px-3" type="button" onclick="login()">
+                        login
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header border-bottom border-white/10">
+            <h5 class="offcanvas-title text-white" id="mobileMenuLabel" data-i18n="nav.menu">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about" data-i18n="nav.about" onclick="closeMobileMenu()">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects" data-i18n="nav.projects" onclick="closeMobileMenu()">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#transparency" data-i18n="nav.transparency" onclick="closeMobileMenu()">Transparency</a></li>
+                <li class="nav-item"><a class="nav-link" href="#donate" data-i18n="nav.donate" onclick="closeMobileMenu()">Donate</a></li>
+                <li class="nav-item"><a class="nav-link" href="#blog" data-i18n="nav.blog" onclick="closeMobileMenu()">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" data-i18n="nav.contact" onclick="closeMobileMenu()">Contact</a></li>
+                <li class="nav-item mt-4">
+                    <button class="btn btn-healing-green w-100" type="button" onclick="toggleLanguage()">
+                        <span id="mobile-lang-text">العربية</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <!-- Human Interest photo placeholder -->
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Sudan Humanitarian" class="hero-bg-image">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content text-white">
+            <div class="row align-items-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <span class="badge bg-healing-green text-white px-3 py-1 mb-3">
+                        <i class="fas fa-globe-africa me-1"></i> <span data-i18n="hero.badge">Humanitarian Aid in Sudan</span>
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4" data-i18n="hero.title">Bringing Hope to Communities in Need</h1>
+                    <p class="lead mb-5 opacity-90" data-i18n="hero.subtitle">We provide emergency relief, healthcare, and education to vulnerable populations across Sudan. Join us in making a lasting impact.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#donate" class="btn btn-healing-green btn-lg px-5 py-3 rounded-pill shadow-lg">
+                            <i class="fas fa-heart me-2"></i> <span data-i18n="hero.cta">Donate Now</span>
+                        </a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill">
+                            <i class="fas fa-hands-helping me-2"></i> <span data-i18n="hero.explore">Explore Projects</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="about.title">About Sudan Aid</h2>
+                    <p class="text-muted" data-i18n="about.desc">Dedicated to serving humanity with integrity, compassion, and transparency.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <button class="nav-link active text-start mb-2 py-3 px-4 rounded-3" id="v-pills-vision-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vision" type="button" role="tab" data-i18n="about.tabs.vision">Our Vision</button>
+                        <button class="nav-link text-start mb-2 py-3 px-4 rounded-3" id="v-pills-mission-tab" data-bs-toggle="pill" data-bs-target="#v-pills-mission" type="button" role="tab" data-i18n="about.tabs.mission">Our Mission</button>
+                        <button class="nav-link text-start mb-2 py-3 px-4 rounded-3" id="v-pills-values-tab" data-bs-toggle="pill" data-bs-target="#v-pills-values" type="button" role="tab" data-i18n="about.tabs.values">Our Values</button>
+                        <button class="nav-link text-start mb-2 py-3 px-4 rounded-3" id="v-pills-history-tab" data-bs-toggle="pill" data-bs-target="#v-pills-history" type="button" role="tab" data-i18n="about.tabs.history">Our History</button>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="tab-content p-4 bg-light rounded-4" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-vision" role="tabpanel">
+                            <h4 class="fw-bold mb-3 text-healing-green" data-i18n="about.vision.title">A Thriving Sudan</h4>
+                            <p data-i18n="about.vision.text">We envision a Sudan where every individual has access to basic human rights, quality education, and sustainable livelihoods. A nation rebuilt on the pillars of hope and resilience.</p>
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-3 mt-3" alt="Vision">
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-mission" role="tabpanel">
+                            <h4 class="fw-bold mb-3 text-healing-green" data-i18n="about.mission.title">Serving with Compassion</h4>
+                            <p data-i18n="about.mission.text">Our mission is to deliver life-saving aid and long-term development programs to the most vulnerable communities in Sudan, focusing on health, education, and emergency relief.</p>
+                            <ul class="list-unstyled mt-3">
+                                <li class="mb-2"><i class="fas fa-check-circle text-healing-green me-2"></i><span data-i18n="about.mission.b1">Emergency Response</span></li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-healing-green me-2"></i><span data-i18n="about.mission.b2">Healthcare Infrastructure</span></li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-healing-green me-2"></i><span data-i18n="about.mission.b3">Educational Support</span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-values" role="tabpanel">
+                            <h4 class="fw-bold mb-3 text-healing-green" data-i18n="about.values.title">Our Core Values</h4>
+                            <div class="row mt-4">
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="bg-healing-green text-white rounded-circle p-3"><i class="fas fa-hand-holding-heart"></i></div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h6 class="fw-bold" data-i18n="about.values.v1.title">Compassion</h6>
+                                            <p class="small text-muted" data-i18n="about.values.v1.text">We act with empathy and kindness.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <div class="bg-healing-green text-white rounded-circle p-3"><i class="fas fa-balance-scale"></i></div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h6 class="fw-bold" data-i18n="about.values.v2.title">Integrity</h6>
+                                            <p class="small text-muted" data-i18n="about.values.v2.text">Transparency in all our actions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-history" role="tabpanel">
+                            <h4 class="fw-bold mb-3 text-healing-green" data-i18n="about.history.title">Our Journey</h4>
+                            <p data-i18n="about.history.text">Founded in 2010, Sudan Aid started as a small group of volunteers providing food aid during a crisis. Today, we operate in 15 states, impacting over 500,000 lives annually.</p>
+                            <div class="timeline mt-4">
+                                <div class="d-flex mb-3">
+                                    <span class="badge bg-primary-blue rounded-pill py-2 px-3 me-3">2010</span>
+                                    <p class="mb-0" data-i18n="about.history.t1">Organization founded in Khartoum.</p>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <span class="badge bg-primary-blue rounded-pill py-2 px-3 me-3">2015</span>
+                                    <p class="mb-0" data-i18n="about.history.t2">Launched first major health campaign.</p>
+                                </div>
+                                <div class="d-flex">
+                                    <span class="badge bg-primary-blue rounded-pill py-2 px-3 me-3">2023</span>
+                                    <p class="mb-0" data-i18n="about.history.t3">Reached 500,000 beneficiaries milestone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="projects.title">Our Projects</h2>
+                    <p class="text-muted" data-i18n="projects.desc">We focus on three main pillars to ensure sustainable development.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card project-card h-100">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Health">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary-blue text-white" data-i18n="projects.health.badge">Health</span>
+                                <i class="fas fa-heartbeat text-healing-green fs-4"></i>
+                            </div>
+                            <h5 class="card-title fw-bold" data-i18n="projects.health.title">Mobile Health Clinics</h5>
+                            <p class="card-text text-muted small" data-i18n="projects.health.desc">Providing essential medical care to remote villages that lack access to hospitals.</p>
+                            <div class="progress mt-3" style="height: 6px;">
+                                <div class="progress-bar bg-healing-green" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2 small">
+                                <span data-i18n="projects.health.funded">75% Funded</span>
+                                <span>$15,000</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-4">
+                            <a href="#" class="text-healing-green text-decoration-none fw-semibold">
+                                <span data-i18n="projects.readmore">Read More</span> <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card project-card h-100">
+                        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Education">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary-blue text-white" data-i18n="projects.education.badge">Education</span>
+                                <i class="fas fa-book-open text-healing-green fs-4"></i>
+                            </div>
+                            <h5 class="card-title fw-bold" data-i18n="projects.education.title">School Reconstruction</h5>
+                            <p class="card-text text-muted small" data-i18n="projects.education.desc">Rebuilding schools destroyed by conflict and providing learning materials for children.</p>
+                            <div class="progress mt-3" style="height: 6px;">
+                                <div class="progress-bar bg-healing-green" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2 small">
+                                <span data-i18n="projects.education.funded">60% Funded</span>
+                                <span>$25,000</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-4">
+                            <a href="#" class="text-healing-green text-decoration-none fw-semibold">
+                                <span data-i18n="projects.readmore">Read More</span> <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card project-card h-100">
+                        <img src="https://images.unsplash.com/photo-1594708767771-a7502b6a8d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Relief">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary-blue text-white" data-i18n="projects.relief.badge">Relief</span>
+                                <i class="fas fa-tint text-healing-green fs-4"></i>
+                            </div>
+                            <h5 class="card-title fw-bold" data-i18n="projects.relief.title">Clean Water Initiative</h5>
+                            <p class="card-text text-muted small" data-i18n="projects.relief.desc">Drilling wells and installing water pumps to provide clean drinking water.</p>
+                            <div class="progress mt-3" style="height: 6px;">
+                                <div class="progress-bar bg-healing-green" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2 small">
+                                <span data-i18n="projects.relief.funded">90% Funded</span>
+                                <span>$10,000</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-white border-0 pb-4">
+                            <a href="#" class="text-healing-green text-decoration-none fw-semibold">
+                                <span data-i18n="projects.readmore">Read More</span> <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Section -->
+    <section id="transparency" class="py-5 bg-primary-blue text-white">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4" data-i18n="transparency.title">Transparency & Impact</h2>
+                    <p class="mb-4 opacity-90" data-i18n="transparency.desc">We believe in full accountability. Every dollar donated is tracked and reported. Download our annual report to see how your contributions are making a difference.</p>
+                    <a href="#" class="btn btn-healing-green px-4 py-2 rounded-pill">
+                        <i class="fas fa-file-download me-2"></i> <span data-i18n="transparency.report">Download Annual Report</span>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="500000">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter1">Beneficiaries</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="120">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter2">Wells Built</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="45">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter3">Clinics Supported</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="25">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter4">Schools Rebuilt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded-4 shadow-lg p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold" data-i18n="donate.title">Make a Donation</h2>
+                            <p class="text-muted" data-i18n="donate.desc">Your contribution can save lives. Choose an amount below.</p>
+                        </div>
+
+                        <form id="donationForm" novalidate>
+                            <!-- Amount Selection -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold mb-3" data-i18n="donate.amount">Select Amount</label>
+                                <div class="row g-3" id="amountOptions">
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="10" data-impact="1 meal">$10</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn active" data-amount="50" data-impact="1 week of medicine">$50</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="100" data-impact="Clean water for a family">$100</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="500" data-impact="School supplies for 10 kids">$500</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedAmount" value="50" required>
+                            </div>
+
+                            <!-- Impact Display -->
+                            <div class="alert alert-success mb-4 text-center" id="impactDisplay">
+                                <i class="fas fa-check-circle me-2"></i> <span data-i18n="donate.impact">Your donation will provide:</span> <strong>1 week of medicine</strong>
+                            </div>
+
+                            <!-- Custom Amount -->
+                            <div class="mb-4">
+                                <label class="form-label" data-i18n="donate.custom">Or enter custom amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control form-control-lg" id="customAmount" placeholder="0.00" min="1">
+                                </div>
+                            </div>
+
+                            <!-- Personal Info -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" data-i18n="donate.fname">First Name</label>
+                                    <input type="text" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.fname.invalid">Please enter your first name.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" data-i18n="donate.lname">Last Name</label>
+                                    <input type="text" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.lname.invalid">Please enter your last name.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" data-i18n="donate.email">Email Address</label>
+                                    <input type="email" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.email.invalid">Please enter a valid email.</div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method -->
+                            <div class="mb-4">
+                                <label class="form-label" data-i18n="donate.payment">Payment Method</label>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card" checked>
+                                        <label class="form-check-label" for="card" data-i18n="donate.payment.card">
+                                            <i class="fas fa-credit-card me-1"></i> Card
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="bank" value="bank">
+                                        <label class="form-check-label" for="bank" data-i18n="donate.payment.bank">
+                                            <i class="fas fa-university me-1"></i> Bank
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-healing-green btn-lg w-100 py-3 rounded-pill shadow">
+                                <i class="fas fa-lock me-2"></i> <span data-i18n="donate.submit">Donate Now</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="testimonials.title">Voices of Impact</h2>
+                    <p class="text-muted" data-i18n="testimonials.desc">Hear from the communities and donors who are part of our journey.</p>
+                </div>
+            </div>
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="testimonial-avatar mb-3" alt="Amira">
+                                    <p class="lead fst-italic mb-4" data-i18n="testimonials.1.text">"Sudan Aid changed our village. The new well means our children no longer have to walk miles for water. We are forever grateful."</p>
+                                    <h6 class="fw-bold mb-1">Amira Hassan</h6>
+                                    <small class="text-muted" data-i18n="testimonials.1.role">Beneficiary, North Darfur</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="testimonial-avatar mb-3" alt="David">
+                                    <p class="lead fst-italic mb-4" data-i18n="testimonials.2.text">"I've donated to many NGOs, but the transparency and regular updates from Sudan Aid make me confident that my money is truly helping."</p>
+                                    <h6 class="fw-bold mb-1">David Miller</h6>
+                                    <small class="text-muted" data-i18n="testimonials.2.role">Donor, United Kingdom</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" class="testimonial-avatar mb-3" alt="Fatima">
+                                    <p class="lead fst-italic mb-4" data-i18n="testimonials.3.text">"Working with Sudan Aid has been an honor. The team on the ground is dedicated and truly cares about the people they serve."</p>
+                                    <h6 class="fw-bold mb-1">Dr. Fatima Ali</h6>
+                                    <small class="text-muted" data-i18n="testimonials.3.role">Volunteer Doctor, Khartoum</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-primary-blue rounded-circle p-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-primary-blue rounded-circle p-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog/News Section -->
+    <section id="blog" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="blog.title">Latest News</h2>
+                    <p class="text-muted" data-i18n="blog.desc">Stay updated with our latest activities and success stories.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="News 1">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-healing-green">Health</span>
+                                <small class="text-muted">Oct 24, 2023</small>
+                            </div>
+                            <h5 class="card-title fw-bold">Mobile Clinics Reach Remote Areas in Kordofan</h5>
+                            <p class="card-text text-muted small">Our new fleet of mobile clinics has started operations, bringing healthcare to over 10,000 people in hard-to-reach areas.</p>
+                            <a href="#" class="text-healing-green text-decoration-none">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="News 2">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-primary-blue text-white">Education</span>
+                                <small class="text-muted">Oct 18, 2023</small>
+                            </div>
+                            <h5 class="card-title fw-bold">Back to School Campaign 2023</h5>
+                            <p class="card-text text-muted small">We distributed school bags and supplies to 5,000 children ahead of the new academic year.</p>
+                            <a href="#" class="text-healing-green text-decoration-none">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card blog-card h-100">
+                        <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="News 3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="badge bg-healing-green">Relief</span>
+                                <small class="text-muted">Oct 10, 2023</small>
+                            </div>
+                            <h5 class="card-title fw-bold">Emergency Response to Flooding in Blue Nile</h5>
+                            <p class="card-text text-muted small">Our teams are on the ground providing food, shelter, and medical aid to families affected by recent floods.</p>
+                            <a href="#" class="text-healing-green text-decoration-none">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section (Comprehensive) -->
+    <section id="contact" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="contact.title">Contact Us</h2>
+                    <p class="text-muted" data-i18n="contact.desc">Have a question, partnership idea, or need support? Send us a message and our team will respond as soon as possible.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="bg-light rounded-4 shadow-sm p-4 p-md-5 h-100">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <h3 class="fw-bold mb-0" data-i18n="contact.form.title">Send a Message</h3>
+                            <span class="badge bg-primary-blue" data-i18n="contact.form.badge">We’re here to help</span>
+                        </div>
+                        <p class="text-muted" data-i18n="contact.form.subtitle">Please fill in the form below. Fields marked required must be completed.</p>
+
+                        <!-- Success message (shown via JS) -->
+                        <div id="contactAlert" class="alert alert-success d-none" role="alert">
+                            <i class="fas fa-check-circle me-2"></i><span data-i18n="contact.form.success">Message sent successfully. This is a demo submission.</span>
+                        </div>
+
+                        <form id="contactForm" class="mt-3" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="contactFullName" placeholder=" " required>
+                                        <label for="contactFullName" data-i18n="contact.form.fullname">Full Name</label>
+                                        <div class="invalid-feedback" data-i18n="contact.form.fullname.invalid">Please enter your full name.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="contactEmail" placeholder=" " required>
+                                        <label for="contactEmail" data-i18n="contact.form.email">Email Address</label>
+                                        <div class="invalid-feedback" data-i18n="contact.form.email.invalid">Please enter a valid email address.</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="contactSubject" placeholder=" " required>
+                                        <label for="contactSubject" data-i18n="contact.form.subject">Subject</label>
+                                        <div class="invalid-feedback" data-i18n="contact.form.subject.invalid">Please enter a subject.</div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder=" " id="contactMessage" style="height: 160px" required></textarea>
+                                        <label for="contactMessage" data-i18n="contact.form.message">Message</label>
+                                        <div class="invalid-feedback" data-i18n="contact.form.message.invalid">Please type your message.</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button id="contactSubmitBtn" type="submit" class="btn btn-healing-green btn-lg w-100 py-3 rounded-pill shadow">
+                                        <i class="fas fa-paper-plane me-2"></i> <span data-i18n="contact.form.send">Send Message</span>
+                                    </button>
+                                </div>
+
+                                <div class="col-12">
+                                    <p class="small text-muted mb-0" data-i18n="contact.form.note">By sending this form, you consent to being contacted by our team. (Demo only.)</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Organization Info + Social -->
+                <div class="col-lg-5">
+                    <div class="bg-primary-blue text-white contact-info-card p-4 p-md-5 h-100 shadow-lg">
+                        <div class="position-relative">
+                            <h3 class="fw-bold mb-3" data-i18n="contact.info.title">Organization Information</h3>
+                            <p class="text-white-50" data-i18n="contact.info.desc">You can also reach us using the official channels below.</p>
+
+                            <div class="mt-4">
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="me-3"><i class="fas fa-envelope text-healing-green fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold" data-i18n="contact.info.emails">Official Emails</div>
+                                        <div class="text-white-50 small">info@sudanaid.org</div>
+                                        <div class="text-white-50 small">donations@sudanaid.org</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start mb-3">
+                                    <div class="me-3"><i class="fas fa-phone text-healing-green fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold" data-i18n="contact.info.phones">Phone Numbers</div>
+                                        <div class="text-white-50 small">+249 123 456 789</div>
+                                        <div class="text-white-50 small">+249 111 222 333</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start">
+                                    <div class="me-3"><i class="fas fa-location-dot text-healing-green fs-5"></i></div>
+                                    <div>
+                                        <div class="fw-semibold" data-i18n="contact.info.location">Office Location</div>
+                                        <div class="text-white-50 small" data-i18n="contact.info.location.text">Khartoum, Sudan (Demo address)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="border-white/10 my-4">
+
+                            <div>
+                                <h6 class="fw-bold mb-3" data-i18n="contact.social.title">Follow Us</h6>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a class="social-icon-btn" href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a class="social-icon-btn" href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                                    <a class="social-icon-btn" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                    <a class="social-icon-btn" href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Placeholder / Embed -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="bg-light rounded-4 p-3 p-md-4 shadow-sm">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+                            <h5 class="fw-bold mb-0" data-i18n="contact.map.title">Find Us on the Map</h5>
+                            <span class="small text-muted" data-i18n="contact.map.note">Embed placeholder — replace with your official Google Maps embed link.</span>
+                        </div>
+                        <div class="ratio ratio-21x9" style="border-radius: 16px; overflow: hidden;">
+                            <iframe class="map-frame" title="Sudan Aid Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Khartoum%20Sudan&output=embed"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-hand-holding-heart text-healing-green me-2"></i> <span data-i18n="footer.brand">SUDAN AID</span>
+                    </h5>
+                    <p class="text-muted small" data-i18n="footer.desc">Dedicated to serving the people of Sudan with compassion, integrity, and transparency. Together, we build a better future.</p>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-i18n="footer.quick">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="footer-link" data-i18n="nav.about">About Us</a></li>
+                        <li class="mb-2"><a href="#projects" class="footer-link" data-i18n="nav.projects">Projects</a></li>
+                        <li class="mb-2"><a href="#donate" class="footer-link" data-i18n="nav.donate">Donate</a></li>
+                        <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">News</a></li>
+                        <li class="mb-2"><a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-i18n="footer.contact">Contact Us</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="footer.location">Khartoum, Sudan</span></li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@sudanaid.org</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +249 123 456 789</li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-i18n="footer.newsletter">Newsletter</h6>
+                    <p class="text-muted small" data-i18n="footer.newsletter.desc">Subscribe to get updates on our work.</p>
+                    <form class="d-flex" onsubmit="return false;">
+                        <input type="email" class="form-control bg-white border-0 rounded-start-pill" placeholder="Your email" aria-label="Email">
+                        <button class="btn btn-healing-green rounded-end-pill px-3" type="button" aria-label="Subscribe">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small text-muted">&copy; <span id="year"></span> <span data-i18n="footer.copyright">Sudan Aid Organization. All rights reserved.</span></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="footer-link me-3 small" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="#" class="footer-link small" data-i18n="footer.terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // -----------------------------
+        // i18n (EN/AR) — LTR/RTL switcher
+        // -----------------------------
+        const translations = {
+            en: {
+                // Nav
+                "nav.brand": "SUDAN AID",
+                "nav.menu": "Menu",
+                "nav.about": "About Us",
+                "nav.projects": "Projects",
+                "nav.transparency": "Transparency",
+                "nav.donate": "Donate",
+                "nav.blog": "News",
+                "nav.contact": "Contact",
+
+                // Hero
+                "hero.badge": "Humanitarian Aid in Sudan",
+                "hero.title": "Bringing Hope to Communities in Need",
+                "hero.subtitle": "We provide emergency relief, healthcare, and education to vulnerable populations across Sudan. Join us in making a lasting impact.",
+                "hero.cta": "Donate Now",
+                "hero.explore": "Explore Projects",
+
+                // About
+                "about.title": "About Sudan Aid",
+                "about.desc": "Dedicated to serving humanity with integrity, compassion, and transparency.",
+                "about.tabs.vision": "Our Vision",
+                "about.tabs.mission": "Our Mission",
+                "about.tabs.values": "Our Values",
+                "about.tabs.history": "Our History",
+                "about.vision.title": "A Thriving Sudan",
+                "about.vision.text": "We envision a Sudan where every individual has access to basic human rights, quality education, and sustainable livelihoods. A nation rebuilt on the pillars of hope and resilience.",
+                "about.mission.title": "Serving with Compassion",
+                "about.mission.text": "Our mission is to deliver life-saving aid and long-term development programs to the most vulnerable communities in Sudan, focusing on health, education, and emergency relief.",
+                "about.mission.b1": "Emergency Response",
+                "about.mission.b2": "Healthcare Infrastructure",
+                "about.mission.b3": "Educational Support",
+                "about.values.title": "Our Core Values",
+                "about.values.v1.title": "Compassion",
+                "about.values.v1.text": "We act with empathy and kindness.",
+                "about.values.v2.title": "Integrity",
+                "about.values.v2.text": "Transparency in all our actions.",
+                "about.history.title": "Our Journey",
+                "about.history.text": "Founded in 2010, Sudan Aid started as a small group of volunteers providing food aid during a crisis. Today, we operate in 15 states, impacting over 500,000 lives annually.",
+                "about.history.t1": "Organization founded in Khartoum.",
+                "about.history.t2": "Launched first major health campaign.",
+                "about.history.t3": "Reached 500,000 beneficiaries milestone.",
+
+                // Projects
+                "projects.title": "Our Projects",
+                "projects.desc": "We focus on three main pillars to ensure sustainable development.",
+                "projects.health.badge": "Health",
+                "projects.education.badge": "Education",
+                "projects.relief.badge": "Relief",
+                "projects.health.title": "Mobile Health Clinics",
+                "projects.health.desc": "Providing essential medical care to remote villages that lack access to hospitals.",
+                "projects.health.funded": "75% Funded",
+                "projects.education.title": "School Reconstruction",
+                "projects.education.desc": "Rebuilding schools destroyed by conflict and providing learning materials for children.",
+                "projects.education.funded": "60% Funded",
+                "projects.relief.title": "Clean Water Initiative",
+                "projects.relief.desc": "Drilling wells and installing water pumps to provide clean drinking water.",
+                "projects.relief.funded": "90% Funded",
+                "projects.readmore": "Read More",
+
+                // Transparency
+                "transparency.title": "Transparency & Impact",
+                "transparency.desc": "We believe in full accountability. Every dollar donated is tracked and reported. Download our annual report to see how your contributions are making a difference.",
+                "transparency.report": "Download Annual Report",
+                "transparency.counter1": "Beneficiaries",
+                "transparency.counter2": "Wells Built",
+                "transparency.counter3": "Clinics Supported",
+                "transparency.counter4": "Schools Rebuilt",
+
+                // Donate
+                "donate.title": "Make a Donation",
+                "donate.desc": "Your contribution can save lives. Choose an amount below.",
+                "donate.amount": "Select Amount",
+                "donate.impact": "Your donation will provide:",
+                "donate.custom": "Or enter custom amount",
+                "donate.fname": "First Name",
+                "donate.fname.invalid": "Please enter your first name.",
+                "donate.lname": "Last Name",
+                "donate.lname.invalid": "Please enter your last name.",
+                "donate.email": "Email Address",
+                "donate.email.invalid": "Please enter a valid email.",
+                "donate.payment": "Payment Method",
+                "donate.payment.card": "Card",
+                "donate.payment.bank": "Bank",
+                "donate.submit": "Donate Now",
+
+                // Testimonials
+                "testimonials.title": "Voices of Impact",
+                "testimonials.desc": "Hear from the communities and donors who are part of our journey.",
+                "testimonials.1.text": "\"Sudan Aid changed our village. The new well means our children no longer have to walk miles for water. We are forever grateful.\"",
+                "testimonials.1.role": "Beneficiary, North Darfur",
+                "testimonials.2.text": "\"I've donated to many NGOs, but the transparency and regular updates from Sudan Aid make me confident that my money is truly helping.\"",
+                "testimonials.2.role": "Donor, United Kingdom",
+                "testimonials.3.text": "\"Working with Sudan Aid has been an honor. The team on the ground is dedicated and truly cares about the people they serve.\"",
+                "testimonials.3.role": "Volunteer Doctor, Khartoum",
+
+                // Blog
+                "blog.title": "Latest News",
+                "blog.desc": "Stay updated with our latest activities and success stories.",
+
+                // Contact
+                "contact.title": "Contact Us",
+                "contact.desc": "Have a question, partnership idea, or need support? Send us a message and our team will respond as soon as possible.",
+                "contact.form.title": "Send a Message",
+                "contact.form.badge": "We’re here to help",
+                "contact.form.subtitle": "Please fill in the form below. Fields marked required must be completed.",
+                "contact.form.fullname": "Full Name",
+                "contact.form.fullname.invalid": "Please enter your full name.",
+                "contact.form.email": "Email Address",
+                "contact.form.email.invalid": "Please enter a valid email address.",
+                "contact.form.subject": "Subject",
+                "contact.form.subject.invalid": "Please enter a subject.",
+                "contact.form.message": "Message",
+                "contact.form.message.invalid": "Please type your message.",
+                "contact.form.send": "Send Message",
+                "contact.form.sending": "Sending...",
+                "contact.form.success": "Message sent successfully. This is a demo submission.",
+                "contact.form.note": "By sending this form, you consent to being contacted by our team. (Demo only.)",
+                "contact.info.title": "Organization Information",
+                "contact.info.desc": "You can also reach us using the official channels below.",
+                "contact.info.emails": "Official Emails",
+                "contact.info.phones": "Phone Numbers",
+                "contact.info.location": "Office Location",
+                "contact.info.location.text": "Khartoum, Sudan (Demo address)",
+                "contact.social.title": "Follow Us",
+                "contact.map.title": "Find Us on the Map",
+                "contact.map.note": "Embed placeholder — replace with your official Google Maps embed link.",
+
+                // Footer
+                "footer.brand": "SUDAN AID",
+                "footer.desc": "Dedicated to serving the people of Sudan with compassion, integrity, and transparency. Together, we build a better future.",
+                "footer.quick": "Quick Links",
+                "footer.contact": "Contact Us",
+                "footer.location": "Khartoum, Sudan",
+                "footer.newsletter": "Newsletter",
+                "footer.newsletter.desc": "Subscribe to get updates on our work.",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.copyright": "Sudan Aid Organization. All rights reserved."
+            },
+            ar: {
+                // Nav
+                "nav.brand": "مساعدة السودان",
+                "nav.menu": "القائمة",
+                "nav.about": "من نحن",
+                "nav.projects": "مشاريعنا",
+                "nav.transparency": "الشفافية",
+                "nav.donate": "تبرع",
+                "nav.blog": "الأخبار",
+                "nav.contact": "اتصل بنا",
+
+                // Hero
+                "hero.badge": "المساعدات الإنسانية في السودان",
+                "hero.title": "نجلب الأمل للمجتمعات المحتاجة",
+                "hero.subtitle": "نحن نقدم الإغاثة الطارئة والرعاية الصحية والتعليم للسكان المحتاجين في جميع أنحاء السودان. انضم إلينا لإحداث فرق دائم.",
+                "hero.cta": "تبرع الآن",
+                "hero.explore": "استكشف المشاريع",
+
+                // About
+                "about.title": "حول مساعدة السودان",
+                "about.desc": "مكرسون لخدمة الإنسانية بنزاهة ورأفة وشفافية.",
+                "about.tabs.vision": "رؤيتنا",
+                "about.tabs.mission": "مهمتنا",
+                "about.tabs.values": "قيمنا",
+                "about.tabs.history": "تاريخنا",
+                "about.vision.title": "سودان مزدهر",
+                "about.vision.text": "نتصور سوداناً يتمتع فيه كل فرد بالحقوق الإنسانية الأساسية والتعليم الجيد وسبل العيش المستدام. وطن يعاد بناؤه على ركائز الأمل والمرونة.",
+                "about.mission.title": "الخدمة بالرأفة",
+                "about.mission.text": "مهمتنا هي تقديم المساعدات الحيوية وبرامج التنمية طويلة الأمد للمجتمعات الأكثر ضعفاً في السودان، مع التركيز على الصحة والتعليم والإغاثة الطارئة.",
+                "about.mission.b1": "الاستجابة للطوارئ",
+                "about.mission.b2": "تعزيز البنية الصحية",
+                "about.mission.b3": "دعم التعليم",
+                "about.values.title": "قيمنا الأساسية",
+                "about.values.v1.title": "الرأفة",
+                "about.values.v1.text": "نتصرف بتعاطف ولطف.",
+                "about.values.v2.title": "النزاهة",
+                "about.values.v2.text": "الشفافية في جميع أعمالنا.",
+                "about.history.title": "رحلتنا",
+                "about.history.text": "تأسست مساعدة السودان في عام 2010 كمجموعة صغيرة من المتطوعين لتقديم الغذاء أثناء الأزمات. واليوم نعمل في 15 ولاية ونؤثر على أكثر من 500,000 شخص سنوياً.",
+                "about.history.t1": "تأسست المنظمة في الخرطوم.",
+                "about.history.t2": "إطلاق أول حملة صحية كبرى.",
+                "about.history.t3": "تحقيق إنجاز 500,000 مستفيد.",
+
+                // Projects
+                "projects.title": "مشاريعنا",
+                "projects.desc": "نحن نركز على ثلاثة أركان رئيسية لضمان التنمية المستدامة.",
+                "projects.health.badge": "الصحة",
+                "projects.education.badge": "التعليم",
+                "projects.relief.badge": "الإغاثة",
+                "projects.health.title": "العيادات المتنقلة",
+                "projects.health.desc": "توفير الرعاية الطبية الأساسية للقرى النائية التي تفتقر إلى المستشفيات.",
+                "projects.health.funded": "ممولة بنسبة 75%",
+                "projects.education.title": "إعادة بناء المدارس",
+                "projects.education.desc": "إعادة بناء المدارس التي دمرتها الحرب وتوفير مواد التعلم للأطفال.",
+                "projects.education.funded": "ممولة بنسبة 60%",
+                "projects.relief.title": "مبادرة المياه النظيفة",
+                "projects.relief.desc": "حفر الآبار وتركيب مضخات المياه لتوفير مياه الشرب النظيفة.",
+                "projects.relief.funded": "ممولة بنسبة 90%",
+                "projects.readmore": "اقرأ المزيد",
+
+                // Transparency
+                "transparency.title": "الشفافية والتأثير",
+                "transparency.desc": "نحن نؤمن بالمساءلة الكاملة. يتم تتبع كل دولار تم التبرع به والإبلاغ عنه. قم بتنزيل تقريرنا السنوي لمعرفة كيف تحدث مساهماتك فرقاً.",
+                "transparency.report": "تحميل التقرير السنوي",
+                "transparency.counter1": "المستفيدون",
+                "transparency.counter2": "آبار محفورة",
+                "transparency.counter3": "عيادات مدعومة",
+                "transparency.counter4": "مدارس معاد بناؤها",
+
+                // Donate
+                "donate.title": "قم بالتبرع",
+                "donate.desc": "مساهمتك يمكن أن تنقذ الأرواح. اختر مبلغاً أدناه.",
+                "donate.amount": "اختر المبلغ",
+                "donate.impact": "تبرعك سيوفر:",
+                "donate.custom": "أو أدخل مبلغاً مخصصاً",
+                "donate.fname": "الاسم الأول",
+                "donate.fname.invalid": "يرجى إدخال الاسم الأول.",
+                "donate.lname": "اسم العائلة",
+                "donate.lname.invalid": "يرجى إدخال اسم العائلة.",
+                "donate.email": "البريد الإلكتروني",
+                "donate.email.invalid": "يرجى إدخال بريد إلكتروني صحيح.",
+                "donate.payment": "طريقة الدفع",
+                "donate.payment.card": "بطاقة",
+                "donate.payment.bank": "بنك",
+                "donate.submit": "تبرع الآن",
+
+                // Testimonials
+                "testimonials.title": "أصوات التأثير",
+                "testimonials.desc": "استمع من المجتمعات والمتبرعين الذين هم جزء من رحلتنا.",
+                "testimonials.1.text": "\"غيرت مساعدة السودان قريتنا. البئر الجديد يعني أن أطفالنا لم يعودوا بحاجة للسير أميالاً للحصول على الماء. نحن ممتنون للأبد.\"",
+                "testimonials.1.role": "مستفيدة، شمال دارفور",
+                "testimonials.2.text": "\"لقد تبرعت للعديد من المنظمات، لكن شفافية وتحديثات مساعدة السودان المنتظمة تجعلني واثقاً أن أموالي تساعد حقاً.\"",
+                "testimonials.2.role": "متبرع، المملكة المتحدة",
+                "testimonials.3.text": "\"لقد كان شرفاً العمل مع مساعدة السودان. الفريق على الأرض متفانٍ ويهتم حقاً بالأشخاص الذين يخدمونهم.\"",
+                "testimonials.3.role": "طبيبة متطوعة، الخرطوم",
+
+                // Blog
+                "blog.title": "آخر الأخبار",
+                "blog.desc": "ابقَ على اطلاع بأحدث أنشطتنا وقصص نجاحنا.",
+
+                // Contact
+                "contact.title": "اتصل بنا",
+                "contact.desc": "هل لديك سؤال أو فكرة شراكة أو تحتاج إلى دعم؟ أرسل لنا رسالة وسيرد فريقنا في أقرب وقت ممكن.",
+                "contact.form.title": "أرسل رسالة",
+                "contact.form.badge": "نحن هنا للمساعدة",
+                "contact.form.subtitle": "يرجى تعبئة النموذج أدناه. الحقول المطلوبة يجب تعبئتها.",
+                "contact.form.fullname": "الاسم الكامل",
+                "contact.form.fullname.invalid": "يرجى إدخال الاسم الكامل.",
+                "contact.form.email": "البريد الإلكتروني",
+                "contact.form.email.invalid": "يرجى إدخال بريد إلكتروني صحيح.",
+                "contact.form.subject": "الموضوع",
+                "contact.form.subject.invalid": "يرجى إدخال الموضوع.",
+                "contact.form.message": "الرسالة",
+                "contact.form.message.invalid": "يرجى كتابة رسالتك.",
+                "contact.form.send": "إرسال الرسالة",
+                "contact.form.sending": "جارٍ الإرسال...",
+                "contact.form.success": "تم إرسال الرسالة بنجاح. هذا إرسال تجريبي.",
+                "contact.form.note": "بإرسال هذا النموذج، فإنك توافق على أن يتواصل فريقنا معك. (تجريبي فقط.)",
+                "contact.info.title": "معلومات المنظمة",
+                "contact.info.desc": "يمكنك أيضاً التواصل معنا عبر القنوات الرسمية أدناه.",
+                "contact.info.emails": "البريد الرسمي",
+                "contact.info.phones": "أرقام الهاتف",
+                "contact.info.location": "موقع المكتب",
+                "contact.info.location.text": "الخرطوم، السودان (عنوان تجريبي)",
+                "contact.social.title": "تابعنا",
+                "contact.map.title": "اعثر علينا على الخريطة",
+                "contact.map.note": "مكان تضمين الخريطة — استبدله برابط خرائط Google الرسمي.",
+
+                // Footer
+                "footer.brand": "مساعدة السودان",
+                "footer.desc": "مكرسون لخدمة شعب السودان بالرأفة والنزاهة والشفافية. معاً نبني مستقبلاً أفضل.",
+                "footer.quick": "روابط سريعة",
+                "footer.contact": "اتصل بنا",
+                "footer.location": "الخرطوم، السودان",
+                "footer.newsletter": "النشرة البريدية",
+                "footer.newsletter.desc": "اشترك لتصلك آخر تحديثات أعمالنا.",
+                "footer.privacy": "سياسة الخصوصية",
+                "footer.terms": "شروط الخدمة",
+                "footer.copyright": "منظمة مساعدة السودان. جميع الحقوق محفوظة."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function applyTranslations() {
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const value = translations[currentLang]?.[key];
+                if (value) el.textContent = value;
+            });
+
+            // Update language button labels
+            const langBtn = document.getElementById('lang-text');
+            const mobileLangBtn = document.getElementById('mobile-lang-text');
+            if (langBtn) langBtn.textContent = currentLang === 'en' ? 'العربية' : 'English';
+            if (mobileLangBtn) mobileLangBtn.textContent = currentLang === 'en' ? 'العربية' : 'English';
+
+            // Refresh AOS for RTL
+            AOS.refresh();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const html = document.documentElement;
+            html.lang = currentLang;
+            html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            applyTranslations();
+        }
+
+        // Apply initial translations
+        applyTranslations();
+
+        function closeMobileMenu() {
+            const offcanvasEl = document.getElementById('mobileMenu');
+            const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+            if (offcanvas) offcanvas.hide();
+        }
+
+        // Ensure clicking nav links on mobile closes menu (single-page sections)
+        document.querySelectorAll('#mobileMenu a.nav-link[href^="#"]').forEach(a => {
+            a.addEventListener('click', () => closeMobileMenu());
+        });
+
+        // -----------------------------
+        // Navbar Scroll Effect
+        // -----------------------------
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-transparent');
+            if (!navbar) return;
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // -----------------------------
+        // Counter Animation
+        // -----------------------------
+        const counters = document.querySelectorAll('.counter-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000;
+                const increment = target / (duration / 16);
+
+                let current = 0;
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString();
+                    }
+                };
+                updateCounter();
+                counterObserver.unobserve(counter);
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // -----------------------------
+        // Donation Form Logic
+        // -----------------------------
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const selectedAmountInput = document.getElementById('selectedAmount');
+        const impactDisplay = document.getElementById('impactDisplay');
+        const customAmountInput = document.getElementById('customAmount');
+
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (customAmountInput) customAmountInput.value = '';
+                amountBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const amount = this.getAttribute('data-amount');
+                selectedAmountInput.value = amount;
+
+                const impact = this.getAttribute('data-impact');
+                const impactStrong = impactDisplay?.querySelector('strong');
+                if (impactStrong) impactStrong.textContent = impact;
+            });
+        });
+
+        if (customAmountInput) {
+            customAmountInput.addEventListener('input', function() {
+                if (!this.value) return;
+                amountBtns.forEach(b => b.classList.remove('active'));
+                selectedAmountInput.value = this.value;
+
+                const impactStrong = impactDisplay?.querySelector('strong');
+                if (impactStrong) impactStrong.textContent = currentLang === 'ar' ? 'مبلغ مخصص' : 'Custom amount';
+            });
+        }
+
+        const donationForm = document.getElementById('donationForm');
+        if (donationForm) {
+            donationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (donationForm.checkValidity()) {
+                    const btn = donationForm.querySelector('button[type="submit"]');
+                    const original = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> ' + (currentLang === 'ar' ? 'جارٍ المعالجة...' : 'Processing...');
+                    btn.disabled = true;
+
+                    setTimeout(() => {
+                        alert(currentLang === 'ar' ? 'شكراً لتبرعك! هذا نموذج تجريبي.' : 'Thank you for your donation! This is a demo.');
+                        btn.innerHTML = original;
+                        btn.disabled = false;
+                        donationForm.reset();
+                        if (amountBtns[1]) amountBtns[1].click();
+                        donationForm.classList.remove('was-validated');
+                    }, 1200);
+                } else {
+                    donationForm.classList.add('was-validated');
+                }
+            });
+        }
+
+        // -----------------------------
+        // Contact Form (Floating Labels + Validation)
+        // -----------------------------
+        const contactForm = document.getElementById('contactForm');
+        const contactAlert = document.getElementById('contactAlert');
+        const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Hide previous success
+                if (contactAlert) contactAlert.classList.add('d-none');
+
+                if (contactForm.checkValidity()) {
+                    const original = contactSubmitBtn.innerHTML;
+                    contactSubmitBtn.disabled = true;
+                    contactSubmitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> ' + (translations[currentLang]['contact.form.sending'] || 'Sending...');
+
+                    setTimeout(() => {
+                        contactForm.reset();
+                        contactForm.classList.remove('was-validated');
+                        if (contactAlert) {
+                            contactAlert.classList.remove('d-none');
+                            contactAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                        contactSubmitBtn.disabled = false;
+                        contactSubmitBtn.innerHTML = original;
+                    }, 900);
+                } else {
+                    contactForm.classList.add('was-validated');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

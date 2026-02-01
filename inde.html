@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mama Africa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .custom-nav {
+  display: flex;
+  gap: 22px;
+}
+
+.custom-nav .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* خط تحت اللينك عند الهوفر */
+.custom-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #f97316;
+  transition: width 0.3s ease;
+}
+
+.custom-nav .nav-link:hover {
+  color: #f97316;
+}
+
+.custom-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+/* أيقونة اللغة */
+.lang-icon {
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.lang-icon:hover {
+  color: #f97316;
+  transform: rotate(20deg);
+}
+
+/* زر تسجيل الدخول */
+.btn-login {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #f97316;
+  border-color: #f97316;
+  color: #fff;
+}
+
+
+
+
+/* الحاوية الأم تستخدم flex لدفع النص لليمين */
+.container {
+  display: flex;              /* تفعيل Flexbox */
+  justify-content: flex-end;  /* المحاذاة لأقصى اليمين */
+  padding: 0 1rem;            /* مسافة من الجوانب إذا أحببتي */
+}
+
+/* النص نفسه */
+#rightDiv {
+  max-width: 600px;           /* أقصى عرض للنص */
+  font-family: 'Inknut Antiqua', serif;
+  color: #f97316;             /* اللون البرتقالي */
+  line-height: 1.6;
+  text-align: left;          /* النص يمين داخل الحاوية */
+  font-size: 1rem;
+}
+
+/* Responsive حجم الخط */
+@media (min-width: 640px) { #rightDiv { font-size: 1.125rem; } }   /* sm */
+@media (min-width: 768px) { #rightDiv { font-size: 1.25rem; } }    /* md */
+@media (min-width: 1024px) { #rightDiv { font-size: 1.5rem; } }    /* lg */
+
+/* تمييز السطر الأخير */
+.highlight {
+  font-weight: 600;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+
+
+  </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900">
+
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 w-full z-50 bg-transparent transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="y (1).png" class="w-[60px]" />
+      <span class="text-xl font-bold text-white font-['Inknut_Antiqua']">
+        Mama Africa
+      </span>
+    </div>
+
+    <!-- Desktop Nav -->
+    <ul class="hidden lg:flex items-center gap-8 ml-auto text-white navbar-nav">
+      <li><a  class="nav-item" href="#about">About Us</a></li>
+      <li><a class="nav-item" href="#projects">Projects</a></li>
+      <li><a  class="nav-item"href="#transparency">Transparency</a></li>
+      <li><a  class="nav-item" href="#donate">Donate</a></li>
+      <li><a class="nav-item" href="#blog">News</a></li>
+      <li><a  class="nav-item"href="#contact">Contact</a></li>
+
+      <li>
+        <i class="fa-solid fa-earth-americas text-xl cursor-pointer"
+           onclick="toggleLanguage()"></i>
+      </li>
+
+      <li>
+         <button class="btn btn-login">Login</button>
+      </li>
+    </ul>
+
+    <!-- Mobile Button -->
+    <button class="lg:hidden ml-auto text-white text-2xl"
+            onclick="toggleMenu()">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu"
+       class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
+    <a href="#about" class="block">About Us</a>
+    <a href="#projects" class="block">Projects</a>
+    <a href="#transparency" class="block">Transparency</a>
+    <a href="#donate" class="block">Donate</a>
+    <a href="#blog" class="block">News</a>
+    <a href="#contact" class="block">Contact</a>
+
+    <div class="flex items-center gap-4 pt-4">
+      <i class="fa-solid fa-earth-americas text-xl"
+         onclick="toggleLanguage()"></i>
+      <button class="btn btn-login">Login</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <img src="ray.png"
+       class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-stone-900/70"></div>
+<div class="relative z-10 w-full px-4 sm:px-6 hero">
+  <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-6 text-left">
+  Hope for Darfur
+</h1>
+<div class="container">
+  <div id="rightDiv">
+    <p>
+      Together, we build the future. More than relief we create lasting change.Through water, education, and aid.we restore dignity in Darfur.Your support is their hope.
+    </p>
+    <span>
+     <button onclick="scrollTo('#programs')"
+    class="bg-orange-500 px-8 py-4 rounded-full text-white text-lg">
+    Donate Now</button></span></div></div>
+  <div class="bottom-0 left-0 w-full bg-white border-t border-gray-200 py-6 z-50">
+    <div class="flex justify-around items-center max-w-6xl mx-auto px-4">
+        
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">500+</div>
+            <div class="font-medium" data-i18n="projectsCompleted">Projects Completed</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">200+</div>
+            <div class="font-medium" data-i18n="happyClients">Happy Clients</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">50+</div>
+            <div class="font-medium" data-i18n="teamMembers">Team Members</div>
+        </div>
+
+        <div class="text-center">
+            <div class="text-4xl font-bold mb-2">15+</div>
+            <div class="font-medium" data-i18n="yearsExperience">Years Experience</div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+
+<!-- PROGRAMS -->
+
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-5xl font-bold mb-12">Our Programs</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="program bg-stone-50 rounded-xl shadow-lg overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Education First</h3>
+          <p>Providing education for underprivileged children.</p>
+        </div>
+      </div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-white text-black p-6 rounded-lg shadow-md">
+    <div class="text-center">
+        <div class="text-4xl font-bold mb-2">500+</div>
+        <div class="font-medium" data-i18n="projectsCompleted">Projects Completed</div>
+    </div>
+    <div class="text-center">
+        <div class="text-4xl font-bold mb-2">200+</div>
+        <div class="font-medium" data-i18n="happyClients">Happy Clients</div>
+    </div>
+    <div class="text-center">
+        <div class="text-4xl font-bold mb-2">50+</div>
+        <div class="font-medium" data-i18n="teamMembers">Team Members</div>
+    </div>
+ 
+    <div class="text-center">
+        <div class="text-4xl font-bold mb-2">15+</div>
+        <div class="font-medium" data-i18n="yearsExperience">Years Experience</div>
+    </div>
+</div>
+
+
+
+</section>
+
+<!-- DONATE -->
+<section id="donate" class="py-32 bg-orange-500 text-white text-center">
+  <h2 class="text-5xl font-bold mb-6">Make a Difference</h2>
+  <p class="mb-8">Every donation matters.</p>
+  <button class="bg-white text-orange-500 px-10 py-4 rounded-full font-bold">
+    Donate Now
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-stone-900 text-stone-400 py-10 text-center">
+  © 2024 Mama Africa Foundation
+</footer>
+
+<!-- JS -->
+<script>
+   
+  function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("hidden");
+  }
+
+  lucide.createIcons();
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from(".hero > *", {
+    y: 60,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 1
+  });
+
+  gsap.from(".stat", {
+    scrollTrigger: { trigger: ".stat", start: "top 80%" },
+    y: 40,
+    opacity: 0,
+    stagger: 0.2
+  });
+
+  gsap.from(".program", {
+    scrollTrigger: { trigger: "#programs", start: "top 70%" },
+    y: 50,
+    opacity: 0,
+    stagger: 0.2
+  });
+
+  window.addEventListener("scroll", () => {
+    const nav = document.getElementById("navbar");
+    nav.classList.toggle("bg-stone-50", window.scrollY > 50);
+    nav.classList.toggle("shadow-lg", window.scrollY > 50);
+  });
+
+  function scrollTo(id) {
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+</body>
+</html>
