@@ -4,7 +4,44 @@
   <meta charset="UTF-8" />
   <title>Mama Africa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (required by platform) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -15,6 +52,15 @@
 
   <!-- Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome 6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
     .custom-nav {
   display: flex;
@@ -76,16 +122,139 @@
   border-color: #f97316;
   color: #fff;
 }
-.leftb{
-  
-}
+     .section-bg {
+            background-color: #fef9f5;
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+
+        .program-card {
+            background-color: #ffffff;
+            border-radius: 30px;
+            border: none;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header-area {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .icon-circle {
+            /* If the icon needs a background, uncomment below. The reference usually implies a simple icon or icon in shape. 
+               I will keep it simple as requested: "An icon at the top left" */
+            font-size: 24px;
+            color: #333;
+            margin-right: 15px;
+            width: 40px; 
+            text-align: center;
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0;
+            color: #212529;
+        }
+
+        .card-img-wrapper {
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .program-card:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .progress-wrapper {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .custom-progress {
+            height: 16px;
+            background-color: #ffe4e6; /* Light pink background */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .progress-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #555;
+            z-index: 2;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto; /* Pushes footer to bottom if content varies */
+        }
+
+        .read-more {
+            color: #0d6efd; /* Blue */
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .btn-donate {
+            background-color: #ff9800; /* Orange */
+            color: #000; /* Dark text */
+            border: none;
+            border-radius: 20px;
+            padding: 8px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-donate:hover {
+            background-color: #e68900;
+        }
+
+        /* Specific alignment tweaks */
+        .header-title-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
 
 
 
 
 /* الحاوية الأم تستخدم flex لدفع النص لليمين */
 
-.container {
+.container1 {
   display: flex; 
   flex-direction:column;
    flex-wrap:wrap; 
@@ -122,6 +291,149 @@
   display: block;
   margin-top: 0.5rem;
 }
+ .about-section-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+    .section-eyebrow {
+      letter-spacing: 0.1em;
+      font-size: 30px;
+      font-weight: bold;
+    color: rgb(0, 0, 0) ;
+    }
+
+    .section-title {
+      font-family: var(--heading-font);
+      font-weight: 600;
+      font-size: clamp(1.9rem, 2.4vw, 2.3rem);
+      letter-spacing: 0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted-soft);
+      max-width: 520px;
+    }
+
+    .about-card {
+      border-radius: var(--card-radius);
+      background-color: #ffffff;
+      border: none;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.04);
+      padding: 1.75rem 1.7rem 1.7rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+        min-height: 560px;
+       
+    }
+
+    .about-card-title {
+      font-family: var(--heading-font);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgb(0, 0, 0);
+    }
+
+     .im img{
+      background: radial-gradient(circle at top left, #fdf2e3 0, #f3d3a7 32%, #f5e2c5 55%, #ffffff 100%);
+      border-radius: 15px;
+      width: 100%;
+        height: 220px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      object-fit: cover;
+    }
+
+    .ima img{
+     background: radial-gradient(circle at top left, #fdf2e3 0, #f3d3a7 32%, #f5e2c5 55%, #ffffff 100%);
+      border-radius: 15px;
+      width: 100%;
+        height: 220px; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      object-fit: cover;
+    }
+    .about-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color:rgb(0, 0, 0);
+    }
+
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      color: #4f453a;
+    }
+
+    .value-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background-color: #fdf2e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(0, 0, 0) ;
+      flex-shrink: 0;
+    }
+
+    .value-item + .value-item {
+      margin-top: 0.7rem;
+    }
+
+    .value-label {
+      font-weight: 600;
+      margin-bottom: 0.05rem;
+      color: rgb(0, 0, 0);
+    }
+
+    .muted-caption {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9c8d7d;
+    }
+
+    .history-placeholder {
+      flex: 1;
+      display: flex;
+      border-radius: 10px;
+      border: 1px dashed rgba(176, 153, 128, 0.5);
+      color: rgb(0, 0, 0);
+      font-size: 0.85rem;
+      padding: 1.5rem 1rem;
+    }
+
+    @media (max-width: 991.98px) {
+      .about-section-wrapper {
+        padding-top: 2.5rem;
+      }
+
+      .about-card {
+        padding: 1.5rem 1.4rem 1.4rem;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .about-card {
+        border-radius: 20px;
+      }
+
+      
+    }
 
 
 
@@ -136,14 +448,14 @@
 
     <!-- Logo -->
     <div class="flex items-center gap-3">
-      <img src="y (1).png" class="w-[60px]" />
+      <img src="images/y.png" class="w-[60px]" />
       <span class="text-xl font-bold text-white font-['Inknut_Antiqua']">
         Mama Africa
       </span>
     </div>
 
     <!-- Desktop Nav -->
-   <ul class="hidden lg:flex items-center gap-8 ml-auto text-white navbar-nav border-b-2 border-transparent">
+   <ul class="hidden lg:flex items-center gap-8 ml-auto text-white  border-b-2 border-transparent">
   <li>
     <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full" href="#about">About Us</a>
   </li>
@@ -209,14 +521,13 @@
 
 <!-- HERO -->
 <section class="relative min-h-screen flex items-center overflow-hidden">
-  <img src="ray.png"
-       class="absolute inset-0 w-full h-full object-cover">
+  <img src="images/ray.png"class="absolute inset-0 w-full h-full object-cover">
   <div class="absolute inset-0 bg-stone-900/70"></div>
 <div class="relative z-10 w-full px-4 sm:px-6 hero">
   <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-6 text-left">
   Hope for Darfur
 </h1>
-<div class="container mx-auto px-4">
+<div class="container1 mx-auto px-4">
   <div id="rightDiv" class="flex flex-col items-start gap-6">
     
     <p class="
@@ -280,56 +591,652 @@
     </div>
 
 
-
-<!-- PROGRAMS -->
-
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-5xl font-bold mb-12">Our Programs</h2>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="program bg-stone-50 rounded-xl shadow-lg overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Education First</h3>
-          <p>Providing education for underprivileged children.</p>
+ <main class="about-section-wrapper py-5 py-md-5">
+    <div class="container py-4 py-lg-5">
+      <div class="row  mb-4">
+        <div class="col-12 col-lg-7">
+          <div class="section-eyebrow  text-center">About us</div>
         </div>
       </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-[#EDD4A5] text-black p-6 rounded-lg shadow-md">
-    <div class="text-center">
-        <div class="text-4xl font-bold mb-2">500+</div>
-        <div class="font-medium" data-i18n="projectsCompleted">Projects Completed</div>
+
+      <div class="row g-4">
+        <!-- Column 1: Our Vision -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="about-card h-100">
+            <header class="mb-1 text-center">
+              <h2 class="about-card-title mb-3">Our vision</h2>
+            </header>
+            <div class="im" > 
+                <img src="images/1.jpg" alt=""> 
+            </div>
+            <p class="about-text mb-0">
+             To see Sudanese and African society Achieving Peace and Better Life.
+             Free From Violence and Displacement, with Access to Basic Rights,
+              Opportunities, and The Tools to Rebuild Their Lives and Communities.
+            </p>
+          </article>
+        </div>
+
+        <!-- Column 2: Our Value -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="about-card h-100">
+            <header class="mb-1 text-center">
+              <h2 class="about-card-title mb-1">Our value</h2>
+            </header>
+
+            <div class="d-flex flex-column gap-2 mt-1">
+              <div class="value-item">
+                <div class="value-item-icon">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+                <div>
+                  <div class="value-label">Participation</div>
+                  <div>We Believe In Working Together With Communities, Partners, And Volunteers To Create Positive And Lasting Impact.</div>
+                </div>
+              </div>
+
+              <div class="value-item">
+                <div class="value-item-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <div>
+                  <div class="value-label">Integrity</div>
+                  <div>Acting with honesty, transparency, and accountability in all we do.</div>
+                </div>
+              </div>
+
+              <div class="value-item">
+                <div class="value-item-icon">
+                 <i class="bi bi-eye-fill"></i>
+                </div>
+                <div>
+                  <div class="value-label">Transparency</div>
+                  <div> We Are Committed To Openness By Sharing Accurate Information About Our Activities, Decisions, And Use Of Resources.</div>
+                </div>
+              </div>
+
+              <div class="value-item">
+                <div class="value-item-icon">
+                 <i class="bi bi-check-circle-fill"></i>
+                </div>
+                <div>
+                  <div class="value-label">Accountability</div>
+                  <div>We Take Full Responsibility For Our Actions And Ensure That We Deliver Our Services Ethically And Effectively To Those We Serve.</div>
+                </div>
+              </div>
+
+             
+            </div>
+          </article>
+        </div>
+
+        <!-- Column 3: Our Mission -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="about-card h-100">
+            <header class="mb-1 text-center">
+              <h2 class="about-card-title mb-3">Our mission</h2>
+            </header>
+             <div class="ima" > 
+                <img src="images/2.jpg" alt=""> 
+            </div>
+
+            <p class="about-text mb-0">
+             Dedicating effort to mitigate poverty, hunger, illiteracy, and disease.
+              by delivering protection, humanitarian relief, and educational
+              opportunities, while strengthening community resilience and advocating for
+              lasting peace and justice.
+            </p>
+          </article>
+        </div>
+
+        <!-- Column 4: Our History -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <article class="about-card h-100">
+            <header class="mb-1 text-center">
+              <h2 class="about-card-title mb-3">Our history</h2>
+            </header>
+            <div class="history-placeholder">
+             MAOHS is a Sudanese National Non-Governmental voluntary organization registered under code T 1232, dated December 2022, renewed to 20/03/2024. Founded by 36 members in North Darfur state, it established a head office in El Fasher and moved there. It has sub-offices in Kutum. It engages in partnership with Autash, Tabashir, DAID, Common Medical Association, and NRC. It is a cluster member of WASH, Nutrition, Health, Education, FSL, Child Protection, and Peacebuilding working group.
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
-    <div class="text-center">
-        <div class="text-4xl font-bold mb-2">200+</div>
-        <div class="font-medium" data-i18n="happyClients">Happy Clients</div>
+  </main>
+<!-- PROGRAMS -->
+<section class="section-bg">
+    <div class="container">
+        <!-- Optional Section Header -->
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-5 fw-bold mb-3">Our Program</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    We work across various sectors to improve lives and build sustainable communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            
+            <!-- Card 1: Education -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <h3 class="card-title">Training workshops</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/TRANING WORKSHOP.jpg" alt="Education">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Clean Water -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+                        <h3 class="card-title">Clean Water</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/3.jpg" alt="Clean Water">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Healthcare -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-briefcase-medical"></i>
+                        </div>
+                        <h3 class="card-title">Protection</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/PROTICTION.png" alt="Healthcare">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Women Empowerment -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-person-dress"></i>
+                        </div>
+                        <h3 class="card-title">Livelihood ways</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/Livelihood ways.jpg" alt="Women Empowerment">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Shelter & Housing -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        <h3 class="card-title">Environmental sanitation</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/4.png" alt="Shelter & Housing">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Food Security -->
+            <div class="col-12 col-md-6">
+                <div class="program-card">
+                    <div class="card-header-area">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-bowl-food"></i>
+                        </div>
+                        <h3 class="card-title">Nutrition</h3>
+                    </div>
+                    <div class="card-img-wrapper">
+                        <img src="images/Nutrition.jpg" alt="Food Security">
+                    </div>
+                    <div class="progress-wrapper">
+                        <div class="custom-progress">
+                            <span class="progress-label">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <a href="#" class="read-more">read more...</a>
+                        <button class="btn-donate">Donate</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="text-center">
-        <div class="text-4xl font-bold mb-2">50+</div>
-        <div class="font-medium" data-i18n="teamMembers">Team Members</div>
-    </div>
+</section>
  
-    <div class="text-center">
-        <div class="text-4xl font-bold mb-2">15+</div>
-        <div class="font-medium" data-i18n="yearsExperience">Years Experience</div>
-    </div>
+  <!-- Transparency Section -->
+<section id="transparency" class="py-5 bg-blue-200 text-white">
+
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4" data-i18n="transparency.title">Transparency & Impact</h2>
+                    <p class="mb-4 opacity-90" data-i18n="transparency.desc">We believe in full accountability. Every dollar donated is tracked and reported. Download our annual report to see how your contributions are making a difference.</p>
+                    <a href="#" class="btn btn-healing-green px-4 py-2 rounded-pill">
+                        <i class="fas fa-file-download me-2"></i> <span data-i18n="transparency.report">Download Annual Report</span>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="500000">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter1">Beneficiaries</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="120">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter2">Wells Built</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="45">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter3">Clinics Supported</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="counter-box bg-white text-dark">
+                                <div class="counter-number" data-target="25">0</div>
+                                <p class="mb-0 mt-2" data-i18n="transparency.counter4">Schools Rebuilt</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="donate" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="bg-white rounded-4 shadow-lg p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h2 class="fw-bold" data-i18n="donate.title">Make a Donation</h2>
+                            <p class="text-muted" data-i18n="donate.desc">Your contribution can save lives. Choose an amount below.</p>
+                        </div>
+
+                        <form id="donationForm" novalidate>
+                            <!-- Amount Selection -->
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold mb-3" data-i18n="donate.amount">Select Amount</label>
+                                <div class="row g-3" id="amountOptions">
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="10" data-impact="1 meal">$10</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn active" data-amount="50" data-impact="1 week of medicine">$50</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="100" data-impact="Clean water for a family">$100</button>
+                                    </div>
+                                    <div class="col-6 col-md-3">
+                                        <button type="button" class="amount-btn" data-amount="500" data-impact="School supplies for 10 kids">$500</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedAmount" value="50" required>
+                            </div>
+
+                            <!-- Impact Display -->
+                            <div class="alert alert-success mb-4 text-center" id="impactDisplay">
+                                <i class="fas fa-check-circle me-2"></i> <span data-i18n="donate.impact">Your donation will provide:</span> <strong>1 week of medicine</strong>
+                            </div>
+
+                            <!-- Custom Amount -->
+                            <div class="mb-4">
+  <label class="form-label" data-i18n="donate.custom">Type of program</label>
+  <div class="input-group">
+    <!-- Dropdown -->
+    <select class="form-select" id="programType">
+      <option value="">Select program</option>
+      <option value="program1">Education</option>
+      <option value="program2">Clean Water</option>
+      <option value="program3">Healthcare</option>
+          <option value="program3">Women Empowerment</option>
+              <option value="program3">Shelter & Housing</option>
+                  <option value="program3">Food Security</option>
+                    
+    </select>
+    
+  </div>
 </div>
 
 
+                            <!-- Personal Info -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" data-i18n="donate.fname">First Name</label>
+                                    <input type="text" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.fname.invalid">Please enter your first name.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" data-i18n="donate.lname">Last Name</label>
+                                    <input type="text" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.lname.invalid">Please enter your last name.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" data-i18n="donate.email">Email Address</label>
+                                    <input type="email" class="form-control form-control-lg" required>
+                                    <div class="invalid-feedback" data-i18n="donate.email.invalid">Please enter a valid email.</div>
+                                </div>
+                            </div>
 
-</section>
+                            <!-- Payment Method -->
+                            <div class="mb-4">
+                                <label class="form-label" data-i18n="donate.payment">Payment Method</label>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="card" value="card" checked>
+                                        <label class="form-check-label" for="card" data-i18n="donate.payment.card">
+                                            <i class="fas fa-credit-card me-1"></i> Card
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="bank" value="bank">
+                                        <label class="form-check-label" for="bank" data-i18n="donate.payment.bank">
+                                            <i class="fas fa-university me-1"></i> Bank
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
-<!-- DONATE -->
-<section id="donate" class="py-32 bg-orange-500 text-white text-center">
-  <h2 class="text-5xl font-bold mb-6">Make a Difference</h2>
-  <p class="mb-8">Every donation matters.</p>
-  <button class="bg-white text-orange-500 px-10 py-4 rounded-full font-bold">
-    Donate Now
+                            <button type="submit" class="btn btn-healing-green btn-lg w-100 py-3 rounded-pill shadow">
+                                <i class="fas fa-lock me-2"></i> <span data-i18n="donate.submit">Donate Now</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--impact-->
+     <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="testimonials.title"> Voices from Darfur</h2>
+                    <p class="text-muted" data-i18n="testimonials.desc">I know the donations’ impact in Darfur.</p>
+                </div>
+            </div>
+
+           <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Testimonial 1 -->
+    <div class="carousel-item active">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="Amira">
+          <h6 class="fw-bold mb-2">Amira Hassan</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"Sudan Aid changed our village. The new well means our children no longer have to walk miles for water. We are forever grateful."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="David">
+          <h6 class="fw-bold mb-2">David Miller</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"I've donated to many NGOs, but the transparency and regular updates from Sudan Aid make me confident that my money is truly helping."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="Fatima">
+          <h6 class="fw-bold mb-2">Dr. Fatima Ali</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"Working with Sudan Aid has been an honor. The team on the ground is dedicated and truly cares about the people they serve."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
   </button>
-</section>
+  <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+       
+    </section>
+     <!--mambers-->
+     <section class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3" data-i18n="testimonials.title"> Voices from Darfur</h2>
+                    <p class="text-muted" data-i18n="testimonials.desc">I know the donations’ impact in Darfur.</p>
+                </div>
+            </div>
+
+           <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Testimonial 1 -->
+    <div class="carousel-item active">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="Amira">
+          <h6 class="fw-bold mb-2">Amira Hassan</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"Sudan Aid changed our village. The new well means our children no longer have to walk miles for water. We are forever grateful."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="David">
+          <h6 class="fw-bold mb-2">David Miller</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"I've donated to many NGOs, but the transparency and regular updates from Sudan Aid make me confident that my money is truly helping."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="carousel-item">
+      <div class="d-flex justify-content-center">
+        <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+               class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto" alt="Fatima">
+          <h6 class="fw-bold mb-2">Dr. Fatima Ali</h6>
+          <p class="lead fst-italic text-gray-600 mb-0">"Working with Sudan Aid has been an honor. The team on the ground is dedicated and truly cares about the people they serve."</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+        </div>
+    </section>
+
+
+
+
 
 <!-- FOOTER -->
-<footer class="bg-stone-900 text-stone-400 py-10 text-center">
-  © 2024 Mama Africa Foundation
+<footer class="bg-[#FFEDE0] text-stone-400 py-10 text-center">
+   
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4">
+            <div class="flex items-center gap-3">
+      <img src="images/y.png" class="w-[60px]" />
+      <span class="text-xl font-bold text-white font-['Inknut_Antiqua']">
+        Mama Africa
+      </span>
+    </div>    
+                    <p class="text-muted small" data-i18n="footer.desc">Bringing essential aid, clean water, education, and hope to communities in Darfur, Sudan. Together, we can rebuild lives.</p>
+                
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-i18n="footer.quick">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="footer-link" data-i18n="nav.about">About Us</a></li>
+                        <li class="mb-2"><a href="#projects" class="footer-link" data-i18n="nav.projects">Projects</a></li>
+                        <li class="mb-2"><a href="#donate" class="footer-link" data-i18n="nav.donate">Donate</a></li>
+                              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">mumber</a></li>
+                        <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">News</a></li>
+                        <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">Transparency</a></li>
+                        <li class="mb-2"><a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3" data-i18n="footer.contact">Contact Us</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> <span data-i18n="footer.location">Khartoum, Sudan</span></li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@sudanaid.org</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> +249 123 456 789</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+ <div class=" text-center">
+                    <p class="mb-0 small text-muted">&copy; <span id="year"></span> <span data-i18n="footer.copyright">2022Mama African Organization. All Rights Reserved</span></p>
+                </div>
+           <div class="row align-items-center text-center text-md-start">
+
+  <!-- Privacy -->
+  <div class="col-md-4 mb-3 mb-md-0 mt-3">
+    <a href="#" class="footer-link small" data-i18n="footer.privacy">
+      Privacy Policy
+    </a>
+  </div>
+
+  <!-- Social Icons -->
+  <div class="col-md-4 text-center mb-3 mb-md-0">
+    <a href="#"
+   class="d-inline-flex align-items-center justify-content-center me-2
+          bg-primary text-white rounded"
+   style="width:40px; height:40px;"
+   aria-label="Facebook">
+  <i class="fab fa-facebook-f"></i>
+</a>
+
+    <a href="#" class="d-inline-flex justify-content-center align-items-center bg-dark text-white rounded-2 me-2"
+   style="width:42px;height:42px;">
+  <i class="fab fa-x-twitter"></i>
+</a>
+
+  <a href="#"
+   class="d-inline-flex align-items-center justify-content-center me-3
+          text-white rounded"
+   style="width:40px; height:40px; background:#E4405F;"
+   aria-label="Instagram">
+  <i class="fab fa-instagram"></i>
+</a>
+
+    <a href="#" class="d-inline-flex justify-content-center align-items-center bg-success text-white rounded-2 me-2"
+   style="width:42px;height:42px;">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+  </div>
+
+  <!-- Terms -->
+  <div class="col-md-4 text-md-end">
+    <a href="#" class="footer-link small" data-i18n="footer.terms">
+      Terms of Service
+    </a>
+  </div>
+
+</div>
+
+        
+
 </footer>
 
 <!-- JS -->
