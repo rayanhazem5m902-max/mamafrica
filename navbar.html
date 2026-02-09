@@ -1,0 +1,82 @@
+
+
+
+<!-- NAV -->
+  <nav class="navbar navbar-expand-lg fixed-top .custom-nav  ">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <img src="images/y.png" class="w-[60px]" />
+        <span class="text-xl font-bold text-white font-['Inknut_Antiqua'] me-3">
+          Mama Africa
+        </span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden lg:flex items-center gap-8 ml-auto text-white  border-b-2 border-transparent">
+        <li>
+          <a class=" nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#about">About Us</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="#projects">Projects</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#members">Members</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#transparency">Transparency</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#donate">Donate</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#lastnews">News</a>
+        </li>
+        <li>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="inde.html#contact">Contact</a>
+        </li>
+
+        <li>
+          <i class="fa-solid fa-earth-americas text-xl cursor-pointer text-white hover:text-orange-500 transition-colors duration-200"
+            onclick="toggleLanguage()"></i>
+        </li>
+
+
+        <li>
+          <button class="btn btn-login">Login</button>
+        </li>
+      </ul>
+
+      <!-- Mobile Button -->
+      <button class="lg:hidden ml-auto text-white text-2xl" onclick="toggleMenu()">
+        ☰
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
+      <a href="#about" class="block">About Us</a>
+      <a href="#blog" class="block">Members</a>
+      <a href="#projects" class="block">Projects</a>
+
+      <a href="#transparency" class="block">Transparency</a>
+      <a href="#donate" class="block">Donate</a>
+      <a href="#blog" class="block">News</a>
+
+      <a href="#contact" class="block">Contact</a>
+
+      <div class="flex items-center gap-4 pt-4">
+        <i class="fa-solid fa-earth-americas text-xl" onclick="toggleLanguage()"></i>
+        <button class="btn btn-login">Login</button>
+      </div>
+    </div>
+  </nav>
