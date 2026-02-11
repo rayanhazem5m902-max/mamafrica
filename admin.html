@@ -50,67 +50,74 @@
     <header class="bg-blue-600 text-white shadow-lg py-4 px-6 mb-6">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-12 h-12 fill-white">
-            <path d="M96 96L96 544L544 544L544 96L96 96zM412.5 421.2L320 509.9L227.5 421.2L292 237.2L227.5 150.6L412.4 150.6L348 237.2L412.5 421.2z"/>
-        </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="w-12 h-12 fill-white">
+                    <path
+                        d="M96 96L96 544L544 544L544 96L96 96zM412.5 421.2L320 509.9L227.5 421.2L292 237.2L227.5 150.6L412.4 150.6L348 237.2L412.5 421.2z" />
+                </svg>
                 <span data-i18n="title">الادارة</span>
             </h1>
 
-       
+
             <nav class="navbar navbar-expand-lg fixed-top custom-navba ">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
+                <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
 
-      
 
-      <!-- Desktop Nav -->
-      <ul class="hidden lg:flex items-center gap-8 ml-auto text-white  border-b-2 border-transparent">
-       
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#projects">Projects</a>
-        </li>
-        <li>
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#members">Members</a>
-        </li>
-        
-        <li>
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#donate">Donate</a>
-        </li>
-        <li>
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#lastnews">News</a>
-        </li>
-        <li>
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#contact">Contact</a>
-        </li>
-      <!-- Mobile Button -->
-      <button class="lg:hidden ml-auto text-white text-2xl" onclick="toggleMenu()">
-        ☰
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
-    
-      <a href="#blog" class="block">Members</a>
-      <a href="#projects" class="block">Projects</a>
-      <a href="#donate" class="block">Donate</a>
-      <a href="#blog" class="block">News</a>
-      <a href="#contact" class="block">Contact</a>
 
-   
-    </div>
-  </nav>
-       <div class="flex items-center">
-                <button onclick="toggleLanguage()" id="langBtn"
-                    class="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm font-semibold py-1.5 px-4 rounded-full border border-white/30 transition-all shadow-sm backdrop-blur-sm">
-                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 3v18M3 12h18M5.625 5.625c2.5 1.5 3.375 6.375 3.375 6.375s.875 4.875 3.375 6.375M18.375 5.625c-2.5 1.5-3.375 6.375-3.375 6.375s-.875 4.875-3.375 6.375" />
-</svg>
-                    <span id="langText">English</span>
-                </button>
-            </div>
+                    <!-- Desktop Nav -->
+                    <ul class="hidden lg:flex items-center gap-8 ml-auto text-white  border-b-2 border-transparent">
+                        <li>
+                            <button id="langToggle" type="button"
+                                class="shrink-0 px-4 py-2 rounded-lg bg-white/15 text-white font-semibold border border-white/25 hover:bg-white/20 transition"
+                                aria-label="Switch language" onclick="toggleLanguage()">
+                                <span>العربية</span>
+                            </button>
+                        </li>
+
+                        <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+                            href="#projects">Projects</a>
+                        </li>
+                        <li>
+                            <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+                                href="#members">Members</a>
+                        </li>
+
+                        <li>
+                            <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+                                href="#donate">Donate</a>
+                        </li>
+                        <li>
+                            <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+                                href="#lastnews">News</a>
+                        </li>
+                        <li>
+                            <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+                                href="#contact">Contact</a>
+                        </li>
+                        <!-- Mobile Button -->
+                        <button class="lg:hidden ml-auto text-white text-2xl" onclick="toggleMenu()">
+                            ☰
+                        </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobileMenu" class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
+
+                    <a href="#blog" class="block">Members</a>
+                    <a href="#projects" class="block">Projects</a>
+                    <a href="#donate" class="block">Donate</a>
+                    <a href="#blog" class="block">News</a>
+                    <a href="#contact" class="block">Contact</a>
+
+
+                    <div class="flex items-center gap-4 pt-4 border-t border-white/10">
+                        <button id="langToggleMobile" type="button"
+                            class="shrink-0 px-4 py-2 rounded-lg bg-white/15 text-white font-semibold border border-white/25 hover:bg-white/20 transition"
+                            aria-label="Switch language" onclick="toggleLanguage()">
+                            <span>العربية</span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
 
     </header>
 
@@ -125,76 +132,388 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex justify-center">
                     <div class="col-span-2">
                         <label class="block text-2xl font-font-bold mb-1 text-black text-center " data-i18n="News1">
-                          الاخبار</label>
+                            الاخبار</label>
                         <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="productName1">اسم
                             المشروع</label>
                         <input type="text" id="title1" placeholder="أدخل اسم المشروع"
                             class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                           
+
                         <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="descname">
                             تفاصيل المشروع</label>
                         <input type="text" id="descproject" placeholder="أدخل تفاصيل المشروع"
                             class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                            
-                             <div class="max-w-2xl mx-auto p-4 flex flex-col items-center" dir="rtl">
-    <label class="block text-gray-700 font-bold mb-3 text-lg" data-i18n="donate.custom">
-        تصنيف المشروع
-    </label>
-    
-   
-        
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
-       
 
-        <select class="block w-full h-14 pr-12 pl-4 text-center bg-gray-50 border-2 border-transparent rounded-2xl appearance-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all text-gray-700 font-medium cursor-pointer shadow-sm" id="programType">
-            <option value="" disabled selected>اختر البرنامج المناسب</option>
-            <option value="program1">ورش عمل تدريبية</option>
-    <option value="program2">المياه النظيفة</option>
-    <option value="program3">الحماية</option>
-    <option value="program4">سبل كسب العيش</option>
-    <option value="program5">الإصحاح البيئي</option>
-    <option value="program6">التغذية</option>
-        </select>
+                        <div class="max-w-2xl mx-auto p-4 flex flex-col items-center" dir="rtl">
+                            <label class="block text-gray-700 font-bold mb-3 text-lg" data-i18n="donate.custom">
+                                تصنيف المشروع
+                            </label>
 
-       
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-     
-  
 
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+
+
+                            <select
+                                class="block w-full h-14 pr-12 pl-4 text-center bg-gray-50 border-2 border-transparent rounded-2xl appearance-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all text-gray-700 font-medium cursor-pointer shadow-sm"
+                                id="programType">
+                                <option value="" disabled selected>اختر البرنامج المناسب</option>
+                                <option value="program1">ورش عمل تدريبية</option>
+                                <option value="program2">المياه النظيفة</option>
+                                <option value="program3">الحماية</option>
+                                <option value="program4">سبل كسب العيش</option>
+                                <option value="program5">الإصحاح البيئي</option>
+                                <option value="program6">التغذية</option>
+                            </select>
+
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+
+
+
+                        </div>
+
+                        <div
+                            class="grid grid-cols-2 md:grid-cols-4 gap-2 col-span-2 bg-gray-50 p-3 rounded-lg border border-gray-200 flex justify-center ">
+
+
+
+                            <div class="lg:col-span-3 space-y-4 ">
+                                <div class="flex flex-col items-center justify-center w-full max-w-xs mx-auto ">
+                                    <label
+                                        class="flex justify-center items-center w-full text-xs font-semibold mb-2 text-gray-500 text-center"
+                                        data-i18n="cost">
+                                        التكلفة
+                                    </label><input onkeyup="getTotal()" type="number" id="discount" placeholder="0"
+                                        class="w-full p-2 text-center rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all shadow-sm">
+                                </div>
+                                <div
+                                    class="flex items-center justify-between bg-blue-50 p-3 rounded-lg border border-blue-100 mt-2">
+                                    <span class="font-bold text-blue-800" data-i18n="totalproject">عدد المشاريع</span>
+                                    <span id="total"
+                                        class="bg-red-500 text-white px-4 py-1 rounded font-bold text-lg">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Placeholder (Left Side - 1 Column) -->
+                <div class="lg:col-span-1">
+                    <div
+                        class="h-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer group relative overflow-hidden">
+                        <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10"
+                            id="imageInput" onchange="previewImage(event)">
+                        <div id="imagePreviewContainer"
+                            class="w-full h-full flex flex-col items-center justify-center p-2">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-16 w-16 text-gray-400 group-hover:text-blue-500 transition mb-2" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="text-sm text-gray-500 font-medium group-hover:text-blue-600"
+                                data-i18n="uploadText1">اضغط لرفع صورة المشروع</span>
+                        </div>
+                        <img id="imagePreview" class="absolute inset-0 w-full h-full object-cover hidden" />
+                        <button id="removeImageBtn" onclick="removeImage(event)"
+                            class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 hidden z-20"
+                            title="حذف الصورة">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- Action Buttons -->
+                <div class="max-w-5xl mx-auto p-4" dir="rtl">
+                    <div class="flex justify-center mb-6">
+                        <button id="submit"
+                            class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg shadow-purple-200 transition-all active:scale-95 flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
+                            <span data-i18n="create">إضافة مشروع جديد</span>
+                        </button>
                     </div>
 
                     <div
-                        class="grid grid-cols-2 md:grid-cols-4 gap-2 col-span-2 bg-gray-50 p-3 rounded-lg border border-gray-200 flex justify-center ">
-    
-                    
+                        class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center w-full">
 
-                    <div class="lg:col-span-3 space-y-4 ">
-                        <div class="flex flex-col items-center justify-center w-full max-w-xs mx-auto ">
-    <label class="flex justify-center items-center w-full text-xs font-semibold mb-2 text-gray-500 text-center"
-           data-i18n="cost">
-        التكلفة
-    </label><input onkeyup="getTotal()" type="number" id="discount" placeholder="0"
-           class="w-full p-2 text-center rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none transition-all shadow-sm">
-</div>
-                    <div class="flex items-center justify-between bg-blue-50 p-3 rounded-lg border border-blue-100 mt-2">
-                    <span class="font-bold text-blue-800" data-i18n="totalproject">عدد المشاريع</span>
-                    <span id="total" class="bg-red-500 text-white px-4 py-1 rounded font-bold text-lg">0</span>
-                </div>
-                </div>
-                </div>
-            </div> </div>
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-4xl">
 
-            <!-- Image Placeholder (Left Side - 1 Column) -->
+                            <div class="relative w-full group">
+                                <div
+                                    class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-sky-500 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                    </svg>
+                                </div>
+
+                                <input onkeyup="searchData(this.value)" id="search" type="text"
+                                    placeholder="ابحث عن أي مشروع..."
+                                    class="w-full text-xl p-6 pr-14 bg-gray-50 rounded-2xl border-2 border-transparent focus:border-sky-400 focus:bg-white focus:ring-8 focus:ring-sky-50/50 outline-none transition-all text-gray-800 shadow-md placeholder:text-gray-400">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Data Table -->
+                <div
+                    class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
+                    <div class="overflow-x-auto shadow-inner">
+                        <table class="w-full text-center border-collapse" id="productTable">
+                            <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
+                                <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
+                                    <th class="py-4 px-6 font-bold">المشروع</th>
+                                    <th class="py-4 px-6 font-bold">النوع</th>
+                                    <th class="py-4 px-6 font-bold">التكلفه</th>
+                                    <th class="py-4 px-6 font-bold">التفاصيل</th>
+                                    <th class="py-4 px-6 font-bold">العمليات</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
+                                <tr class="hover:bg-indigo-50/50 transition-colors">
+                                    <td class="py-4 px-6 text-center font-medium">اسم المشروع </td>
+                                    <td class="py-4 px-6 text-center">تعليم</td>
+                                    <td class="py-4 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs font-bold">600</span>
+                                    </td>
+
+                                    <td class="py-4 px-6 text-center">
+                                        <span class=" py-1 px-3 rounded-full text-xs font-bold">التفاصيل</span>
+                                    </td>
+                                    <td class="py-4 px-6 text-center">
+                                        <div class="flex item-center justify-center gap-2">
+                                            <button
+                                                class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
+                                            <button
+                                                class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
+                        <div class="flex flex-col items-center justify-center gap-4">
+                            <div class="bg-gray-100 p-6 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
+                            <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
+                        </div>
+                    </div>
+                </div>
+
+    </main>
+    <section class="container mx-auto px-4 pb-10 flex-grow">
+        <div class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-800 mb-2" data-i18n="contact">
+                    ادخال وتعديل معلومات الاتصال
+                </h2>
+                <div class="h-1 w-16 bg-purple-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center gap-4 text-center p-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600 " fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+
+                </svg>
+                <label class="  items-center gap-2 text-sm font-bold text-gray-700 mr-1" data-i18n="contactdetial">
+                    معلومات الاتصال
+                </label>
+
+                <div class="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md border border-gray-100" dir="rtl">
+                    <label class="block text-sm font-bold text-gray-700 mb-2">رقم الهاتف</label>
+
+                    <div class="max-w-2xl mx-auto p-4" dir="rtl">
+                        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+
+                            <div class="mb-6 text-center">
+                                <label class="block text-2xl font-bold text-gray-800 mb-1" data-i18n="contact">بيانات
+                                    التواصل</label>
+                                <div class="h-1 w-12 bg-indigo-500 mx-auto rounded-full"></div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                                <div class="md:col-span-1">
+                                    <label class="block text-sm font-bold text-gray-600 mb-2">الدولة</label>
+                                    <select id="countryCode"
+                                        class="w-full p-3.5 bg-gray-50 rounded-xl border-2 border-transparent focus:border-indigo-500 outline-none transition-all cursor-pointer font-medium">
+                                        <option value="254"> +254</option>
+                                        <option value="256"> +256</option>
+                                        <option value="20">+20</option>
+                                        <option value="966">+966</option>
+                                        <option value="971">+971</option>
+                                        <option value="965"> +965</option>
+                                    </select>
+                                </div>
+
+                                <div class="md:col-span-2">
+                                    <label class="block text-sm font-bold text-gray-600 mb-2">رقم الهاتف</label>
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-500">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                            </svg>
+                                        </div>
+                                        <input type="tel" id="phone" placeholder="أدخل رقم الهاتف"
+                                            class="w-full p-3.5 pr-10 bg-gray-50 rounded-xl border-2 border-transparent focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-100 outline-none transition-all text-gray-800 shadow-sm">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="max-w-md mx-auto p-4" dir="rtl w-full">
+                                <label class="block text-sm font-bold text-gray-700 mb-2 mr-1">رابط حساب
+                                    الفيسبوك</label>
+
+                                <div class="relative group">
+                                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 fill-current text-[#1877F2] group-focus-within:scale-110 transition-transform duration-200"
+                                            viewBox="0 0 24 24">
+                                            <path
+                                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                        </svg>
+                                    </div>
+
+                                    <input type="url" id="facebookLink" placeholder="facebook.com/username"
+                                        class="w-full p-3.5 pr-11 bg-white rounded-xl border-2 border-gray-100 shadow-sm outline-none transition-all
+                   focus:border-[#1877F2] focus:ring-4 focus:ring-blue-50 text-gray-800 text-left dir-ltr placeholder:text-gray-300 placeholder:text-right">
+                                </div>
+                                <div class="flex justify-center w-full">
+                                    <p class="mt-2 text-[11px] text-gray-400 flex items-center gap-1 text-center w-50">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>تأكد من كتابة الرابط بشكل صحيح ليبدأ بـ https</span>
+                                    </p>
+                                </div>
+                                <div class="max-w-md mx-auto p-4" dir="rtl">
+                                    <label class="block text-sm font-bold text-gray-700 mb-2 text-center">رابط حساب تيك
+                                        توك</label>
+
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="h-5 w-5 text-black group-focus-within:text-[#ff0050] transition-colors"
+                                                fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.33-.76.51-1.28 1.43-1.24 2.36.01.75.53 1.58 1.25 1.86.33.14.71.18 1.08.18 1.2-.12 2.21-.97 2.59-2.09.12-.53.13-1.08.12-1.63-.01-5.17-.01-10.34-.01-15.51z" />
+                                            </svg>
+                                        </div>
+
+                                        <input type="url" id="tiktokLink" placeholder="tiktok.com/@username"
+                                            class="w-full p-3.5 pr-11 bg-white rounded-xl border-2 border-gray-100 shadow-sm outline-none transition-all
+                   focus:border-black focus:ring-4 focus:ring-gray-100 text-gray-800 text-left ltr placeholder:text-right">
+                                    </div>
+
+                                    <div class="flex justify-center w-full">
+                                        <p
+                                            class="mt-3 text-[11px] text-gray-400 flex items-center gap-1 text-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-rose-500"
+                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            <span>تأكد من كتابة الرابط بشكل صحيح ليبدأ بـ https</span>
+                                        </p>
+                                    </div>
+                                    <button onclick="addTikTok()"
+                                        class="w-full bg-black hover:bg-[#25F4EE] hover:text-black text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 group">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 group-hover:rotate-90 transition-transform" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                        <span>إضافة معلومات الاتصال</span>
+                                    </button>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+    </section>
+    <section class="container mx-auto px-4 pb-10 flex-grow">
+        <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+            <!-- Form Inputs (Right Side - 3 Columns) -->
+            <div class="lg:col-span-3 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="col-span-2">
+                        <label class="block text-sm font-bold mb-1 text-gray-600 text-center" data-i18n="help">تاثير
+                            المساعدات</label>
+                        <label class="block text-sm font-semibold mb-1 text-gray-600 " data-i18n="helpname">اسم
+                            الشخص</label>
+                        <input type="text" id="title" placeholder="أدخل اسم الشخص"
+                            class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div class="col-span-2">
+
+                        <label class="block text-sm font-semibold mb-1 text-gray-600 " data-i18n="impact">
+                            التعليق</label>
+                        <input type="text" id="title" placeholder="أدخل  تعليقات"
+                            class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <!-- Image Placeholder2  (Left Side - 1 Column) -->
             <div class="lg:col-span-1">
                 <div
                     class="h-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer group relative overflow-hidden">
                     <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10"
-                        id="imageInput" onchange="previewImage(event)">
-                    <div id="imagePreviewContainer" class="w-full h-full flex flex-col items-center justify-center p-2">
+                        id="imageInput" onchange="previewImage1(event)">
+                    <div id="imagePreviewContainer1"
+                        class="w-full h-full flex flex-col items-center justify-center p-2">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="h-16 w-16 text-gray-400 group-hover:text-blue-500 transition mb-2" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -202,10 +521,10 @@
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         <span class="text-sm text-gray-500 font-medium group-hover:text-blue-600"
-                            data-i18n="uploadText1">اضغط لرفع صورة المشروع</span>
+                            data-i18n="uploadText1">اضغط لرفع صورة المساعدات</span>
                     </div>
-                    <img id="imagePreview" class="absolute inset-0 w-full h-full object-cover hidden" />
-                    <button id="removeImageBtn" onclick="removeImage(event)"
+                    <img id="imagePreview1" class="absolute inset-0 w-full h-full object-cover hidden" />
+                    <button id="removeImageBtn1" onclick="removeImage1(event)"
                         class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 hidden z-20"
                         title="حذف الصورة">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
@@ -216,346 +535,97 @@
                     </button>
                 </div>
             </div>
-      
-
-        <!-- Action Buttons -->
-         <div class="max-w-5xl mx-auto p-4" dir="rtl">
-    <div class="flex justify-center mb-6">
-        <button id="submit" 
-            class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg shadow-purple-200 transition-all active:scale-95 flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-            <span data-i18n="create">إضافة مشروع جديد</span>
-        </button>
-    </div>
-
-<div class="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100 flex flex-col items-center w-full">
-    
-    <div class="flex flex-col md:flex-row items-center justify-center gap-6 w-full max-w-4xl">
-        
-        <div class="relative w-full group">
-            <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-400 group-focus-within:text-sky-500 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </div>
-
-            <input onkeyup="searchData(this.value)" id="search" type="text" placeholder="ابحث عن أي مشروع..."
-                class="w-full text-xl p-6 pr-14 bg-gray-50 rounded-2xl border-2 border-transparent focus:border-sky-400 focus:bg-white focus:ring-8 focus:ring-sky-50/50 outline-none transition-all text-gray-800 shadow-md placeholder:text-gray-400">
-        </div>
-
-    </div>
-</div>
-    
-</div>
-
-        <!-- Data Table -->
-         <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
-    <div class="overflow-x-auto shadow-inner">
-        <table class="w-full text-center border-collapse" id="productTable">
-            <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
-                <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
-                    <th class="py-4 px-6 font-bold">المشروع</th>
-                    <th class="py-4 px-6 font-bold">النوع</th>
-                    <th class="py-4 px-6 font-bold">التكلفه</th>
-                    <th class="py-4 px-6 font-bold">التفاصيل</th>
-                      <th class="py-4 px-6 font-bold">العمليات</th>
-                </tr>
-            </thead>
-            
-            <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
-                <tr class="hover:bg-indigo-50/50 transition-colors">
-                    <td class="py-4 px-6 text-center font-medium">اسم المشروع </td>
-                    <td class="py-4 px-6 text-center">تعليم</td>
-                    <td class="py-4 px-6 text-center">
-                        <span class=" py-1 px-3 rounded-full text-xs font-bold">600</span>
-                    </td>
-                    
-<td class="py-4 px-6 text-center">
-                        <span class=" py-1 px-3 rounded-full text-xs font-bold">التفاصيل</span>
-                    </td>
-                    <td class="py-4 px-6 text-center">
-                        <div class="flex item-center justify-center gap-2">
-                            <button class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
-                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
-        <div class="flex flex-col items-center justify-center gap-4">
-            <div class="bg-gray-100 p-6 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                </svg>
-            </div>
-            <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
-            <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
-        </div>
-    </div>
-</div>
-       
-    </main>
-  <section class="container mx-auto px-4 pb-10 flex-grow">
-    <div class="space-y-6">
-        <div class="text-center">
-            <h2 class="text-3xl font-extrabold text-gray-800 mb-2" data-i18n="contact">
-                ادخال وتعديل معلومات الاتصال
-            </h2>
-            <div class="h-1 w-16 bg-purple-600 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="flex flex-col items-center justify-center gap-4 text-center p-6">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-purple-600 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-              
-              </svg>  
-            <label class="  items-center gap-2 text-sm font-bold text-gray-700 mr-1" data-i18n="contactdetial">
-              معلومات الاتصال 
-            </label>
-
-            <div class="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-md border border-gray-100" dir="rtl">
-    <label class="block text-sm font-bold text-gray-700 mb-2">رقم الهاتف</label>
-    
-    <div class="max-w-2xl mx-auto p-4" dir="rtl">
-    <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
-        
-        <div class="mb-6 text-center">
-            <label class="block text-2xl font-bold text-gray-800 mb-1" data-i18n="contact">بيانات التواصل</label>
-            <div class="h-1 w-12 bg-indigo-500 mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div class="md:col-span-1">
-                <label class="block text-sm font-bold text-gray-600 mb-2">الدولة</label>
-                <select id="countryCode" 
-                    class="w-full p-3.5 bg-gray-50 rounded-xl border-2 border-transparent focus:border-indigo-500 outline-none transition-all cursor-pointer font-medium">
-                    <option value="254">  +254</option>
-                    <option value="256"> +256</option>
-                    <option value="20">+20</option>
-            <option value="966">+966</option>
-            <option value="971">+971</option>
-            <option value="965"> +965</option>
-                </select>
-            </div>
-
-            <div class="md:col-span-2">
-                <label class="block text-sm font-bold text-gray-600 mb-2">رقم الهاتف</label>
-                <div class="relative group">
-                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-indigo-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                    </div>
-                    <input type="tel" id="phone" placeholder="أدخل رقم الهاتف"
-                        class="w-full p-3.5 pr-10 bg-gray-50 rounded-xl border-2 border-transparent focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-100 outline-none transition-all text-gray-800 shadow-sm">
-                </div>
-                    
-</div>
-            </div>
-             <div class="max-w-md mx-auto p-4" dir="rtl w-full">
-    <label class="block text-sm font-bold text-gray-700 mb-2 mr-1">رابط حساب الفيسبوك</label>
-    
-    <div class="relative group">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                class="h-5 w-5 fill-current text-[#1877F2] group-focus-within:scale-110 transition-transform duration-200" 
-                viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-        </div>
-
-        <input type="url" id="facebookLink" placeholder="facebook.com/username"
-            class="w-full p-3.5 pr-11 bg-white rounded-xl border-2 border-gray-100 shadow-sm outline-none transition-all
-                   focus:border-[#1877F2] focus:ring-4 focus:ring-blue-50 text-gray-800 text-left dir-ltr placeholder:text-gray-300 placeholder:text-right">
-    </div>
-   <div class="flex justify-center w-full">
-    <p class="mt-2 text-[11px] text-gray-400 flex items-center gap-1 text-center w-50">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-        <span>تأكد من كتابة الرابط بشكل صحيح ليبدأ بـ https</span>
-    </p>
-</div>
-<div class="max-w-md mx-auto p-4" dir="rtl">
-    <label class="block text-sm font-bold text-gray-700 mb-2 text-center">رابط حساب تيك توك</label>
-    
-    <div class="relative group">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black group-focus-within:text-[#ff0050] transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.9-.32-1.98-.23-2.81.33-.76.51-1.28 1.43-1.24 2.36.01.75.53 1.58 1.25 1.86.33.14.71.18 1.08.18 1.2-.12 2.21-.97 2.59-2.09.12-.53.13-1.08.12-1.63-.01-5.17-.01-10.34-.01-15.51z"/>
-            </svg>
-        </div>
-
-        <input type="url" id="tiktokLink" placeholder="tiktok.com/@username"
-            class="w-full p-3.5 pr-11 bg-white rounded-xl border-2 border-gray-100 shadow-sm outline-none transition-all
-                   focus:border-black focus:ring-4 focus:ring-gray-100 text-gray-800 text-left ltr placeholder:text-right">
-    </div>
-    
-    <div class="flex justify-center w-full">
-        <p class="mt-3 text-[11px] text-gray-400 flex items-center gap-1 text-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>تأكد من كتابة الرابط بشكل صحيح ليبدأ بـ https</span>
-        </p>
-    </div>
-    <button onclick="addTikTok()" 
-            class="w-full bg-black hover:bg-[#25F4EE] hover:text-black text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:rotate-90 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-            <span>إضافة معلومات الاتصال</span>
-        </button>
-</div>
-        </div>
-        
-
-       
-    </div>
-</div>
-    
-    
-        </div>
-    </div>
-</section>
-<section class="container mx-auto px-4 pb-10 flex-grow">
-   <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
-            
-            <!-- Form Inputs (Right Side - 3 Columns) -->
-            <div class="lg:col-span-3 space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="col-span-2">
-                        <label class="block text-sm font-bold mb-1 text-gray-600 text-center" data-i18n="help">تاثير المساعدات</label>
-                         <label class="block text-sm font-semibold mb-1 text-gray-600 " data-i18n="helpname">اسم الشخص</label>
-                        <input type="text" id="title" placeholder="أدخل اسم الشخص" class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                    </div>
-                    <div class="col-span-2">
-                  
-                         <label class="block text-sm font-semibold mb-1 text-gray-600 " data-i18n="impact"> التعليق</label>
-                        <input type="text" id="title" placeholder="أدخل  تعليقات" class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
-                    </div>
-                    
-                    
-
-                    
-                   
-                </div>
-
-                
-            </div>
-
-            <!-- Image Placeholder2  (Left Side - 1 Column) -->
-            <div class="lg:col-span-1">
-                <div class="h-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer group relative overflow-hidden">
-                    <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10" id="imageInput" onchange="previewImage1(event)">
-                    <div id="imagePreviewContainer1" class="w-full h-full flex flex-col items-center justify-center p-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-gray-400 group-hover:text-blue-500 transition mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span class="text-sm text-gray-500 font-medium group-hover:text-blue-600" data-i18n="uploadText1">اضغط لرفع صورة المساعدات</span>
-                    </div>
-                    <img id="imagePreview1" class="absolute inset-0 w-full h-full object-cover hidden" />
-                    <button id="removeImageBtn1" onclick="removeImage1(event)" class="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 hidden z-20" title="حذف الصورة">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <!-- Action Buttons -->
         <div class="  flex justify-center w-full">
-            <button id="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="submit"
+                class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
                 <span data-i18n="create">إنشاء التعليق</span>
             </button>
-            
-        
-     
+
+
+
         </div>
 
         <!-- Search Input -->
-       
-    
-   <div class="flex flex-col items-center justify-center gap-6 p-6 max-w-2xl mx-auto">
 
-    <div class="relative w-full">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-        </div>
 
-        <input onkeyup="searchData(this.value)" id="search" type="text" 
-               placeholder="بحث بالاسم..." 
-               class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
+        <div class="flex flex-col items-center justify-center gap-6 p-6 max-w-2xl mx-auto">
+
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+
+                <input onkeyup="searchData(this.value)" id="search" type="text" placeholder="بحث بالاسم..." class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
                       focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 
                       transition-all bg-white text-gray-800 text-center">
-    </div>
-
-</div>
-<div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
-    <div class="overflow-x-auto shadow-inner">
-        <table class="w-full text-center border-collapse" id="productTable">
-            <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
-                <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
-                    <th class="py-4 px-6 font-bold">اسم الشخص</th>
-                    <th class="py-4 px-6 font-bold">التعليق</th>
-                    <th class="py-4 px-6 font-bold">الصورة</th>
-                    <th class="py-4 px-6 font-bold">العمليات</th>
-                
-                </tr>
-            </thead>
-            
-            <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
-                <tr class="hover:bg-indigo-50/50 transition-colors">
-                    <td class="py-4 px-6 text-center font-medium">اسم الشخص  </td>
-                    <td class="py-4 px-6 text-center">التعليق</td>
-                    
-                    
-<td class="py-4 px-6 text-center">
-    <div class="flex justify-center items-center">
-        <img 
-            src="images/2.jpg" 
-            alt="وصف الصورة" 
-            class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-        >
-    </div>
-</td>
-                    <td class="py-4 px-6 text-center">
-                        <div class="flex item-center justify-center gap-2">
-                            <button class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
-                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
-        <div class="flex flex-col items-center justify-center gap-4">
-            <div class="bg-gray-100 p-6 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                </svg>
             </div>
-            <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
-            <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
+
         </div>
-    </div>
-</div>
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
+            <div class="overflow-x-auto shadow-inner">
+                <table class="w-full text-center border-collapse" id="productTable">
+                    <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
+                        <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
+                            <th class="py-4 px-6 font-bold">اسم الشخص</th>
+                            <th class="py-4 px-6 font-bold">التعليق</th>
+                            <th class="py-4 px-6 font-bold">الصورة</th>
+                            <th class="py-4 px-6 font-bold">العمليات</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
+                        <tr class="hover:bg-indigo-50/50 transition-colors">
+                            <td class="py-4 px-6 text-center font-medium">اسم الشخص </td>
+                            <td class="py-4 px-6 text-center">التعليق</td>
+
+
+                            <td class="py-4 px-6 text-center">
+                                <div class="flex justify-center items-center">
+                                    <img src="images/2.jpg" alt="وصف الصورة"
+                                        class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm">
+                                </div>
+                            </td>
+                            <td class="py-4 px-6 text-center">
+                                <div class="flex item-center justify-center gap-2">
+                                    <button
+                                        class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
+                                    <button
+                                        class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <div class="bg-gray-100 p-6 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
+                    <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
+                </div>
+            </div>
+        </div>
         <!-- Delete All Button Container -->
-    
+
 
         <!-- Data Table -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
@@ -563,7 +633,7 @@
                 <table class="w-full text-right" id="productTable">
                     <thead class="bg-gray-100 text-gray-700 border-b border-gray-200">
                         <tr id="tableHeadRow">
-                           <!-- Injected by JS -->
+                            <!-- Injected by JS -->
                         </tr>
                     </thead>
                     <tbody id="tbody" class="divide-y divide-gray-100">
@@ -574,25 +644,26 @@
             <div id="noDataMessage" class="p-8 text-center text-gray-500 hidden" data-i18n="noData">
                 لا توجد منتجات حاليا. أضف منتج جديد.
             </div>
-        </div></section>
-<!--members-->
-        
-<section class="container mx-auto px-4 pb-10 flex-grow">
-    <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        </div>
+    </section>
+    <!--members-->
+
+    <section class="container mx-auto px-4 pb-10 flex-grow">
+        <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
             <!-- Form Inputs (Right Side - 3 Columns) -->
             <div class="lg:col-span-3 space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex justify-center">
                     <div class="col-span-2">
                         <label class="block text-2xl font-font-bold mb-1 text-black text-center " data-i18n="members">
-                          إدارة الأعضاء</label>
+                            إدارة الأعضاء</label>
                         <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="membername">
                             اسم ال</label>
                         <input type="text" id="titlemember" placeholder="أدخل اسم العضو"
                             class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                     </div>
                     <div class="col-span-2">
-                       
+
                         <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="jobname">
                             اسم الوظيفة</label>
                         <input type="text" id="job" placeholder="أدخل اسم الوظيفة"
@@ -602,18 +673,20 @@
 
                     <div
                         class="grid grid-cols-2 md:grid-cols-4 gap-2 col-span-2 bg-gray-50 p-3 rounded-lg border border-gray-200 flex justify-center ">
-    
-                    
 
-                    <div class="lg:col-span-3 space-y-4 ">
-                       <div class="flex flex-col items-center justify-center w-full max-w-xs mx-auto  ">
-                        <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="des"> دور العضو</label>
-                         <input type="text" id="title" placeholder="وصف الدور"
-                            class="w-full h-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+
+
+                        <div class="lg:col-span-3 space-y-4 ">
+                            <div class="flex flex-col items-center justify-center w-full max-w-xs mx-auto  ">
+                                <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="des"> دور
+                                    العضو</label>
+                                <input type="text" id="title" placeholder="وصف الدور"
+                                    class="w-full h-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div> </div>
+            </div>
 
             <!-- Image Placeholder3 (Left Side - 1 Column) -->
             <div class="lg:col-span-1">
@@ -621,7 +694,8 @@
                     class="h-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer group relative overflow-hidden">
                     <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10"
                         id="imageInput" onchange="previewImage2(event)">
-                    <div id="imagePreviewContainer2" class="w-full h-full flex flex-col items-center justify-center p-2">
+                    <div id="imagePreviewContainer2"
+                        class="w-full h-full flex flex-col items-center justify-center p-2">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="h-16 w-16 text-gray-400 group-hover:text-blue-500 transition mb-2" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -629,7 +703,7 @@
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         <span class="text-sm text-gray-500 font-medium group-hover:text-blue-600"
-                            data-i18n="uploadText2">اضغط لرفع صورة  الاعضاء</span>
+                            data-i18n="uploadText2">اضغط لرفع صورة الاعضاء</span>
                     </div>
                     <img id="imagePreview2" class="absolute inset-0 w-full h-full object-cover hidden" />
                     <button id="removeImageBtn2" onclick="removeImage2(event)"
@@ -643,172 +717,182 @@
                     </button>
                 </div>
             </div>
-      
-
-        <!-- Action Buttons -->
-       
 
 
-</div>
-    <div class="relative w-full">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <!-- Action Buttons -->
+
+
+
         </div>
-          <div class="max-w-5xl mx-auto p-4" dir="rtl">
- <div class="  flex justify-center w-full">
-            <button id="submitMamber" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                <span data-i18n="createmember">اضافه </span>
-            </button>
-            
-    
-     
-        </div>
-
-
-
-    
-  
-</div>
-
-        <input onkeyup="searchData(this.value)" id="search" type="text" 
-               placeholder="بحث بالاسم..." 
-               class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
-                      focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 
-                      transition-all bg-white text-gray-800 text-center">
-                      
-  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
-    <div class="overflow-x-auto shadow-inner">
-        <table class="w-full text-center border-collapse" id="productTable">
-            <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
-                <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
-                    <th class="py-4 px-6 font-bold">اسم العضو</th>
-                    <th class="py-4 px-6 font-bold">الوظيفة</th>
-                    <th class="py-4 px-6 font-bold">دور</th>
-                    <th class="py-4 px-6 font-bold">الصورة</th>
-                      <th class="py-4 px-6 font-bold">العمليات</th>
-                </tr>
-            </thead>
-            
-            <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
-                <tr class="hover:bg-indigo-50/50 transition-colors">
-                    <td class="py-4 px-6 text-center font-medium">اسم العضو </td>
-                    <td class="py-4 px-6 text-center">الوظيفة</td>
-                    <td class="py-4 px-6 text-center">
-                        <span class=" py-1 px-3 rounded-full text-xs font-bold">دور</span>
-                    </td>
-                    
-<td class="py-4 px-6 text-center">
-                         <div class="flex justify-center items-center">
-        <img 
-            src="رابط_الصورة_هنا.jpg" 
-            alt="وصف الصورة" 
-            class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-        >
-    </div>
-                    </td>
-                    <td class="py-4 px-6 text-center">
-                        <div class="flex item-center justify-center gap-2">
-                            <button class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
-                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
-        <div class="flex flex-col items-center justify-center gap-4">
-            <div class="bg-gray-100 p-6 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
-            <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
-        </div>
-    </div>
+            <div class="max-w-5xl mx-auto p-4" dir="rtl">
+                <div class="  flex justify-center w-full">
+                    <button id="submitMamber"
+                        class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span data-i18n="createmember">اضافه </span>
+                    </button>
 
 
-</section>
-<section class="container mx-auto px-4 pb-10 flex-grow">
-  <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <input onkeyup="searchData(this.value)" id="search" type="text" placeholder="بحث بالاسم..." class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
+                      focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 
+                      transition-all bg-white text-gray-800 text-center">
+
+            <div
+                class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
+                <div class="overflow-x-auto shadow-inner">
+                    <table class="w-full text-center border-collapse" id="productTable">
+                        <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
+                            <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
+                                <th class="py-4 px-6 font-bold">اسم العضو</th>
+                                <th class="py-4 px-6 font-bold">الوظيفة</th>
+                                <th class="py-4 px-6 font-bold">دور</th>
+                                <th class="py-4 px-6 font-bold">الصورة</th>
+                                <th class="py-4 px-6 font-bold">العمليات</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
+                            <tr class="hover:bg-indigo-50/50 transition-colors">
+                                <td class="py-4 px-6 text-center font-medium">اسم العضو </td>
+                                <td class="py-4 px-6 text-center">الوظيفة</td>
+                                <td class="py-4 px-6 text-center">
+                                    <span class=" py-1 px-3 rounded-full text-xs font-bold">دور</span>
+                                </td>
+
+                                <td class="py-4 px-6 text-center">
+                                    <div class="flex justify-center items-center">
+                                        <img src="رابط_الصورة_هنا.jpg" alt="وصف الصورة"
+                                            class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm">
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 text-center">
+                                    <div class="flex item-center justify-center gap-2">
+                                        <button
+                                            class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
+                                        <button
+                                            class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
+                    <div class="flex flex-col items-center justify-center gap-4">
+                        <div class="bg-gray-100 p-6 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
+                        <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
+                    </div>
+                </div>
+
+
+    </section>
+    <section class="container mx-auto px-4 pb-10 flex-grow">
+        <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
             <!-- Form Inputs (Right Side - 3 Columns) -->
             <div class="lg:col-span-3 space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex justify-center">
                     <div class="col-span-2">
                         <label class="block text-2xl font-font-bold mb-1 text-black text-center " data-i18n="members">
-                    إدارة التبرعات</label>
-                       <div class="p-6 bg-gray-100 min-h-screen font-sans" dir="rtl">
-    
-    <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-sm mb-8 border-r-4 border-blue-600">
-        <h2 class="text-xl font-bold mb-4 text-gray-800">إعدادات حساب استقبال التبرعات</h2>
-        <div class="flex flex-wrap gap-4 items-end">
-            <div class="flex-1">
-                <label class="block text-sm text-gray-600 mb-1">رقم IBAN المنظمة</label>
-                <input type="text" placeholder="SA..." class="w-full p-2 border rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
-            </div>
-            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">حفظ التغييرات</button>
-        </div>
-    </div>
+                            إدارة التبرعات</label>
+                        <div class="p-6 bg-gray-100 min-h-screen font-sans" dir="rtl">
 
-    <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-sm">
-        <h2 class="text-xl font-bold mb-6 text-gray-800 border-b pb-2">متابعة مشاريع منظمة أفريكان</h2>
-        
-        <div class="overflow-x-auto">
-            <table class="w-full text-right border-collapse">
-                <thead>
-                    <tr class="bg-gray-50 text-gray-600 text-sm uppercase">
-                        <th class="py-3 px-4 border-b">اسم المشروع</th>
-                        <th class="py-3 px-4 border-b">اسم الشخص</th>
-                        <th class="py-3 px-4 border-b">المبلغ </th>
-                       
-                    </tr>
-                </thead>
-                <tbody class="text-gray-700">
-                    <tr class="hover:bg-gray-50 transition">
-                        <td class="py-4 px-4 border-b font-medium">حفر بئر مياه - كينيا</td>
-                       <td class="py-4 px-4 border-b">اسم الشخص</td>
-                        <td class="py-4 px-4 border-b">15,000 ريال</td>
-                        
-                        
-    
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+                            <div
+                                class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-sm mb-8 border-r-4 border-blue-600">
+                                <h2 class="text-xl font-bold mb-4 text-gray-800">إعدادات حساب استقبال التبرعات</h2>
+                                <div class="flex flex-wrap gap-4 items-end">
+                                    <div class="flex-1">
+                                        <label class="block text-sm text-gray-600 mb-1">رقم IBAN المنظمة</label>
+                                        <input type="text" placeholder="SA..."
+                                            class="w-full p-2 border rounded-lg bg-gray-50 focus:ring-2 focus:ring-blue-500 outline-none">
+                                    </div>
+                                    <button
+                                        class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">حفظ
+                                        التغييرات</button>
+                                </div>
+                            </div>
+
+                            <div class="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-sm">
+                                <h2 class="text-xl font-bold mb-6 text-gray-800 border-b pb-2">متابعة مشاريع منظمة
+                                    أفريكان</h2>
+
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-right border-collapse">
+                                        <thead>
+                                            <tr class="bg-gray-50 text-gray-600 text-sm uppercase">
+                                                <th class="py-3 px-4 border-b">اسم المشروع</th>
+                                                <th class="py-3 px-4 border-b">اسم الشخص</th>
+                                                <th class="py-3 px-4 border-b">المبلغ </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody class="text-gray-700">
+                                            <tr class="hover:bg-gray-50 transition">
+                                                <td class="py-4 px-4 border-b font-medium">حفر بئر مياه - كينيا</td>
+                                                <td class="py-4 px-4 border-b">اسم الشخص</td>
+                                                <td class="py-4 px-4 border-b">15,000 ريال</td>
+
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
-</section>
+    </section>
 
     <section class="container mx-auto px-4 pb-10 flex-grow">
-    <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div class="glass-effect rounded-xl shadow-md p-6 mb-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
             <!-- Form Inputs 3(Right Side - 3 Columns) -->
             <div class="lg:col-span-3 space-y-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 flex justify-center">
                     <div class="col-span-2">
                         <label class="block text-2xl font-font-bold mb-1 text-black text-center " data-i18n="projectM">
-                          إدارة المشاريع</label>
+                            إدارة المشاريع</label>
                         <label class="block text-sm font-semibold mb-1 text-gray-600" data-i18n="membername">
-                     تصنيف المشروع</label>
+                            تصنيف المشروع</label>
                         <input type="text" id="titlemember" placeholder="    ادخل تصنيف المشروع "
                             class="w-full p-2.5 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
                     </div>
-                   
 
 
-                   
-            </div> </div>
+
+
+                </div>
+            </div>
 
             <!-- Image Placeholder (Left Side - 1 Column) -->
             <div class="lg:col-span-1">
@@ -816,7 +900,8 @@
                     class="h-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl flex flex-col justify-center items-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer group relative overflow-hidden">
                     <input type="file" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer z-10"
                         id="imageInput" onchange="previewImage3(event)">
-                    <div id="imagePreviewContainer3" class="w-full h-full flex flex-col items-center justify-center p-2">
+                    <div id="imagePreviewContainer3"
+                        class="w-full h-full flex flex-col items-center justify-center p-2">
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="h-16 w-16 text-gray-400 group-hover:text-blue-500 transition mb-2" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -824,7 +909,7 @@
                                 d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         <span class="text-sm text-gray-500 font-medium group-hover:text-blue-600"
-                            data-i18n="uploadText1">اضغط لرفع صورة  التصنيف</span>
+                            data-i18n="uploadText1">اضغط لرفع صورة التصنيف</span>
                     </div>
                     <img id="imagePreview3" class="absolute inset-0 w-full h-full object-cover hidden" />
                     <button id="removeImageBtn3" onclick="removeImage3(event)"
@@ -838,95 +923,99 @@
                     </button>
                 </div>
             </div>
-      
-
-        <!-- Action Buttons -->
-       
 
 
-</div>
-    <div class="relative w-full">
-        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <!-- Action Buttons -->
+
+
+
         </div>
-          <div class="max-w-5xl mx-auto p-4" dir="rtl">
- <div class="  flex justify-center w-full">
-            <button id="submitMamber" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                <span data-i18n="createmember">اضافه </span>
-            </button>
-            
-    
-     
-        </div>
-
-
-
-    
-  
-</div>
-
-        <input onkeyup="searchData(this.value)" id="search" type="text" 
-               placeholder="بحث بالاسم..." 
-               class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
-                      focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 
-                      transition-all bg-white text-gray-800 text-center">
-                      
-  <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
-    <div class="overflow-x-auto shadow-inner">
-        <table class="w-full text-center border-collapse" id="productTable">
-            <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
-                <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
-                    <th class="py-4 px-6 font-bold">تصنيف المشروع</th>
-                    <th class="py-4 px-6 font-bold">الصورة</th>
-                      <th class="py-4 px-6 font-bold">العمليات</th>
-                </tr>
-            </thead>
-            
-            <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
-                <tr class="hover:bg-indigo-50/50 transition-colors">
-                    <td class="py-4 px-6 text-center font-medium"> تصنيف </td>
-                
-                  
-                    
-<td class="py-4 px-6 text-center">
-                         <div class="flex justify-center items-center">
-        <img 
-            src="رابط_الصورة_هنا.jpg" 
-            alt="وصف الصورة" 
-            class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm"
-        >
-    </div>
-                    </td>
-                    <td class="py-4 px-6 text-center">
-                        <div class="flex item-center justify-center gap-2">
-                            <button class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
-                            <button class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
-        <div class="flex flex-col items-center justify-center gap-4">
-            <div class="bg-gray-100 p-6 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+        <div class="relative w-full">
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
             </div>
-            <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
-            <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
-        </div>
-    </div>
+            <div class="max-w-5xl mx-auto p-4" dir="rtl">
+                <div class="  flex justify-center w-full">
+                    <button id="submitMamber"
+                        class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 flex justify-center items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span data-i18n="createmember">اضافه </span>
+                    </button>
 
 
-</section>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <input onkeyup="searchData(this.value)" id="search" type="text" placeholder="بحث بالاسم..." class="w-full p-4 pr-10 rounded-xl border border-gray-200 shadow-sm 
+                      focus:outline-none focus:ring-4 focus:ring-sky-500/20 focus:border-sky-500 
+                      transition-all bg-white text-gray-800 text-center">
+
+            <div
+                class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 w-full max-w-6xl mx-auto">
+                <div class="overflow-x-auto shadow-inner">
+                    <table class="w-full text-center border-collapse" id="productTable">
+                        <thead class="bg-gradient-to-l from-gray-50 to-gray-100">
+                            <tr id="tableHeadRow" class="text-indigo-900 uppercase text-sm leading-normal">
+                                <th class="py-4 px-6 font-bold">تصنيف المشروع</th>
+                                <th class="py-4 px-6 font-bold">الصورة</th>
+                                <th class="py-4 px-6 font-bold">العمليات</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tbody" class="text-gray-700 text-sm font-light divide-y divide-gray-100">
+                            <tr class="hover:bg-indigo-50/50 transition-colors">
+                                <td class="py-4 px-6 text-center font-medium"> تصنيف </td>
+
+
+
+                                <td class="py-4 px-6 text-center">
+                                    <div class="flex justify-center items-center">
+                                        <img src="رابط_الصورة_هنا.jpg" alt="وصف الصورة"
+                                            class="w-10 h-10 rounded-full object-cover border-2 border-gray-200 shadow-sm">
+                                    </div>
+                                </td>
+                                <td class="py-4 px-6 text-center">
+                                    <div class="flex item-center justify-center gap-2">
+                                        <button
+                                            class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white transition-all">✎</button>
+                                        <button
+                                            class="w-8 h-8 rounded-lg bg-rose-50 text-rose-600 hover:bg-rose-600 hover:text-white transition-all">🗑</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="noDataMessage" class="p-16 text-center hidden" data-i18n="noData">
+                    <div class="flex flex-col items-center justify-center gap-4">
+                        <div class="bg-gray-100 p-6 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-400" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-500 font-bold text-xl">قائمة البيانات فارغة تماماً</span>
+                        <p class="text-gray-400 max-w-xs">ابدأ بإضافة أول مشروع أو منتج ليظهر هنا في الجدول.</p>
+                    </div>
+                </div>
+
+
+    </section>
 
 
 
@@ -945,7 +1034,7 @@
         let category = document.getElementById('category');
         let submit = document.getElementById('submit');
         let search = document.getElementById('search');
-        let imageInput = document.getElementById('imageInput');
+        let imageInput = document.getElementById('imageInput0');
         let imagePreview = document.getElementById('imagePreview');
         let imagePreviewContainer = document.getElementById('imagePreviewContainer');
         let removeImageBtn = document.getElementById('removeImageBtn');
@@ -961,7 +1050,7 @@
             ar: {
                 langBtn: "عربي",
                 title: "الادارة",
-                news:"الاخبار",
+                news: "الاخبار",
                 productName: "اسم المنتج",
                 productNamePlaceholder: "أدخل اسم المنتج",
                 price: "السعر",
@@ -1000,8 +1089,8 @@
             },
             en: {
                 back: "back",
-                news:"news",
-                langBtn: "English",
+                news: "news",
+                langBtn: "الإنجليزية",
                 title: " Management",
                 version: "Inventory System v1.0",
                 productName: "Product Name",
@@ -1042,13 +1131,13 @@
         };
 
         // 0. Language Handling
-      
+
         function back() {
             window.location.href = "pr4.html"
         }
-function toggleMenu() {
-        document.getElementById("mobileMenu").classList.toggle("hidden");
-      }
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("hidden");
+        }
         function updateTexts() {
             const t = translations[currLang];
 
@@ -1112,251 +1201,147 @@ function toggleMenu() {
                 total.style.background = '#ef4444';
             }
         }
-        function previewImage2(event) {
-    const input = event.target;
-    const preview = document.getElementById('imagePreview2');
-    const container = document.getElementById('imagePreviewContainer2');
-    const removeBtn = document.getElementById('removeImageBtn2');
+        // Image Handling Functions
 
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            // وضع رابط الصورة في عنصر المعاينة
-            preview.src = e.target.result;
-            // إظهار الصورة وزر الحذف
-            preview.classList.remove('hidden');
-            removeBtn.classList.remove('hidden');
-            // إخفاء حاوية النص والأيقونة الافتراضية
-            container.classList.add('hidden');
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-// 2. دالة حذف الصورة المرفوعة
-function removeImage2(event) {
-    // منع تداخل الأحداث (حتى لا يفتح اختيار الملف عند الضغط على حذف)
-    event.preventDefault();
-    event.stopPropagation();
-
-    const input = document.getElementById('imageInput'); // الـ id كما ورد في كودك
-    const preview = document.getElementById('imagePreview2');
-    const container = document.getElementById('imagePreviewContainer2');
-    const removeBtn = document.getElementById('removeImageBtn2');
-
-    // تفريغ قيمة الحقل (Input)
-    input.value = "";
-    
-    // مسح مصدر الصورة وإخفاؤها
-    preview.src = "";
-    preview.classList.add('hidden');
-    
-    // إخفاء زر الحذف
-    removeBtn.classList.add('hidden');
-    
-    // إعادة إظهار أيقونة الرفع والنص
-    container.classList.remove('hidden');
-}
-        function previewImage3(event) {
-    const input = event.target;
-    const preview = document.getElementById('imagePreview3');
-    const container = document.getElementById('imagePreviewContainer3');
-    const removeBtn = document.getElementById('removeImageBtn3');
-
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.classList.remove('hidden');
-            container.classList.add('hidden');
-            removeBtn.classList.remove('hidden');
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-function removeImage3(event) {
-    // منع السلوك الافتراضي ومنع انتشار الحدث (ضروري جداً)
-    event.preventDefault();
-    event.stopPropagation(); 
-
-    // تأكد أن الـ ID في الـ HTML هو imageInput3
-    const input3 = document.getElementById('imageInput3'); 
-    const preview3 = document.getElementById('imagePreview3');
-    const container3 = document.getElementById('imagePreviewContainer3');
-    const removeBtn3 = document.getElementById('removeImageBtn3');
-
-    // 1. تصفير قيمة مدخل الملفات
-    if (input3) {
-        input3.value = ""; 
-    }
-    
-    // 2. مسح وإخفاء الصورة
-    if (preview3) {
-        preview3.src = "";
-        preview3.classList.add('hidden');
-    }
-    
-    // 3. إعادة إظهار حاوية الرفع الأصلية
-    if (container3) {
-        container3.classList.remove('hidden');
-    }
-
-    // 4. إخفاء زر الحذف
-    if (removeBtn3) {
-        removeBtn3.classList.add('hidden');
-    }
-}
-
-
-function removeImage(event) {
-    event.preventDefault();
-    const input1 = document.getElementById('imageInput3'); // هنا الاسم input1
-    const preview1 = document.getElementById('imagePreview3');
-    const container1 = document.getElementById('imagePreviewContainer3');
-    const removeBtn1 = document.getElementById('removeImageBtn3');
-
-    // التعديل: تأكد من إضافة الرقم '1' لاسم المتغير
-    if (input1) input1.value = ""; 
-    
-    if (preview1) {
-        preview1.src = "";
-        preview1.classList.add('hidden');
-    }
-    
-    if (container1) container1.classList.remove('hidden');
-    if (removeBtn1) removeBtn1.classList.add('hidden');
-}
-        // 2. Image Handling
+        // Section 0 (Main/News)
         function previewImage(event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function (e) {
                     currentImageBase64 = e.target.result;
-                    imagePreview1.src = currentImageBase64;
-                    imagePreview1.classList.remove('hidden');
-                    removeImageBtn1.classList.remove('hidden');
-                    imagePreviewContainer1.classList.add('opacity-0');
-                }
-                reader.readAsDataURL(file);
-            }
-        }
-        // 1. دالة عرض الصورة عند اختيارها
-function previewImage2(event) {
-    const input = event.target;
-    const preview = document.getElementById('imagePreview2');
-    const container = document.getElementById('imagePreviewContainer2');
-    const removeBtn = document.getElementById('removeImageBtn2');
-
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            // وضع رابط الصورة في عنصر المعاينة
-            preview.src = e.target.result;
-            // إظهار الصورة وزر الحذف
-            preview.classList.remove('hidden');
-            removeBtn.classList.remove('hidden');
-            // إخفاء حاوية النص والأيقونة الافتراضية
-            container.classList.add('hidden');
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-// 2. دالة حذف الصورة المرفوعة
-function removeImage2(event) {
-    // منع تداخل الأحداث (حتى لا يفتح اختيار الملف عند الضغط على حذف)
-    event.preventDefault();
-    event.stopPropagation();
-
-    const input = document.getElementById('imageInput'); // الـ id كما ورد في كودك
-    const preview = document.getElementById('imagePreview2');
-    const container = document.getElementById('imagePreviewContainer2');
-    const removeBtn = document.getElementById('removeImageBtn2');
-
-    // تفريغ قيمة الحقل (Input)
-    input.value = "";
-    
-    // مسح مصدر الصورة وإخفاؤها
-    preview.src = "";
-    preview.classList.add('hidden');
-    
-    // إخفاء زر الحذف
-    removeBtn.classList.add('hidden');
-    
-    // إعادة إظهار أيقونة الرفع والنص
-    container.classList.remove('hidden');
-}
-        function previewImage1(event) {
-    const input = event.target;
-    const preview = document.getElementById('imagePreview1');
-    const container = document.getElementById('imagePreviewContainer1');
-    const removeBtn = document.getElementById('removeImageBtn1');
-
-    if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.classList.remove('hidden');
-            container.classList.add('hidden');
-            removeBtn.classList.remove('hidden');
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-
-
-function removeImage1(event) {
-    event.preventDefault();
-    const input1 = document.getElementById('imageInput1'); // هنا الاسم input1
-    const preview1 = document.getElementById('imagePreview1');
-    const container1 = document.getElementById('imagePreviewContainer1');
-    const removeBtn1 = document.getElementById('removeImageBtn1');
-
-    // التعديل: تأكد من إضافة الرقم '1' لاسم المتغير
-    if (input1) input1.value = ""; 
-    
-    if (preview1) {
-        preview1.src = "";
-        preview1.classList.add('hidden');
-    }
-    
-    if (container1) container1.classList.remove('hidden');
-    if (removeBtn1) removeBtn1.classList.add('hidden');
-}
-        // 2. Image Handling
-        function previewImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    currentImageBase64 = e.target.result;
-                    imagePreview1.src = currentImageBase64;
-                    imagePreview1.classList.remove('hidden');
-                    removeImageBtn1.classList.remove('hidden');
-                    imagePreviewContainer1.classList.add('opacity-0');
+                    imagePreview.src = currentImageBase64;
+                    imagePreview.classList.remove('hidden');
+                    removeImageBtn.classList.remove('hidden');
+                    imagePreviewContainer.classList.add('hidden');
                 }
                 reader.readAsDataURL(file);
             }
         }
 
-        function removeImage(e) {
-            if (e) e.stopPropagation();
+        function removeImage(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
             currentImageBase64 = '';
-            imageInput.value = '';
-            imagePreview.src = '';
-            imagePreview.classList.add('hidden');
-            removeImageBtn.classList.add('hidden');
-            imagePreviewContainer.classList.remove('opacity-0');
+            if (imageInput) imageInput.value = "";
+            if (imagePreview) {
+                imagePreview.src = "";
+                imagePreview.classList.add('hidden');
+            }
+            if (imagePreviewContainer) imagePreviewContainer.classList.remove('hidden');
+            if (removeImageBtn) removeImageBtn.classList.add('hidden');
         }
-        
+
+        // Section 1 (Impact)
+        function previewImage1(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview1');
+            const container = document.getElementById('imagePreviewContainer1');
+            const removeBtn = document.getElementById('removeImageBtn1');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    container.classList.add('hidden');
+                    removeBtn.classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage1(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            const input = document.getElementById('imageInput1');
+            const preview = document.getElementById('imagePreview1');
+            const container = document.getElementById('imagePreviewContainer1');
+            const removeBtn = document.getElementById('removeImageBtn1');
+            if (input) input.value = "";
+            if (preview) {
+                preview.src = "";
+                preview.classList.add('hidden');
+            }
+            if (container) container.classList.remove('hidden');
+            if (removeBtn) removeBtn.classList.add('hidden');
+        }
+
+        // Section 2 (Members)
+        function previewImage2(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview2');
+            const container = document.getElementById('imagePreviewContainer2');
+            const removeBtn = document.getElementById('removeImageBtn2');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    container.classList.add('hidden');
+                    removeBtn.classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage2(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            const input = document.getElementById('imageInput2');
+            const preview = document.getElementById('imagePreview2');
+            const container = document.getElementById('imagePreviewContainer2');
+            const removeBtn = document.getElementById('removeImageBtn2');
+            if (input) input.value = "";
+            if (preview) {
+                preview.src = "";
+                preview.classList.add('hidden');
+            }
+            if (container) container.classList.remove('hidden');
+            if (removeBtn) removeBtn.classList.add('hidden');
+        }
+
+        // Section 3 (Categories)
+        function previewImage3(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview3');
+            const container = document.getElementById('imagePreviewContainer3');
+            const removeBtn = document.getElementById('removeImageBtn3');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    container.classList.add('hidden');
+                    removeBtn.classList.remove('hidden');
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function removeImage3(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            const input = document.getElementById('imageInput3');
+            const preview = document.getElementById('imagePreview3');
+            const container = document.getElementById('imagePreviewContainer3');
+            const removeBtn = document.getElementById('removeImageBtn3');
+            if (input) input.value = "";
+            if (preview) {
+                preview.src = "";
+                preview.classList.add('hidden');
+            }
+            if (container) container.classList.remove('hidden');
+            if (removeBtn) removeBtn.classList.add('hidden');
+        }
+
 
         // 3. Create Product
         let dataPro;
@@ -1541,7 +1526,7 @@ function removeImage1(event) {
                 imagePreview.src = currentImageBase64;
                 imagePreview.classList.remove('hidden');
                 removeImageBtn.classList.remove('hidden');
-                imagePreviewContainer.classList.add('opacity-0');
+                imagePreviewContainer.classList.add('hidden');
             } else {
                 removeImage();
             }
@@ -1662,10 +1647,28 @@ function removeImage1(event) {
             }
             document.getElementById('tbody').innerHTML = innerTable;
         }
+    </script>
 
-        // Initialize
-        updateTexts();
-        showData();
+    <footer class="mt-auto py-6 bg-white border-t border-gray-100 text-center">
+        <button id="langToggleFooter" onclick="toggleLanguage()"
+            class="lang-toggle text-sm text-gray-500 hover:text-orange-600 transition-colors bg-transparent border-0 cursor-pointer">
+            <span>العربية</span>
+        </button>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script>
+        // Translations integration for admin dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('language') || 'ar';
+            if (window.updateContent) {
+                window.updateContent(savedLang);
+            }
+        });
+
+        // Initialize dashboard functions
+        if (typeof updateTexts === 'function') updateTexts();
+        if (typeof showData === 'function') showData();
     </script>
 </body>
 

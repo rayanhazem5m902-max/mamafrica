@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
   <meta charset="UTF-8" />
@@ -580,8 +580,20 @@
     }
 
     .custom-navbar {
-      background-color: transparent;
-      transition: background-color 0.4s ease;
+      /* اجعل الخلفية شفافة مع نسبة بسيطة من اللون الأبيض أو الرمادي لظهور تأثير الـ Blur */
+      background-color: hsla(0, 0%, 100%, 0.1);
+
+      /* تفعيل التغبيش */
+      backdrop-filter: blur(10px);
+
+      /* الانتقالات السلسة */
+      transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    .custom-navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .custom-navbar .nav-link {
@@ -662,19 +674,39 @@
         border-radius: 1rem !important;
       }
     }
+
+    /* Force Hero left alignment in RTL */
+    html[dir="rtl"] .hero h1,
+    html[dir="rtl"] .hero p,
+    html[dir="rtl"] .hero div {
+      text-align: left !important;
+    }
+
+    html[dir="rtl"] #rightDiv {
+      align-items: flex-start !important;
+      margin-left: 0 !important;
+      margin-right: auto !important;
+    }
   </style>
 </head>
 
 <body>
 
   <!-- NAV -->
-  <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top custom-navbar">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center gap-4">
+
+      <!-- Language Toggle (Desktop & Mobile visible on left) -->
+      <button id="langToggle" type="button"
+        class="lang-toggle shrink-0 px-4 py-2 rounded-lg bg-white/15 text-white font-semibold border border-white/25 hover:bg-white/20 transition order-first"
+        aria-label="Switch language" onclick="toggleLanguage()">
+        <i class="fas fa-globe"></i> <span>العربية</span>
+      </button>
 
       <!-- Logo -->
       <div class="flex items-center gap-3">
         <img src="images/y.png" class="w-[60px]" />
-        <span class="text-xl font-bold text-white font-['Inknut_Antiqua'] me-3">
+        <span class="text-xl font-bold text-white font-['Inknut_Antiqua'] me-3" data-i18n="footer.brand">
           Mama Africa
         </span>
       </div>
@@ -682,43 +714,34 @@
       <!-- Desktop Nav -->
       <ul class="hidden lg:flex items-center gap-8 ml-auto text-white  border-b-2 border-transparent">
         <li>
-          <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#about">About Us</a>
+          <a class="nav-link relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
+            href="#about" data-i18n="nav.about">About Us</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#projects">Projects</a>
+            href="#projects" data-i18n="nav.projects">Projects</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#members">Members</a>
+            href="#members" data-i18n="nav.members">Members</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#transparency">Transparency</a>
+            href="#transparency" data-i18n="nav.transparency">Transparency</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#donate">Donate</a>
+            href="#donate" data-i18n="nav.donate">Donate</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#lastnews">News</a>
+            href="#lastnews" data-i18n="nav.news">News</a>
         </li>
         <li>
           <a class="nav-item relative after:block after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-300 hover:after:w-full"
-            href="#contact">Contact</a>
+            href="#contact" data-i18n="nav.contact">Contact</a>
         </li>
 
-        <li>
-          <i class="fa-solid fa-earth-americas text-xl cursor-pointer text-white hover:text-orange-500 transition-colors duration-200"
-            onclick="toggleLanguage()"></i>
-        </li>
-
-
-        <li>
-          <button class="btn btn-login">Login</button>
-        </li>
       </ul>
 
       <!-- Mobile Button -->
@@ -730,21 +753,23 @@
 
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-black/90 text-white px-6 py-6 space-y-4">
-      <a href="inde.html" class="block">About Us</a>
-      <a href="inde.html" class="block">Members</a>
-      <a href="inde.html" class="block">Projects</a>
+      <a href="inde.html" class="block" data-i18n="nav.about">About Us</a>
+      <a href="inde.html" class="block" data-i18n="nav.members">Members</a>
+      <a href="inde.html" class="block" data-i18n="nav.projects">Projects</a>
 
-      <a href="inde.html" class="block">Transparency</a>
-      <a href="inde.html" class="block">Donate</a>
-      <a href="inde.html" class="block">News</a>
+      <a href="inde.html" class="block" data-i18n="nav.transparency">Transparency</a>
+      <a href="inde.html" class="block" data-i18n="nav.donate">Donate</a>
+      <a href="inde.html" class="block" data-i18n="nav.news">News</a>
 
-      <a href="inde.html" class="block">Contact</a>
+      <a href="inde.html" class="block" data-i18n="nav.contact">Contact</a>
 
       <div class="flex items-center gap-4 pt-4">
-        <i class="fa-solid fa-earth-americas text-xl" onclick="toggleLanguage()"></i>
-        <button class="btn btn-login">Login</button>
+
+
       </div>
     </div>
+  </nav>
+
   </nav>
 
 
@@ -753,11 +778,12 @@
     <img src="images/ray.png" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-stone-900/70"></div>
     <div class="relative z-10 w-full px-4 sm:px-6 hero">
-      <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-6 text-left">
+      <h1 class="text-3xl sm:text-4xl md:text-4xl lg:text-6xl font-bold text-white mb-6 text-left rtl:text-left"
+        data-i18n="home.hero.title">
         Hope for Darfur
       </h1>
       <div class="container1 mx-auto px-4">
-        <div id="rightDiv" class="flex flex-col items-start gap-6">
+        <div id="rightDiv" class="flex flex-col items-start gap-6 rtl:items-start ms-0">
 
           <p class="
       text-orange-400
@@ -766,7 +792,7 @@
       sm:text-base
       md:text-lg
       lg:text-xl
-      max-w-2xl">
+      max-w-2xl" data-i18n="home.hero.desc">
             Together, we build the future.
             More than relief, we create lasting change.
             Through water, education, and aid,
@@ -782,7 +808,7 @@
     text-base sm:text-lg
     hover:bg-orange-600
     transition
-    mx-auto mb-2">
+    mx-auto mb-2" data-i18n="nav.donate">
             Donate Now
           </button>
         </div>
@@ -795,23 +821,23 @@
   <div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full bg-[#EDD4A5] text-black p-6 rounded-lg shadow-md">
     <div class="text-center">
 
-      <div class="text-4xl font-bold mb-2">15,000+</div>
+      <div class="text-4xl font-bold mb-2" data-i18n="stats.cleanwater.value">15,000+</div>
       <div class="font-medium" data-i18n="projectsCompleted">People Provided Clean Water</div>
     </div>
 
     <div class="text-center">
-      <div class="text-4xl font-bold mb-2">8,500+</div>
-      <div class="font-medium" data-i18n="happyClients">Children Receiving Education</div>
+      <div class="text-4xl font-bold mb-2" data-i18n="stats.education.value">8,500+</div>
+      <div class="font-medium" data-i18n="stats.education">Children Receiving Education</div>
     </div>
 
     <div class="text-center">
-      <div class="text-4xl font-bold mb-2">42+</div>
-      <div class="font-medium" data-i18n="teamMembers">Villages Supported</div>
+      <div class="text-4xl font-bold mb-2" data-i18n="stats.villages.value">42+</div>
+      <div class="font-medium" data-i18n="stats.villages">Villages Supported</div>
     </div>
 
     <div class="text-center">
-      <div class="text-4xl font-bold mb-2">$2.1M+</div>
-      <div class="font-medium" data-i18n="yearsExperience">Funds Deployed to Darfur</div>
+      <div class="text-4xl font-bold mb-2" data-i18n="stats.funds.value">$2.1M+</div>
+      <div class="font-medium" data-i18n="stats.funds">Funds Deployed to Darfur</div>
     </div>
 
 
@@ -822,9 +848,9 @@
 
     <main class="about-section-wrapper py-5 py-md-5">
       <div class="container my-5 py-lg-5">
-        <div class="row  mb-4">
-          <div class="col-12 col-lg-7">
-            <div class="section-eyebrow  text-center">About us</div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12">
+            <div class="section-eyebrow text-center" data-i18n="about.title">About us</div>
           </div>
         </div>
 
@@ -833,12 +859,12 @@
           <div class="col-12 col-sm-6 col-lg-3">
             <article class="about-card h-100">
               <header class="mb-1 text-center">
-                <h2 class="about-card-title mb-3">Our vision</h2>
+                <h2 class="about-card-title mb-3" data-i18n="about.vision.title">Our vision</h2>
               </header>
               <div class="im">
                 <img src="images/1.jpg" alt="">
               </div>
-              <p class="about-text mb-0">
+              <p class="about-text mb-0" data-i18n="about.vision.desc">
                 To see Sudanese and African society Achieving Peace and Better Life.
                 Free From Violence and Displacement, with Access to Basic Rights,
                 Opportunities, and The Tools to Rebuild Their Lives and Communities.
@@ -850,7 +876,7 @@
           <div class="col-12 col-sm-6 col-lg-3">
             <article class="about-card h-100">
               <header class="mb-1 text-center">
-                <h2 class="about-card-title mb-1">Our value</h2>
+                <h2 class="about-card-title mb-1" data-i18n="about.value.title">Our value</h2>
               </header>
 
               <div class="d-flex flex-column gap-2 mt-1">
@@ -859,8 +885,9 @@
                     <i class="bi bi-people-fill"></i>
                   </div>
                   <div>
-                    <div class="value-label">Participation</div>
-                    <div>We Believe In Working Together With Communities, Partners, And Volunteers To Create Positive
+                    <div class="value-label" data-i18n="about.value.participation">Participation</div>
+                    <div data-i18n="about.value.participation.desc">We Believe In Working Together With Communities,
+                      Partners, And Volunteers To Create Positive
                       And Lasting Impact.</div>
                   </div>
                 </div>
@@ -870,8 +897,9 @@
                     <i class="fas fa-handshake"></i>
                   </div>
                   <div>
-                    <div class="value-label">Integrity</div>
-                    <div>Acting with honesty, transparency, and accountability in all we do.</div>
+                    <div class="value-label" data-i18n="about.value.integrity">Integrity</div>
+                    <div data-i18n="about.value.integrity.desc">Acting with honesty, transparency, and accountability in
+                      all we do.</div>
                   </div>
                 </div>
 
@@ -880,8 +908,9 @@
                     <i class="bi bi-eye-fill"></i>
                   </div>
                   <div>
-                    <div class="value-label">Transparency</div>
-                    <div> We Are Committed To Openness By Sharing Accurate Information About Our Activities, Decisions,
+                    <div class="value-label" data-i18n="about.value.transparency">Transparency</div>
+                    <div data-i18n="about.value.transparency.desc"> We Are Committed To Openness By Sharing Accurate
+                      Information About Our Activities, Decisions,
                       And Use Of Resources.</div>
                   </div>
                 </div>
@@ -891,8 +920,9 @@
                     <i class="bi bi-check-circle-fill"></i>
                   </div>
                   <div>
-                    <div class="value-label">Accountability</div>
-                    <div>We Take Full Responsibility For Our Actions And Ensure That We Deliver Our Services Ethically
+                    <div class="value-label" data-i18n="about.value.accountability">Accountability</div>
+                    <div data-i18n="about.value.accountability.desc">We Take Full Responsibility For Our Actions And
+                      Ensure That We Deliver Our Services Ethically
                       And Effectively To Those We Serve.</div>
                   </div>
                 </div>
@@ -906,13 +936,13 @@
           <div class="col-12 col-sm-6 col-lg-3">
             <article class="about-card h-100">
               <header class="mb-1 text-center">
-                <h2 class="about-card-title mb-3">Our mission</h2>
+                <h2 class="about-card-title mb-3" data-i18n="about.mission.title">Our mission</h2>
               </header>
               <div class="ima">
                 <img src="images/2.jpg" alt="">
               </div>
 
-              <p class="about-text mb-0">
+              <p class="about-text mb-0" data-i18n="about.mission.desc">
                 Dedicating effort to mitigate poverty, hunger, illiteracy, and disease.
                 by delivering protection, humanitarian relief, and educational
                 opportunities, while strengthening community resilience and advocating for
@@ -925,9 +955,9 @@
           <div class="col-12 col-sm-6 col-lg-3">
             <article class="about-card h-100">
               <header class="mb-1 text-center">
-                <h2 class="about-card-title mb-3">Our history</h2>
+                <h2 class="about-card-title mb-3" data-i18n="about.history.title">Our history</h2>
               </header>
-              <div class="history-placeholder">
+              <div class="history-placeholder" data-i18n="about.history.desc">
                 MAOHS is a Sudanese National Non-Governmental voluntary organization registered under code T 1232, dated
                 December 2022, renewed to 20/03/2024. Founded by 36 members in North Darfur state, it established a head
                 office in El Fasher and moved there. It has sub-offices in Kutum. It engages in partnership with Autash,
@@ -945,10 +975,10 @@
   <section class="section-bg" id="projects">
     <div class="container  my-5">
       <!-- Optional Section Header -->
-      <div class="row g-4">
-        <div class="col-12  col-md-6 col-lg-6 text-center">
-          <h2 class="display-5 fw-bold mb-3">Our Program</h2>
-          <p class="text-muted mx-auto" style="max-width: 600px;">
+      <div class="row justify-content-center g-4">
+        <div class="col-12 text-center">
+          <h2 class="display-5 fw-bold mb-3" data-i18n="programs.title">Our Program</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;" data-i18n="programs.desc">
             We work across various sectors to improve lives and build sustainable communities.
           </p>
         </div>
@@ -963,7 +993,7 @@
               <div class="icon-circle">
                 <i class="fa-solid fa-book"></i>
               </div>
-              <h3 class="card-title">Training workshops</h3>
+              <h3 class="card-title" data-i18n="programs.training">Training workshops</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/TRANING WORKSHOP.jpg" alt="Education">
@@ -974,20 +1004,20 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="tr.html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="tr.html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
 
         <!-- Card 2: Clean Water -->
-        <div class="col-12 col-md-6 col-lg-6" id="clean-water-card">
+        <div class="col-12 col-md-6 col-lg-6" id="clean-water-card" id>
           <div class="program-card">
             <div class="card-header-area">
               <div class="icon-circle">
                 <i class="fa-solid fa-faucet-drip"></i>
               </div>
-              <h3 class="card-title">Clean Water</h3>
+              <h3 class="card-title" data-i18n="programs.water">Clean Water</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/3.jpg" alt="Clean Water">
@@ -998,8 +1028,8 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="cleanwatercard.html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="cleanwatercard.html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
@@ -1011,7 +1041,7 @@
               <div class="icon-circle">
                 <i class="fa-solid fa-briefcase-medical"></i>
               </div>
-              <h3 class="card-title">Protection</h3>
+              <h3 class="card-title" data-i18n="programs.protection">Protection</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/PROTICTION.png" alt="Healthcare">
@@ -1022,8 +1052,8 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="protection.html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="protection.html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
@@ -1035,7 +1065,7 @@
               <div class="icon-circle">
                 <i class="fa-solid fa-person-dress"></i>
               </div>
-              <h3 class="card-title">Livelihood ways</h3>
+              <h3 class="card-title" data-i18n="programs.livelihood">Livelihood ways</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/Livelihood ways.jpg" alt="Women Empowerment">
@@ -1046,8 +1076,8 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="Livelihood ways.html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="Livelihood ways.html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
@@ -1059,7 +1089,7 @@
               <div class="icon-circle">
                 <i class="fa-solid fa-house-chimney"></i>
               </div>
-              <h3 class="card-title">Environmental sanitation</h3>
+              <h3 class="card-title" data-i18n="programs.environmental">Environmental sanitation</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/4.png" alt="Shelter & Housing">
@@ -1070,8 +1100,8 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="Environmental .html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="Environmental .html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
@@ -1083,7 +1113,7 @@
               <div class="icon-circle">
                 <i class="fa-solid fa-bowl-food"></i>
               </div>
-              <h3 class="card-title">Nutrition</h3>
+              <h3 class="card-title" data-i18n="programs.nutrition">Nutrition</h3>
             </div>
             <div class="card-img-wrapper">
               <img src="images/Nutrition.jpg" alt="Food Security">
@@ -1094,8 +1124,8 @@
               </div>
             </div>
             <div class="card-actions">
-              <a href="Nutrition.html" class="read-more">read more...</a>
-              <button class="btn-donate">Donate</button>
+              <a href="Nutrition.html" class="read-more" data-i18n="btn.readmore">read more...</a>
+              <button class="btn-donate" data-i18n="btn.donate">Donate</button>
             </div>
           </div>
         </div>
@@ -1127,7 +1157,7 @@
               <div class="counter-box  text-dark bg-white">
                 <div class="counter-number" data-target="500000">0</div>
                 <p class="mb-0 mt-2" data-i18n="transparency.counter1">
-Training workshops</p>
+                  Training workshops</p>
               </div>
             </div>
             <div class="col-6">
@@ -1146,24 +1176,26 @@ Training workshops</p>
               <div class="counter-box text-dark  bg-white">
                 <div class="counter-number" data-target="25">0</div>
                 <p class="mb-0 mt-2" data-i18n="transparency.counter4">
-Livelihood ways</p>
-              </div></div>
-              <div class="col-6">
+                  Livelihood ways</p>
+              </div>
+            </div>
+            <div class="col-6">
               <div class="counter-box text-dark  bg-white">
                 <div class="counter-number" data-target="25">0</div>
                 <p class="mb-0 mt-2" data-i18n="transparency.counter5">Environmental sanitation</p>
               </div>
-                 </div>
-              <div class="col-6">
+            </div>
+            <div class="col-6">
               <div class="counter-box text-dark  bg-white">
                 <div class="counter-number" data-target="25">0</div>
                 <p class="mb-0 mt-2" data-i18n="transparency.counter6">Nutrition</p>
-              </div>   </div>
-       
-       
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
-    </div>
   </section>
   <!--donate-->
   <section id="donate" class="py-5 bg-light">
@@ -1183,19 +1215,20 @@ Livelihood ways</p>
                 <label class="form-label fw-semibold mb-3" data-i18n="donate.amount">Select Amount</label>
                 <div class="row g-3" id="amountOptions">
                   <div class="col-6 col-md-3">
-                    <button type="button" class="amount-btn" data-amount="10" data-impact="1 meal">$10</button>
+                    <button type="button" class="amount-btn" data-amount="10"
+                      data-i18n-impact="donate.impact.meal">$10</button>
                   </div>
                   <div class="col-6 col-md-3">
                     <button type="button" class="amount-btn active" data-amount="50"
-                      data-impact="1 week of medicine">$50</button>
+                      data-i18n-impact="donate.impact.medicine">$50</button>
                   </div>
                   <div class="col-6 col-md-3">
                     <button type="button" class="amount-btn" data-amount="100"
-                      data-impact="Clean water for a family">$100</button>
+                      data-i18n-impact="donate.impact.water">$100</button>
                   </div>
                   <div class="col-6 col-md-3">
                     <button type="button" class="amount-btn" data-amount="500"
-                      data-impact="School supplies for 10 kids">$500</button>
+                      data-i18n-impact="donate.impact.school">$500</button>
                   </div>
                 </div>
                 <input type="hidden" id="selectedAmount" value="50" required>
@@ -1213,14 +1246,13 @@ Livelihood ways</p>
                 <div class="input-group">
                   <!-- Dropdown -->
                   <select class="form-select" id="programType">
-                    <option value="program0">Select program</option>
-                    <option value="program1">Training workshops</option>
-                    <option value="program2">Clean Water</option>
-                    <option value="program3">Protection</option>
-                    <option value="program4">Livelihood ways</option>
-                    <option value="program5">Environmental sanitation</option>
-                    <option value="program6">Nutrition</option>
-
+                    <option value="program0" data-i18n="donate.program.select">Select program</option>
+                    <option value="program1" data-i18n="donate.program.training">Training workshops</option>
+                    <option value="program2" data-i18n="donate.program.water">Clean Water</option>
+                    <option value="program3" data-i18n="donate.program.protection">Protection</option>
+                    <option value="program4" data-i18n="donate.program.livelihood">Livelihood ways</option>
+                    <option value="program5" data-i18n="donate.program.environmental">Environmental sanitation</option>
+                    <option value="program6" data-i18n="donate.program.nutrition">Nutrition</option>
                   </select>
 
                 </div>
@@ -1231,17 +1263,20 @@ Livelihood ways</p>
               <div class="row g-3 mb-4">
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="donate.fname">First Name</label>
-                  <input type="text" class="form-control form-control-lg" required>
+                  <input type="text" class="form-control form-control-lg" required data-i18n="donate.fname.placeholder"
+                    placeholder="John">
                   <div class="invalid-feedback" data-i18n="donate.fname.invalid">Please enter your first name.</div>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label" data-i18n="donate.lname">Last Name</label>
-                  <input type="text" class="form-control form-control-lg" required>
+                  <input type="text" class="form-control form-control-lg" required data-i18n="donate.lname.placeholder"
+                    placeholder="Doe">
                   <div class="invalid-feedback" data-i18n="donate.lname.invalid">Please enter your last name.</div>
                 </div>
                 <div class="col-12">
                   <label class="form-label" data-i18n="donate.email">Email Address</label>
-                  <input type="email" class="form-control form-control-lg" required>
+                  <input type="email" class="form-control form-control-lg" required data-i18n="donate.email.placeholder"
+                    placeholder="john@example.com">
                   <div class="invalid-feedback" data-i18n="donate.email.invalid">Please enter a valid email.</div>
                 </div>
               </div>
@@ -1279,8 +1314,8 @@ Livelihood ways</p>
     <div class="container py-5">
       <div class="row mb-5 text-center">
         <div class="col-lg-8 mx-auto">
-          <h2 class="fw-bold mb-3" data-i18n="testimonials.title"> Our Team Members</h2>
-          <p class="text-muted" data-i18n="testimonials.desc">Dedicated organizers and team members of Mom Africant,
+          <h2 class="fw-bold mb-3" data-i18n="team.title"> Our Team Members</h2>
+          <p class="text-muted" data-i18n="team.desc">Dedicated organizers and team members of Mom Africant,
             supporting communities in Darfur through humanitarian work.</p>
         </div>
       </div>
@@ -1292,12 +1327,15 @@ Livelihood ways</p>
           <div class="carousel-item active">
             <div class="d-flex justify-content-center">
               <div class="testimonial-card text-center p-5 shadow-xl rounded-4 bg-white">
-                <img
-                  src="images/male-icon-vector.jpg"
+                <img src="images/male-icon-vector.jpg"
                   class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto w-40 h-40">
-                <h5 class="fw-bold mb-2">Adam Abdulaziz Abaker Khair</h5>
-                 <h6 class="fw-bold mb-2">Secretary-General of the Organization and Member of the Advisory Board</h6>
-                <p class="lead fst-italic text-gray-600 mb-0">"A visionary leader serving as the Secretary-General and Advisory Board Member, dedicated to driving organizational growth through strategic planning, policy development, and high-level diplomatic representation."</p>
+                <h5 class="fw-bold mb-2" data-i18n="team.member1.name">Adam Abdulaziz Abaker Khair</h5>
+                <h6 class="fw-bold mb-2" data-i18n="team.member1.role">Secretary-General of the Organization and Member
+                  of the Advisory Board</h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="team.member1.desc">"A visionary leader serving
+                  as the Secretary-General and
+                  Advisory Board Member, dedicated to driving organizational growth through strategic planning, policy
+                  development, and high-level diplomatic representation."</p>
               </div>
             </div>
           </div>
@@ -1306,12 +1344,13 @@ Livelihood ways</p>
           <div class="carousel-item">
             <div class="d-flex justify-content-center">
               <div class="testimonial-card text-center p-5 shadow-xl rounded-4 ">
-                <img
-                  src="images/female-glyph-icon-free-vector.jpg "
-                  class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto w-40 h-40" >
-                <h5 class="fw-bold mb-2">Fatima Abdullah Babiker</h>
-                 <h6 class="fw-semibold mb-2">Member of the Advisory Board</h6>
-                <p class="lead fst-italic text-gray-600 mb-0">"Providing a specialized technical or administrative opinion on the cases presented, based on your professional background."</p>
+                <img src="images/female-glyph-icon-free-vector.jpg "
+                  class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto w-40 h-40">
+                <h5 class="fw-bold mb-2" data-i18n="team.member2.name">Fatima Abdullah Babiker</h5>
+                <h6 class="fw-semibold mb-2" data-i18n="team.member2.role">Member of the Advisory Board</h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="team.member2.desc">"Providing a specialized
+                  technical or administrative
+                  opinion on the cases presented, based on your professional background."</p>
               </div>
             </div>
           </div>
@@ -1320,12 +1359,14 @@ Livelihood ways</p>
           <div class="carousel-item">
             <div class="d-flex justify-content-center">
               <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
-                <img
-                  src="images/male-icon-vector.jpg "
+                <img src="images/male-icon-vector.jpg "
                   class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 mx-auto w-40 h-40">
-                <h5 class="fw-bold mb-2">Aldouma Mohammed Hamed</h5>
-                  <h6 class="fw-bold mb-2">Project Manager & Member of the Advisory Board</h6>
-                <p class="lead fst-italic text-gray-600 mb-0">"Managing project lifecycles from initiation to successful closure while ensuring alignment with the Board’s vision"</p>
+                <h5 class="fw-bold mb-2" data-i18n="team.member3.name">Aldouma Mohammed Hamed</h5>
+                <h6 class="fw-bold mb-2" data-i18n="team.member3.role">Project Manager & Member of the Advisory Board
+                </h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="team.member3.desc">"Managing project lifecycles
+                  from initiation to successful
+                  closure while ensuring alignment with the Board’s vision"</p>
               </div>
             </div>
           </div>
@@ -1346,15 +1387,18 @@ Livelihood ways</p>
     <div
       class="d-flex flex-column justify-content-center align-items-center text-center bg-light rounded shadow-sm mx-auto p-4"
       style="max-width:700px; width:90%; height:auto; min-height:300px;">
-      <h1 class="mb-3" style="font-size:1.5rem; font-family:League Spartan ;">Join Our Volunteer Team</h1>
-      <p class="mb-3" style="font-size:0.9rem; font-family:League Spartan">
+      <h1 class="mb-3" style="font-size:1.5rem; font-family:League Spartan ;" data-i18n="volunteer.title">Join Our
+        Volunteer Team</h1>
+      <p class="mb-3" style="font-size:0.9rem; font-family:League Spartan" data-i18n="volunteer.desc">
         We are always looking for passionate individuals to join our mission. Whether you're in Darfur or abroad, your
         skills can make a difference.
       </p>
       <div class="">
-       <!---- <button class="btn btn-primary  " style="font-family:League Spartan">Volunteer Now</button>-->
+        <!---- <button class="btn btn-primary  " style="font-family:League Spartan">Volunteer Now</button>-->
         <button class="text-right" style="font-family:League Spartan">
-          <a href="VolunteerOpportunities.html" class="text-decoration-underline small" style="color: #0d6efd;">Learn more</a>
+          <a href="VolunteerOpportunities.html" class="text-decoration-underline small" style="color: #0d6efd;"
+            data-i18n="volunteer.link">Learn
+            more</a>
         </button>
       </div>
     </div>
@@ -1364,7 +1408,7 @@ Livelihood ways</p>
     <main class="py-5">
       <section class="container">
         <div class="d-flex justify-content-center justify-content-md-center">
-          <div class="news-header">Latest News</div>
+          <div class="news-header" data-i18n="news.title">Latest News</div>
         </div>
 
         <div class="mt-4 news-slider">
@@ -1380,27 +1424,24 @@ Livelihood ways</p>
             <div class="news-track" id="track">
               <!-- Card 1 -->
               <article class="news-card">
-                <img class="news-img" alt="Coffee beans and notebook"
-                  src="images/last1.jpeg" />
-                <h3 class="news-title">Women Empowerment</h3>
+                <img class="news-img" alt="Coffee beans and notebook" src="images/last1.jpeg" />
+                <h3 class="news-title" data-i18n="news.women">Women Empowerment</h3>
                 <!-- <p class="news-text">Fresh weekly highlights on trends shaping teams, products, and customer  expectations.</p> -->
                 <!-- <a class="read-more" href="#">read more...</a> -->
               </article>
 
               <!-- Card 2 -->
               <article class="news-card">
-                <img class="news-img" alt="Laptop and hands"
-                  src="images/last2.jpeg" />
-                <h3 class="news-title">Education</h3>
+                <img class="news-img" alt="Laptop and hands" src="images/last2.jpeg" />
+                <h3 class="news-title" data-i18n="news.education">Education</h3>
                 <!-- <p class="news-text">New features and improvements to help you move faster with clearer reporting.</p> -->
                 <!-- <a class="read-more" href="#">read more...</a> -->
               </article>
 
               <!-- Card 3 -->
               <article class="news-card">
-                <img class="news-img" alt="City skyline"
-                  src="images/last3.jpeg" />
-                <h3 class="news-title">Healthcare</h3>
+                <img class="news-img" alt="City skyline" src="images/last3.jpeg" />
+                <h3 class="news-title" data-i18n="news.healthcare">Healthcare</h3>
                 <!-- <p class="news-text">Behind-the-scenes perspectives from the people building and supporting our work. -->
                 </p>
                 <!-- <a class="read-more" href="#">read more...</a> -->
@@ -1408,18 +1449,16 @@ Livelihood ways</p>
 
               <!-- Card 4 -->
               <article class="news-card">
-                <img class="news-img" alt="Team meeting"
-                  src="images/enviro.jpeg" />
-                <h3 class="news-title">Environmental sanitation</h3>
+                <img class="news-img" alt="Team meeting" src="images/enviro.jpeg" />
+                <h3 class="news-title" data-i18n="news.environmental">Environmental sanitation</h3>
                 <!-- <p class="news-text">See how organizations are using simple workflows to deliver outsized impact.</p> -->
                 <!-- <a class="read-more" href="#">read more...</a> -->
               </article>
 
               <!-- Card 5 -->
               <article class="news-card">
-                <img class="news-img" alt="Design sketches"
-                  src="images/nutri.jpeg" />
-                <h3 class="news-title">Nutrition</h3>
+                <img class="news-img" alt="Design sketches" src="images/nutri.jpeg" />
+                <h3 class="news-title" data-i18n="news.nutrition">Nutrition</h3>
                 <!-- <p class="news-text">A quick look at the decisions and details that make the interface feel effortless. -->
                 </p>
                 <!-- <a class="read-more" href="#">read more...</a> -->
@@ -1450,63 +1489,66 @@ Livelihood ways</p>
       </div>
 
       <div id="testimonialCarouse" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+        <div class="carousel-inner">
 
-    <div class="carousel-item active">
-      <div class="d-flex justify-content-center">
-        <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
-          <img
-            src="images/female-glyph-icon-free-vector.jpg"
-            class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto" 
-            alt="Amira">
-          <h6 class="mb-2" style="font-weight: 600;">Amira Hassan</h6>
-          <p class="lead fst-italic text-gray-600 mb-0">"I am grateful for the support. Learning in a safe and encouraging environment helped me discover my potential despite the challenges"</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <div class="d-flex justify-content-center">
-        <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
-          <img
-            src="images/male-icon-vector.jpg"
-            class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto" 
-            alt="David">
-          <h6 class="mb-2" style="font-weight: 600;">David Miller</h6>
-          <p class="lead fst-italic text-gray-600 mb-0">"The empowerment program didn't just give me a job; it gave me financial independence. I can now confidently cover my family's expenses."</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <div class="d-flex justify-content-center">
-        <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
-          <img
-            src="images/female-glyph-icon-free-vector.jpg"
-            class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto" 
-            alt="Fatima">
-          <h6 class="mb-2" style="font-weight: 600;"> Fatima Ali</h6>
-          <p class="lead fst-italic text-gray-600 mb-0">"The new water wells have been life-changing; we now have access to clean, healthy water, and it has saved us so much time every day."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
+                <img src="images/female-glyph-icon-free-vector.jpg"
+                  class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto"
+                  alt="Amira">
+                <h6 class="mb-2" style="font-weight: 600;" data-i18n="testimonial1.name">Amira Hassan</h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="testimonial1.desc">"I am grateful for the
+                  support. Learning in a safe and
+                  encouraging environment helped me discover my potential despite the challenges"</p>
+              </div>
             </div>
           </div>
 
-        </div>
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
+                <img src="images/male-icon-vector.jpg"
+                  class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto"
+                  alt="David">
+                <h6 class="mb-2" style="font-weight: 600;" data-i18n="testimonial2.name">David Miller</h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="testimonial2.desc">"The empowerment program
+                  didn't just give me a job; it
+                  gave me financial independence. I can now confidently cover my family's expenses."</p>
+              </div>
+            </div>
+          </div>
 
-        <!-- Carousel Controls -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarouse" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarouse" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="testimonial-card text-center p-5 shadow-xl rounded-4">
+                <img src="images/female-glyph-icon-free-vector.jpg"
+                  class="testimonial-avatar mb-3 rounded-circle border border-3 border-orange-500 w-40 h-40 mx-auto"
+                  alt="Fatima">
+                <h6 class="mb-2" style="font-weight: 600;" data-i18n="testimonial3.name"> Fatima Ali</h6>
+                <p class="lead fst-italic text-gray-600 mb-0" data-i18n="testimonial3.desc">"The new water wells have
+                  been life-changing; we now have
+                  access to clean, healthy water, and it has saved us so much time every day."</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    </div>
+
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarouse" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarouse" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow-lg" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
     </div>
 
   </section>
@@ -1523,39 +1565,36 @@ Livelihood ways</p>
                 <!-- Left Side: Contact Form -->
                 <div class="col-md-7 contact-form-section p-4 p-md-5">
                   <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h2 class="h3 fw-bold mb-0">Send a Message</h2>
-                    <span class="badge bg-dark rounded-pill px-3 py-2">We're here to help</span>
+                    <h2 class="h3 fw-bold mb-0" data-i18n="contact.title">Send a Message</h2>
+                    <span class="badge bg-dark rounded-pill px-3 py-2" data-i18n="contact.badge">We're here to
+                      help</span>
                   </div>
 
                   <form>
                     <div class="row g-3">
                       <!-- Full Name and Email in one row on desktop -->
                       <div class="col-md-6">
-                        <label for="fullName" class="form-label fw-medium">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="John Doe">
+                        <label for="fullName" class="form-label fw-medium" data-i18n="contact.name">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="John Doe"
+                          data-i18n="contact.placeholder.name">
                       </div>
                       <div class="col-md-6">
-                        <label for="email" class="form-label fw-medium">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="john@example.com">
+                        <label for="email" class="form-label fw-medium" data-i18n="donate.email">Email Address</label>
+                        <input type="email" class="form-control" id="email" placeholder="john@example.com"
+                          data-i18n="contact.placeholder.email">
                       </div>
 
                       <!-- Subject -->
                       <div class="col-12">
-                        <label for="subject" class="form-label fw-medium">Subject</label>
+                        <label for="subject" class="form-label fw-medium"
+                          data-i18n="contact.subject.label">Subject</label>
                         <select class="form-select" id="subject">
-                          <option selected disabled>Select a subject</option>
-                          <option value="general">General Inquiry</option>
-                          <option value="support">Technical Support</option>
-                          <option value="sales">Sales Question</option>
-                          <option value="partnership">Partnership</option>
+                          <option selected disabled data-i18n="contact.subject.select">Select a subject</option>
+                          <option value="general" data-i18n="contact.subject.general">General Inquiry</option>
+                          <option value="support" data-i18n="contact.subject.support">Technical Support</option>
+                          <option value="sales" data-i18n="contact.subject.sales">Sales Question</option>
+                          <option value="partnership" data-i18n="contact.subject.partnership">Partnership</option>
                         </select>
-                      </div>
-
-                      <!-- Message -->
-                      <div class="col-12">
-                        <label for="message" class="form-label fw-medium">Message</label>
-                        <textarea class="form-control" id="message" rows="5"
-                          placeholder="How can we help you?"></textarea>
                       </div>
 
                       <!-- Submit Button -->
@@ -1563,7 +1602,7 @@ Livelihood ways</p>
                         <button type="submit"
                           class="btn btn-green w-100 d-flex align-items-center justify-content-center gap-2">
                           <i class="fas fa-paper-plane"></i>
-                          <span>Send Message</span>
+                          <span data-i18n="contact.submit">Send Message</span>
                         </button>
                       </div>
                     </div>
@@ -1573,8 +1612,9 @@ Livelihood ways</p>
                 <!-- Right Side: Info Box -->
                 <div class="col-md-5 contact-info-section p-4 p-md-5 d-flex flex-column">
                   <div class="mb-4">
-                    <h3 class="h4 fw-bold mb-3">Organization Information</h3>
-                    <p class="mb-4 opacity-90">Get in touch with our team for any questions or assistance.</p>
+                    <h3 class="h4 fw-bold mb-3" data-i18n="contact.info.title">Organization Information</h3>
+                    <p class="mb-4 opacity-90" data-i18n="contact.info.desc">Get in touch with our team for any
+                      questions or assistance.</p>
 
                     <!-- Contact Details -->
                     <div class="d-flex align-items-start mb-3">
@@ -1583,9 +1623,9 @@ Livelihood ways</p>
                         <i class="fas fa-envelope"></i>
                       </div>
                       <div>
-                        <h6 class="fw-bold mb-1">Email Us</h6>
+                        <h6 class="fw-bold mb-1" data-i18n="contact.info.email">Email Us</h6>
                         <p class="mb-0 small opacity-90">mamaafricamao@gmail.com</p>
-                      
+
                       </div>
                     </div>
 
@@ -1595,9 +1635,9 @@ Livelihood ways</p>
                         <i class="fas fa-phone"></i>
                       </div>
                       <div>
-                        <h6 class="fw-bold mb-1">Call Us</h6>
+                        <h6 class="fw-bold mb-1" data-i18n="contact.info.phone">Call Us</h6>
                         <p class="mb-0 small opacity-90">+256 783 750109</p>
-                        
+
                       </div>
                     </div>
 
@@ -1607,16 +1647,15 @@ Livelihood ways</p>
                         <i class="fas fa-location-dot"></i>
                       </div>
                       <div>
-                        <h6 class="fw-bold mb-1">Visit Us</h6>
-                        <p class="mb-0 small opacity-90">123 Business Avenue</p>
-                        <p class="mb-0 small opacity-90">New York, NY 10001</p>
+                        <h6 class="fw-bold mb-1" data-i18n="contact.info.visit">Visit Us</h6>
+                        <p class="mb-0 small opacity-90" data-i18n="footer.location">El Fasher, Sudan</p>
                       </div>
                     </div>
                   </div>
 
                   <!-- Social Media Section -->
                   <div class="mt-auto">
-                    <h6 class="fw-bold mb-3">Follow Us</h6>
+                    <h6 class="fw-bold mb-3" data-i18n="contact.info.follow">Follow Us</h6>
                     <div class="social-icons d-flex gap-3">
                       <a href="https://www.facebook.com/profile.php?id=61584199986358"
                         class="bg-white bg-opacity-10 rounded-circle p-2 d-flex align-items-center justify-content-center"
@@ -1628,13 +1667,12 @@ Livelihood ways</p>
                         style="width: 36px; height: 36px;">
                         <i class="fab fa-twitter"></i>
                       </a>
-                      
+
                       <a href="https://wa.me/249126257180"
-   class="bg-white bg-opacity-10 rounded-circle p-2 d-flex align-items-center justify-content-center"
-   style="width: 36px; height: 36px; text-decoration: none;"
-   target="_blank">
-   <i class="fab fa-whatsapp" style="color: #25D366;"></i>
-</a>
+                        class="bg-white bg-opacity-10 rounded-circle p-2 d-flex align-items-center justify-content-center"
+                        style="width: 36px; height: 36px; text-decoration: none;" target="_blank">
+                        <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                      </a>
                       <a href="#"
                         class="bg-white bg-opacity-10 rounded-circle p-2 d-flex align-items-center justify-content-center"
                         style="width: 36px; height: 36px;">
@@ -1651,33 +1689,35 @@ Livelihood ways</p>
     </section>
     </div>
     <style>
-    .map-container {
+      .map-container {
         position: relative;
         overflow: hidden;
         width: 100%;
-        max-width: 800px; /* يمكنكِ تغيير أقصى عرض حسب رغبتك */
-        border-radius: 15px; /* حواف منحنية لشكل عصري */
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* ظل خفيف لإعطاء عمق */
-        margin: 20px auto; /* لتوسط الخريطة في الصفحة */
-    }
+        max-width: 800px;
+        /* يمكنكِ تغيير أقصى عرض حسب رغبتك */
+        border-radius: 15px;
+        /* حواف منحنية لشكل عصري */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        /* ظل خفيف لإعطاء عمق */
+        margin: 20px auto;
+        /* لتوسط الخريطة في الصفحة */
+      }
 
-    .map-container iframe {
+      .map-container iframe {
         width: 100%;
-        height: 450px; /* طول مناسب جداً للمعاينة */
+        height: 450px;
+        /* طول مناسب جداً للمعاينة */
         border: 0;
-        display: block; /* لإزالة الفراغات أسفل الإطار */
-    }
-</style>
+        display: block;
+        /* لإزالة الفراغات أسفل الإطار */
+      }
+    </style>
 
-<div class="map-container" id="map">
-    <iframe 
-   src="https://www.google.com/maps/d/embed?mid=1wtq5qcpwxcoqW687PuuyfsaEAWW1_nM&ehbc=2E312F&noprof=1" 
-        
-        allowfullscreen="" 
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-</div>
+    <div class="map-container" id="map">
+      <iframe src="https://www.google.com/maps/d/embed?mid=1wtq5qcpwxcoqW687PuuyfsaEAWW1_nM&ehbc=2E312F&noprof=1"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
 
 
     <!-- FOOTER -->
@@ -1688,13 +1728,14 @@ Livelihood ways</p>
           <div class="col-lg-4 mb-4">
             <div class="flex items-center gap-3">
               <img src="images/y.png" class="w-[60px]" />
-              <span class="text-xl font-bold text-white font-['Inknut_Antiqua']">
+              <span class="text-xl font-bold text-white font-['Inknut_Antiqua']" data-i18n="footer.brand">
                 Mama Africa
               </span>
             </div>
-           <p class="text-white small" data-i18n="footer.desc">
-  Bringing essential aid, clean water, education, and hope to communities in Darfur, Sudan. Together, we can rebuild lives.
-</p>
+            <p class="text-white small" data-i18n="footer.desc">
+              Bringing essential aid, clean water, education, and hope to communities in Darfur, Sudan. Together, we can
+              rebuild lives.
+            </p>
           </div>
 
           <div class="col-lg-2 col-md-4 mb-4">
@@ -1703,30 +1744,34 @@ Livelihood ways</p>
               <li class="mb-2"><a href="#about" class="footer-link" data-i18n="nav.about">About Us</a></li>
               <li class="mb-2"><a href="#projects" class="footer-link" data-i18n="nav.projects">Projects</a></li>
               <li class="mb-2"><a href="#donate" class="footer-link" data-i18n="nav.donate">Donate</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">mumber</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">News</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">Transparency</a></li>
+              <li class="mb-2"><a href="#members" class="footer-link" data-i18n="nav.members">Members</a></li>
+              <li class="mb-2"><a href="#lastnews" class="footer-link" data-i18n="nav.news">News</a></li>
+              <li class="mb-2"><a href="#transparency" class="footer-link" data-i18n="nav.transparency">Transparency</a>
+              </li>
               <li class="mb-2"><a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-4 mb-4">
-            <h6 class="fw-bold mb-3 text-white" data-i18n="footer.contact ">Contact Us</h6>
+            <h6 class="fw-bold mb-3 text-white" data-i18n="footer.contact">Contact Us</h6>
             <ul class="list-unstyled text-muted small">
-              <li class="mb-2 text-white"><i class="fas fa-map-marker-alt me-2 "></i> <span data-i18n="footer.location">Khartoum,
+              <li class="mb-2 text-white"><i class="fas fa-map-marker-alt me-2 "></i> <span
+                  data-i18n="footer.location">Al-Fashir,
                   Sudan</span></li>
-              <li class="mb-2 text-white"><i class="fas fa-envelope me-2"></i> <a href="mailto:mamaafricamao@gmail.com">mamaafricamao@gmail.com</a></li>
-              <li class="mb-2 text-white"><i class="fas fa-phone me-2"></i><a href="tel:+256783750109" class="text-white text-decoration-none">
-   +256 783 750 109
-</a></li>
+              <li class="mb-2 text-white"><i class="fas fa-envelope me-2"></i> <a
+                  href="mailto:mamaafricamao@gmail.com">mamaafricamao@gmail.com</a></li>
+              <li class="mb-2 text-white"><i class="fas fa-phone me-2"></i><a href="tel:+256783750109"
+                  class="text-white text-decoration-none">
+                  +256 783 750 109
+                </a></li>
             </ul>
           </div>
         </div>
 
         <hr class="my-4 border-secondary">
         <div class=" text-center ">
-          <p class="mb-0 small text-white">&copy; <span id="year"></span> <span data-i18n="footer.copyright">2022Mama
-              African Organization. All Rights Reserved</span></p>
+          <p class="mb-0 small text-white">&copy; <span data-i18n="footer.copyright">2022
+              Mama African Organization. All Rights Reserved</span></p>
         </div>
         <div class="row align-items-center text-center text-md-start">
 
@@ -1770,7 +1815,7 @@ Livelihood ways</p>
             </a>
           </div>
 
-        
+
 
 
 
@@ -1810,8 +1855,9 @@ Livelihood ways</p>
 
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("navbar");
-        nav.classList.toggle("bg-stone-50", window.scrollY > 50);
-        nav.classList.toggle("shadow-lg", window.scrollY > 50);
+        if (nav) {
+          nav.classList.toggle("scrolled", window.scrollY > 50);
+        }
       });
 
       function scrollTo(id) {
@@ -1924,6 +1970,7 @@ Livelihood ways</p>
 
 
     </script>
+    <script src="js/i18n.js"></script>
 </body>
 
 </html>

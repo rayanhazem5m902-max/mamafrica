@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +10,34 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
         :root {
@@ -61,7 +66,12 @@
             line-height: 1.7;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: 'Merriweather', serif;
             color: var(--dark-gray);
         }
@@ -128,16 +138,18 @@
         .hero-section {
             padding: 3rem 0 5rem;
         }
-     .btn-outline-secondary {
-      border: 2px solid var(--orange-primary);
+
+        .btn-outline-secondary {
+            border: 2px solid var(--orange-primary);
             color: var(--orange-primary);
             padding: 0.75rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             background: transparent;
             transition: all 0.3s ease;
-    
-}
+
+        }
+
         .hero-image-wrapper {
             position: relative;
             border-radius: 1.5rem;
@@ -511,15 +523,15 @@
             .hero-title {
                 font-size: 2rem;
             }
-            
+
             .hero-image {
                 height: 350px;
             }
-            
+
             .section-title {
                 font-size: 1.75rem;
             }
-            
+
             .cta-title {
                 font-size: 2rem;
             }
@@ -529,15 +541,15 @@
             .hero-title {
                 font-size: 1.75rem;
             }
-            
+
             .hero-image {
                 height: 280px;
             }
-            
+
             .stat-number {
                 font-size: 2rem;
             }
-            
+
             .counter-number {
                 font-size: 2.5rem;
             }
@@ -558,35 +570,100 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        header {
+            /* جعل الهيدر ثابت في الأعلى */
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            z-index: 9999;
+            padding: 0;
+        }
+
+        .lang-toggle-custom {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            /* ضبط المسافات الداخلية للزر */
+            padding: 10px 16px;
+
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+
+            /* حدود برتقالية نحيفة */
+            border: 1px solid #f97316;
+            background-color: #f97316;
+            cursor: pointer;
+
+            /* تأثير التغبيش */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            /* ظل للزر */
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+
+            transition: all 0.4s ease;
+        }
+
+        .lang-toggle-custom:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+        }
+
+        .lang-toggle-custom i {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
     </style>
 </head>
+
 <body>
-   <div id="navbar"></div>
+    <header class="header-container">
+        <button id="langToggle" type="button" class="lang-toggle lang-toggle-custom" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i>
+            <span>العربية</span>
+        </button>
+    </header>
+    <div id="navbar"></div>
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-4 mb-lg-0">
                     <div class="hero-image-wrapper">
-                        <span class="hero-badge"><i class="bi bi-droplet-fill me-1"></i> Environmental Sanitation</span>
-                        <img src="images/PROTICTION.png" alt="Clean Water Initiative - Children drinking clean water" class="hero-image img-fluid">
+                        <span class="hero-badge" data-i18n="env.badge"><i class="bi bi-droplet-fill me-1"></i>
+                            Environmental Sanitation</span>
+                        <img src="images/PROTICTION.png" alt="Clean Water Initiative - Children drinking clean water"
+                            class="hero-image img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-5">
                     <div class="hero-content ps-lg-4">
-                        <span class="section-subtitle">Program Details</span>
-                        <h1 class="hero-title">Environmental Sanitation and Public Health Improvement Program</h1>
-                        <p class="hero-description">
-A clean environment is essential for healthy and dignified living. Through the Environmental Sanitation and Public Health Improvement Program, Mama Africa Organization works to promote safe, clean, and sustainable living conditions for vulnerable communities.
+                        <span class="section-subtitle" data-i18n="hero.subtitle">Program Details</span>
+                        <h1 class="hero-title" data-i18n="env.title">Environmental Sanitation and Public Health
+                            Improvement Program</h1>
+                        <p class="hero-description" data-i18n="env.desc" data-i18n-html="true">
+                            A clean environment is essential for healthy and dignified living. Through the Environmental
+                            Sanitation and Public Health Improvement Program, Mama Africa Organization works to promote
+                            safe, clean, and sustainable living conditions for vulnerable communities.
 
-The program focuses on improving waste management practices, supporting community clean-up campaigns, promoting proper sanitation behaviors, and distributing essential hygiene materials. It also includes awareness sessions on disease prevention, safe water handling, and environmental protection.
+                            The program focuses on improving waste management practices, supporting community clean-up
+                            campaigns, promoting proper sanitation behaviors, and distributing essential hygiene
+                            materials. It also includes awareness sessions on disease prevention, safe water handling,
+                            and environmental protection.
 
-By engaging local leaders, volunteers, and families, the organization strengthens community responsibility toward maintaining a healthy environment. This initiative not only reduces health risks but also builds long-term awareness and resilience within the community.                        </p>
-                        <div class="d-flex flex-wrap gap-3">
-              <!----      <button class="btn btn-outline-secondary btn-lg"><i class="bi bi-play-circle me-2"></i>Watch Video</button>-->
+                            By engaging local leaders, volunteers, and families, the organization strengthens community
+                            responsibility toward maintaining a healthy environment. This initiative not only reduces
+                            health risks but also builds long-term awareness and resilience within the community. </p>
+                        <div class="d-flex flex-wrap gap-3" data-i18n="hero.buttons" data-i18n-html="true">
+                            <!----      <button class="btn btn-outline-secondary btn-lg"><i class="bi bi-play-circle me-2"></i>Watch Video</button>-->
                             <a href="inde.html#Environmental" class="btn btn-outline-orange">
                                 <i class="bi bi-arrow-left me-2"></i>Back to Programs
                             </a>
+
                         </div>
                     </div>
                 </div>
@@ -600,14 +677,24 @@ By engaging local leaders, volunteers, and families, the organization strengthen
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="problem-text pe-lg-5 fade-in">
-                        <span class="section-subtitle">The Challenge</span>
-                        <h2 class="section-title mb-4">Understanding Environmental and Sanitation Risks</h2>
-                        <p>
-Many vulnerable communities face serious environmental challenges, including poor waste disposal systems, lack of sanitation facilities, contaminated water sources, and overcrowded living conditions. These factors significantly increase the spread of communicable diseases such as cholera, diarrhea, and other waterborne infections.                        </p>
-                        <p>
-Limited awareness about hygiene practices and environmental health further worsens the situation, especially among children and displaced families living in temporary shelters. Without proper sanitation infrastructure and education, public health risks continue to grow.                        </p>
-                        <p class="mb-0">
-                            <strong>Together, we can change this.</strong> Through coordinated efforts and community participation, Mama Africa Organization aims to improve sanitation conditions, strengthen preventive health practices, and create safer environments where families can live with dignity and security. 
+                        <span class="section-subtitle" data-i18n="challenge.subtitle">The Challenge</span>
+                        <h2 class="section-title mb-4" data-i18n="env.challenge.title">Understanding Environmental and
+                            Sanitation Risks</h2>
+                        <p data-i18n="env.challenge.text1">
+                            Many vulnerable communities face serious environmental challenges, including poor waste
+                            disposal systems, lack of sanitation facilities, contaminated water sources, and overcrowded
+                            living conditions. These factors significantly increase the spread of communicable diseases
+                            such as cholera, diarrhea, and other waterborne infections. </p>
+                        <p data-i18n="env.challenge.text2">
+                            Limited awareness about hygiene practices and environmental health further worsens the
+                            situation, especially among children and displaced families living in temporary shelters.
+                            Without proper sanitation infrastructure and education, public health risks continue to
+                            grow. </p>
+                        <p class="mb-0" data-i18n="env.challenge.text3" data-i18n-html="true">
+                            <strong>Together, we can change this.</strong> Through coordinated efforts and community
+                            participation, Mama Africa Organization aims to improve sanitation conditions, strengthen
+                            preventive health practices, and create safer environments where families can live with
+                            dignity and security.
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -618,7 +705,8 @@ Limited awareness about hygiene practices and environmental health further worse
                                     <i class="bi bi-people-fill"></i>
                                 </div>
                                 <div class="stat-number">785M</div>
-                                <div class="stat-label">People lack basic water access Environmental Sanitation </div>
+                                <div class="stat-label" data-i18n="env.stats.sanitation">People lack basic water access
+                                    Environmental Sanitation </div>
                             </div>
                         </div>
                         <div class="col-6">
@@ -627,7 +715,8 @@ Limited awareness about hygiene practices and environmental health further worse
                                     <i class="bi bi-emoji-frown"></i>
                                 </div>
                                 <div class="stat-number">2B</div>
-                                <div class="stat-label">Those lacking private and safe sanitation</div>
+                                <div class="stat-label" data-i18n="env.stats.safe">Those lacking private and safe
+                                    sanitation</div>
                             </div>
                         </div>
                         <div class="col-6">
@@ -636,7 +725,8 @@ Limited awareness about hygiene practices and environmental health further worse
                                     <i class="bi bi-heart-pulse"></i>
                                 </div>
                                 <div class="stat-number">485K</div>
-                                <div class="stat-label">thousands of families are at risk of preventable diseases</div>
+                                <div class="stat-label" data-i18n="env.stats.risk">thousands of families are at risk of
+                                    preventable diseases</div>
                             </div>
                         </div>
                         <div class="col-6">
@@ -645,7 +735,9 @@ Limited awareness about hygiene practices and environmental health further worse
                                     <i class="bi bi-clock-history"></i>
                                 </div>
                                 <div class="stat-number">200M</div>
-                                <div class="stat-label">The long walk for privacy: Time lost seeking safety and dignity</div>
+                                <div class="stat-label" data-i18n="env.stats.privacy">The long walk for privacy: Time
+                                    lost seeking safety and dignity
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -654,7 +746,7 @@ Limited awareness about hygiene practices and environmental health further worse
         </div>
     </section>
 
-  <!-- 
+    <!-- 
     <section class="solution-section">
         <div class="container">
             <div class="text-center mb-5 fade-in">
@@ -875,96 +967,110 @@ Limited awareness about hygiene practices and environmental health further worse
     </section>-->
 
     <!-- Footer -->
-  <footer class="text-stone-400 py-10 text-center" style="background-color:#363636; ">
+    <footer class="text-stone-400 py-10 text-center" style="background-color:#363636; ">
 
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-4 mb-4">
-            <div class="flex items-center gap-3">
-              <img src="images/y.png" class="w-[60px]" />
-              <span class="text-xl font-bold text-white font-['Inknut_Antiqua']">
-                Mama Africa
-              </span>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4">
+                    <div class="flex items-center gap-3">
+                        <img src="images/y.png" class="w-[60px]" />
+                        <span class="text-xl font-bold text-white font-['Inknut_Antiqua']" data-i18n="footer.brand">
+                            Mama Africa
+                        </span>
+                    </div>
+                    <p class="text-white small" data-i18n="footer.desc">
+                        Bringing essential aid, clean water, education, and hope to communities in Darfur, Sudan.
+                        Together, we can rebuild lives.
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3 text-white" data-i18n="footer.quick">Quick Links</h6>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><a href="inde.html#about" class="footer-link" data-i18n="nav.about">About
+                                Us</a></li>
+                        <li class="mb-2"><a href="inde.html#projects" class="footer-link"
+                                data-i18n="nav.projects">Projects</a>
+                        </li>
+                        <li class="mb-2"><a href="inde.html#donate" class="footer-link"
+                                data-i18n="nav.donate">Donate</a></li>
+                        <li class="mb-2"><a href="inde.html#members" class="footer-link"
+                                data-i18n="nav.members">Members</a></li>
+                        <li class="mb-2"><a href="inde.html#lastnews" class="footer-link" data-i18n="nav.news">News</a>
+                        </li>
+                        <li class="mb-2"><a href="inde.html#transparency" class="footer-link"
+                                data-i18n="nav.transparency">Transparency</a></li>
+                        <li class="mb-2"><a href="inde.html#contact" class="footer-link"
+                                data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3 text-white" data-i18n="footer.contact">Contact Us</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2 text-white"><i class="fas fa-map-marker-alt me-2 "></i> <span
+                                data-i18n="footer.location">Al-Fashir,
+                                Sudan</span></li>
+                        <li class="mb-2 text-white"><i class="fas fa-envelope me-2"></i> <a
+                                href="mailto:mamaafricamao@gmail.com">mamaafricamao@gmail.com</a></li>
+                        <li class="mb-2 text-white"><i class="fas fa-phone me-2"></i><a href="tel:+256783750109"
+                                class="text-white text-decoration-none">
+                                +256 783 750 109
+                            </a></li>
+                    </ul>
+                </div>
             </div>
-           <p class="text-white small" data-i18n="footer.desc">
-  Bringing essential aid, clean water, education, and hope to communities in Darfur, Sudan. Together, we can rebuild lives.
-</p>
-          </div>
 
-          <div class="col-lg-2 col-md-4 mb-4">
-            <h6 class="fw-bold mb-3 text-white" data-i18n="footer.quick">Quick Links</h6>
-            <ul class="list-unstyled text-white">
-              <li class="mb-2"><a href="#about" class="footer-link" data-i18n="nav.about">About Us</a></li>
-              <li class="mb-2"><a href="#projects" class="footer-link" data-i18n="nav.projects">Projects</a></li>
-              <li class="mb-2"><a href="#donate" class="footer-link" data-i18n="nav.donate">Donate</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">mumber</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">News</a></li>
-              <li class="mb-2"><a href="#blog" class="footer-link" data-i18n="nav.blog">Transparency</a></li>
-              <li class="mb-2"><a href="#contact" class="footer-link" data-i18n="nav.contact">Contact</a></li>
-            </ul>
-          </div>
+            <hr class="my-4 border-secondary">
+            <div class=" text-center ">
+                <p class="mb-0 small text-white">&copy; <span data-i18n="footer.copyright">2022
+                        Mama African Organization. All Rights Reserved</span></p>
+            </div>
+            <div class="row align-items-center text-center text-md-start">
 
-          <div class="col-lg-3 col-md-4 mb-4">
-            <h6 class="fw-bold mb-3 text-white" data-i18n="footer.contact ">Contact Us</h6>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2 text-white"><i class="fas fa-map-marker-alt me-2 "></i> <span data-i18n="footer.location">Khartoum,
-                  Sudan</span></li>
-              <li class="mb-2 text-white"><i class="fas fa-envelope me-2"></i> <a href="mailto:mamaafricamao@gmail.com">mamaafricamao@gmail.com</a></li>
-              <li class="mb-2 text-white"><i class="fas fa-phone me-2"></i><a href="tel:+256783750109" class="text-white text-decoration-none">
-   +256 783 750 109
-</a></li>
-            </ul>
-          </div>
-        </div>
+                <!-- Privacy -->
+                <div class="col-md-4 mb-3 mb-md-0 mt-3">
+                    <a href="privacy.html" class="footer-link small text-white" data-i18n="footer.privacy">
+                        Privacy Policy
+                    </a>
+                </div>
 
-        <hr class="my-4 border-secondary">
-        <div class=" text-center ">
-          <p class="mb-0 small text-white">&copy; <span id="year"></span> <span data-i18n="footer.copyright">2022Mama
-              African Organization. All Rights Reserved</span></p>
-        </div>
-        <div class="row align-items-center text-center text-md-start">
+                <!-- Social Icons -->
 
-          <!-- Privacy -->
-          <div class="col-md-4 mb-3 mb-md-0 mt-3">
-            <a href="privacy.html" class="footer-link small text-white" data-i18n="footer.privacy">
-              Privacy Policy
-            </a>
-          </div>
-
-          <!-- Social Icons -->
-          <div class="col-md-4 text-center mb-3 mb-md-0">
-            <a href="https://www.facebook.com/profile.php?id=61584199986358" class="d-inline-flex align-items-center justify-content-center me-2
+                <!-- Social Icons -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <a href="https://www.facebook.com/profile.php?id=61584199986358" class="d-inline-flex align-items-center justify-content-center me-2
           bg-primary text-white rounded" style="width:40px; height:40px;" aria-label="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
 
-            <a href="#"
-              class="d-inline-flex justify-content-center align-items-center bg-dark text-white rounded-2 me-2"
-              style="width:42px;height:42px;">
-              <i class="fab fa-x-twitter"></i>
-            </a>
+                    <a href="#"
+                        class="d-inline-flex justify-content-center align-items-center bg-dark text-white rounded-2 me-2"
+                        style="width:42px;height:42px;">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
 
-            <a href="#" class="d-inline-flex align-items-center justify-content-center me-3
+                    <a href="#" class="d-inline-flex align-items-center justify-content-center me-3
           text-white rounded" style="width:40px; height:40px; background:#E4405F;" aria-label="Instagram">
-              <i class="fab fa-instagram"></i>
-            </a>
+                        <i class="fab fa-instagram"></i>
+                    </a>
 
-            <a href="https://wa.me/249126257180"
-              class="d-inline-flex justify-content-center align-items-center bg-success text-white rounded-2 me-2"
-              style="width:42px;height:42px;">
-              <i class="fab fa-whatsapp"></i>
-            </a>
+                    <a href="https://wa.me/249126257180"
+                        class="d-inline-flex justify-content-center align-items-center bg-success text-white rounded-2 me-2"
+                        style="width:42px;height:42px;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
 
-          </div>
+                </div>
 
-          <!-- Terms -->
-          <div class="col-md-4 text-md-end">
-            <a href="terms.html" class="footer-link small text-white" data-i18n="footer.terms">
-              Terms of Service
-            </a>
-          </div>
+                <!-- Terms -->
+                <div class="col-md-4 text-md-end">
+                    <a href="terms.html" class="footer-link small text-white" data-i18n="footer.terms">
+                        Terms of Service
+                    </a>
+                </div>
 
-        
+
 
 
 
@@ -972,11 +1078,21 @@ Limited awareness about hygiene practices and environmental health further worse
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+    <script src="js/i18n.js"></script>
     <script>
+        fetch("navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+                if (window.updateContent) {
+                    window.updateContent(localStorage.getItem('language') || 'ar');
+                }
+            });
+
         // Intersection Observer for fade-in animations
         const fadeElements = document.querySelectorAll('.fade-in');
-        
+
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -994,7 +1110,7 @@ Limited awareness about hygiene practices and environmental health further worse
 
         // Counter Animation
         const counterElements = document.querySelectorAll('.counter-number');
-        
+
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1035,7 +1151,7 @@ Limited awareness about hygiene practices and environmental health further worse
 
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href !== '#') {
                     e.preventDefault();
@@ -1052,7 +1168,7 @@ Limited awareness about hygiene practices and environmental health further worse
 
         // Progress bar animation
         const progressBars = document.querySelectorAll('.progress-bar');
-        
+
         const progressObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1071,5 +1187,8 @@ Limited awareness about hygiene practices and environmental health further worse
             progressObserver.observe(bar);
         });
     </script>
+    <script src="js/i18n.js"></script>
+
 </body>
+
 </html>
